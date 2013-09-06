@@ -1,0 +1,10 @@
+RewriteEngine On
+
+#if a directory or a file exists, use it directly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d [OR]
+#TODO: correct path on public server.
+RewriteCond %{REQUEST_URI} ^/web/blog/files/$ [NC]
+
+#otherwise forward it to index.php
+RewriteRule ^(.*)$ index.php
