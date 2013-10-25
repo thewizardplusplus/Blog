@@ -94,6 +94,26 @@ header a:hover {
 	margin: auto;
 }
 
+.tag.rate1 {
+	font-size: 8px;
+}
+
+.tag.rate2 {
+	font-size: 14px;
+}
+
+.tag.rate3 {
+	font-size: 20px;
+}
+
+.tag.rate4 {
+	font-size: 26px;
+}
+
+.tag.rate5 {
+	font-size: 32px;
+}
+
 footer {
 	font-size: smaller;
 }

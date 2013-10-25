@@ -34,7 +34,8 @@ class PostController extends CController {
 	public function actionList() {
 		$criteria = new CDbCriteria(array('order' => 'create_time DESC'));
 		if (isset($_GET['tag'])) {
-			$criteria->addSearchCondition('tags', $_GET['tag']);
+			$criteria->addCondition('FIND_IN_SET(' . Yii::app()->db->quoteValue(
+				$_GET['tag']) . ', `tags`)');
 		}
 
 		$data_provider = new CActiveDataProvider('Post', array(
