@@ -11,27 +11,17 @@ class Post extends CActiveRecord {
 
 	public static function formatTime($time) {
 		$parts = explode(' ', $time);
-		return implode('.', array_reverse(explode('-', $parts[0]))) . ' ' .
-			$parts[1];
+		return '<time>' . implode('.', array_reverse(explode('-', $parts[0]))) .
+			' ' . $parts[1] . '</time>';
 	}
 
 	public static function processText($view, $text) {
 		switch ($view) {
-			case 'list:guest':
+			case 'list':
 				$result = preg_match(Post::CUT_TAG_PATTERN, $text, $matches,
 					PREG_OFFSET_CAPTURE);
 				if ($result) {
 					$text = substr($text, 0, $matches[0][1]);
-				}
-				break;
-			case 'list:admin':
-				$text = trim(preg_replace('/\s{2,}/', ' ', Post::processText(
-					'list:guest', $text)));
-				if (mb_strlen($text, 'utf-8') > Post::
-					MAXIMAL_LENGTH_OF_DISPLAYED_TEXT)
-				{
-					$text = mb_substr($text, 0, Post::
-						MAXIMAL_LENGTH_OF_DISPLAYED_TEXT, 'utf-8') . '...';
 				}
 				break;
 			case 'view':

@@ -5,11 +5,11 @@ return array(
 	'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
 	'defaultController' => 'post/list',
 	'language' => 'ru',
+	'preload' => array('log'),
 	'import' => array(
 		'application.models.*',
 		'application.components.*',
-		'application.extensions.yiifilemanager.*',
-		'application.extensions.yiifilemanagerfilepicker.*'
+		'application.config.Constants'
 	),
 	'components' => array(
 		'user' => array('allowAutoLogin' => true),
@@ -21,6 +21,7 @@ return array(
 				'logout' => 'site/logout',
 				'posts/<tag:.+>' => 'post/list',
 				'posts' => 'post/list',
+				'post/<id:\d+>-<title:.+>' => 'post/view',
 				'post/<id:\d+>' => 'post/view',
 				'create' => 'post/create',
 				'post/<id:\d+>/update' => 'post/update',
@@ -36,6 +37,19 @@ return array(
 			'password' => '',
 			'charset' => 'utf8',
 			'tablePrefix' => 'blog_'
+		),
+		'log' => array(
+			'class'=>'CLogRouter',
+			'routes' => array(
+				array(
+					'class' => 'CFileLogRoute',
+					'levels' => 'trace, info, warning, error'
+				),
+				array(
+					'class' => 'CWebLogRoute',
+					'levels' => 'trace, info, warning, error'
+				)
+			),
 		),
 		'errorHandler' => array('errorAction' => 'site/error')
 	)

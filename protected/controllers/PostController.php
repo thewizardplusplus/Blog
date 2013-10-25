@@ -1,8 +1,6 @@
 <?php
 
 class PostController extends CController {
-	const MAXIMUM_PAGINATION_BUTTON_COUNT = 5;
-
 	public function __construct($id, $module = NULL) {
 		parent::__construct($id, $module);
 		$this->defaultAction = 'list';
@@ -35,17 +33,27 @@ class PostController extends CController {
 
 	public function actionList() {
 		$criteria = new CDbCriteria(array('order' => 'create_time DESC'));
-		if (Yii::app()->user->isGuest and isset($_GET['tag'])) {
+		if (isset($_GET['tag'])) {
 			$criteria->addSearchCondition('tags', $_GET['tag']);
 		}
 
-		$dataProvider = new CActiveDataProvider('Post', array(
+		$data_provider = new CActiveDataProvider('Post', array(
 			'criteria' => $criteria,
 			'pagination' => array('pagesize' => Parameters::get()->
 				posts_on_page)
 		));
 
-		$this->render('list', array('dataProvider' => $dataProvider));
+		$this->render('list', array('data_provider' => $data_provider));
+	}
+
+	public function actionControl() {
+		$data_provider = new CActiveDataProvider('Post', array(
+			'criteria' => array('order' => 'create_time DESC'),
+			'pagination' => array('pagesize' => Parameters::get()->
+				posts_on_page)
+		));
+
+		$this->render('control', array('data_provider' => $data_provider));
 	}
 
 	public function actionView($id) {
