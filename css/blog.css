@@ -20,19 +20,49 @@
 	width: 100%;
 }
 
-.pager .previous a {
-	border-bottom-left-radius: 4px;
-	border-top-left-radius: 4px;
+.pager .pagination a {
+	float: left;
 }
 
-.pager .next a {
-	border-bottom-right-radius: 4px;
-	border-top-right-radius: 4px;
+.pager li:first-child a {
+	border-bottom-left-radius: 15px;
+	border-top-left-radius: 15px;
+}
+
+.pager li:last-child a {
+	border-bottom-right-radius: 15px;
+	border-top-right-radius: 15px;
 }
 
 .portlet-decoration {
 	margin-bottom: 10px;
 	font-size: 24px;
+}
+
+/* addings for jQuery UI styles */
+.ui-spinner {
+	display: block;
+}
+
+/* addings for jQuery Form Styler styles */
+.checkbox {
+	padding-left: 0;
+}
+
+.jq-checkbox {
+	width: 20px;
+	height: 20px;
+}
+
+.jq-checkbox div {
+	display: none;
+	font-size: smaller;
+}
+
+.jq-checkbox.checked div {
+	display: block;
+	background: white;
+	box-shadow: none;
 }
 
 /* my styles */
@@ -41,6 +71,7 @@ header a:hover {
 }
 
 .note {
+	margin-top: 10px;
 	font-size: larger;
 }
 

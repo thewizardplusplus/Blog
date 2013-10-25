@@ -8,7 +8,7 @@
 		for ($i = 0; $i < count($tags); $i++) {
 			$tags_list .= CHtml::link($tags[$i], $this->createUrl('post/list',
 				array('tag' => $tags[$i])), array('class' => 'label ' .
-				'label-default'));
+				'label-success'));
 		}
 	}
 ?>

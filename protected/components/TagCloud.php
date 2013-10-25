@@ -4,7 +4,6 @@
 
 	class TagCloud extends CPortlet {
 		protected function renderContent() {
-			Yii::app()->getClientScript()->registerCoreScript('jquery');
 			Yii::app()->getClientScript()->registerScriptFile(CHtml::asset(
 				'js/jquery.tagcanvas.min.js'), CClientScript::POS_HEAD);
 			Yii::app()->getClientScript()->registerScriptFile(CHtml::asset(

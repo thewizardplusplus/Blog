@@ -1,6 +1,8 @@
 <?php
 	/* @var $this CController */
 
+	Yii::app()->getClientScript()->registerCoreScript('jquery');
+
 	$with_aside = ($this->action->id == 'list' or $this->action->id == 'view');
 
 	$copyright_years = Constants::COPYRIGHT_START_YEAR;
@@ -27,10 +29,14 @@
 		<link rel = "stylesheet" href = "<?php echo Yii::app()->request->
 			baseUrl; ?>/bootstrap/css/bootstrap.min.css" />
 		<link rel = "stylesheet" href = "<?php echo Yii::app()->request->
+			baseUrl; ?>/jquery-ui/css/theme/jquery-ui.min.css" />
+		<title><?php echo CHtml::encode($this->pageTitle); ?></title>
+		<link rel = "stylesheet" href = "<?php echo Yii::app()->request->
 			baseUrl; ?>/css/blog.css" />
 		<script src = "<?php echo Yii::app()->request->baseUrl;
 			?>/bootstrap/js/bootstrap.min.js"></script>
-		<title><?php echo CHtml::encode($this->pageTitle); ?></title>
+		<script src = "<?php echo Yii::app()->request->baseUrl;
+			?>/jquery-ui/js/jquery-ui.min.js"></script>
 	</head>
 	<body>
 		<section class = "container panel panel-default">

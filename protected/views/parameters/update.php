@@ -3,45 +3,52 @@
 	/* @var $model ParametersForm */
 	/* @var $form CActiveForm */
 
-	Yii::app()->getClientScript()->registerCssFile(CHtml::asset('jquery-ui/css/'
-		. 'theme/jquery-ui.min.css'));
-	Yii::app()->getClientScript()->registerScriptFile(CHtml::asset('jquery-ui/'
-		. 'js/jquery-ui.min.js'), CClientScript::POS_HEAD);
-
 	$this->pageTitle = Yii::app()->name . ' - Параметры';
 ?>
 
-<div class = "form">
-	<?php
-		$form = $this->beginWidget('CActiveForm', array(
-			'id' => 'parameters-form',
-			'enableAjaxValidation' => true,
-			'enableClientValidation' => true
-		));
-	?>
+<?php
+	$form = $this->beginWidget('CActiveForm', array(
+		'id' => 'parameters-form',
+		'enableAjaxValidation' => true,
+		'enableClientValidation' => true,
+		'errorMessageCssClass' => 'alert alert-danger'
+	));
+?>
 
+<div class = "panel panel-default">
 	<fieldset>
 		<legend>Параметры:</legend>
 
 		<?php echo $form->errorSummary($model); ?>
 
-		<fieldset>
-			<legend>Пароль:</legend>
+		<div class = "panel panel-default">
+			<fieldset>
+				<legend>Пароль:</legend>
 
-			<div class = "row">
-				<?php echo $form->labelEx($model, 'password'); ?>
-				<?php echo $form->passwordField($model, 'password'); ?>
-				<?php echo $form->error($model, 'password'); ?>
-			</div>
+				<div class = "form-group">
+					<?php echo $form->labelEx($model, 'password'); ?>
+					<?php echo $form->passwordField($model, 'password', array(
+						'class' => 'form-control',
+						'autocomplete' => 'off'
+					)); ?>
+					<?php echo $form->error($model, 'password'); ?>
+				</div>
 
-			<div class = "row">
-				<?php echo $form->labelEx($model, 'password_copy'); ?>
-				<?php echo $form->passwordField($model, 'password_copy'); ?>
-				<?php echo $form->error($model, 'password_copy'); ?>
-			</div>
-		</fieldset>
+				<div class = "form-group">
+					<?php echo $form->labelEx($model, 'password_copy'); ?>
+					<?php
+						echo $form->passwordField($model, 'password_copy',
+							array(
+								'class' => 'form-control',
+								'autocomplete' => 'off'
+							));
+					?>
+					<?php echo $form->error($model, 'password_copy'); ?>
+				</div>
+			</fieldset>
+		</div>
 
-		<div class = "row">
+		<div class = "form-group">
 			<?php echo $form->labelEx($model, 'posts_on_page'); ?>
 			<?php echo $form->numberField($model, 'posts_on_page', array(
 					'min' => Parameters::MINIMUM_POSTS_ON_PAGE,
@@ -50,7 +57,7 @@
 			<?php echo $form->error($model, 'posts_on_page'); ?>
 		</div>
 
-		<div class = "row">
+		<div class = "form-group">
 			<?php echo $form->labelEx($model, 'maximum_number_of_tags'); ?>
 			<?php echo $form->numberField($model, 'maximum_number_of_tags',
 				array(
@@ -60,18 +67,15 @@
 			<?php echo $form->error($model, 'maximum_number_of_tags'); ?>
 		</div>
 
-		<div class = "row buttons">
-			<?php echo CHtml::submitButton('Сохранить'); ?>
-		</div>
+		<?php echo CHtml::submitButton('Сохранить', array('class' =>
+			'btn btn-primary')); ?>
 	</fieldset>
-
-	<?php $this->endWidget(); ?>
 </div>
+
+<?php $this->endWidget(); ?>
 
 <?php
 	echo CHtml::script(
-		'jQuery("#ParametersForm_password").val("");' .
-		'jQuery("#ParametersForm_password_copy").val("");' .
 		'jQuery("#ParametersForm_posts_on_page").spinner();' .
 		'jQuery("#ParametersForm_maximum_number_of_tags").spinner();'
 	);

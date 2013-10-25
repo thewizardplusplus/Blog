@@ -30,7 +30,7 @@ class ParametersForm extends CFormModel {
 		return array(
 			'password' => 'Пароль:',
 			'password_copy' => 'Пароль (копия):',
-			'posts_on_page' => 'Пунктов на страницу:',
+			'posts_on_page' => 'Постов на страницу:',
 			'maximum_number_of_tags' => 'Максимальное число тегов в облаке:'
 		);
 	}
