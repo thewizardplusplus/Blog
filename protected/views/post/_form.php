@@ -7,6 +7,8 @@
 		'jQueryFormStyler/jquery.formstyler.css'));
 
 	Yii::app()->getClientScript()->registerScriptFile(CHtml::asset(
+		'js/editor.js'), CClientScript::POS_HEAD);
+	Yii::app()->getClientScript()->registerScriptFile(CHtml::asset(
 		'jQueryFormStyler/jquery.formstyler.min.js'), CClientScript::POS_HEAD);
 	Yii::app()->getClientScript()->registerScriptFile(CHtml::asset(
 		'js/styler.js'), CClientScript::POS_HEAD);
@@ -40,9 +42,9 @@
 
 		<div class = "form-group">
 			<?php echo $form->labelEx($model, 'text'); ?>
-			<?php echo $form->textArea($model, 'text', array('class' =>
-				'form-control')); ?>
+			<div id = "editor"><?php echo $model->text; ?></div>
 			<?php echo $form->error($model, 'text'); ?>
+			<?php echo CHtml::hiddenField('Post[text]'); ?>
 		</div>
 
 		<div class = "form-group">

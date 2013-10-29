@@ -131,3 +131,165 @@ Stack trace:
 REQUEST_URI=/web/blog/posts
 HTTP_REFERER=http://localhost/web/blog/post/control
 ---
+2013/10/29 02:33:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "assets/24aabe28/theme-monokai.js".' in /home/thewizard/web/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/thewizard/web/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/24aabe28...')
+#1 /home/thewizard/web/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/thewizard/web/blog/index.php(10): CApplication->run()
+#3 {main}
+REQUEST_URI=/web/blog/assets/24aabe28/theme-monokai.js
+HTTP_REFERER=http://localhost/web/blog/post/8/update
+---
+2013/10/29 02:33:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "assets/24aabe28/mode-markdown.js".' in /home/thewizard/web/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/thewizard/web/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/24aabe28...')
+#1 /home/thewizard/web/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/thewizard/web/blog/index.php(10): CApplication->run()
+#3 {main}
+REQUEST_URI=/web/blog/assets/24aabe28/mode-markdown.js
+HTTP_REFERER=http://localhost/web/blog/post/8/update
+---
+2013/10/29 02:36:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "assets/24aabe28/theme-monokai.js".' in /home/thewizard/web/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/thewizard/web/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/24aabe28...')
+#1 /home/thewizard/web/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/thewizard/web/blog/index.php(10): CApplication->run()
+#3 {main}
+REQUEST_URI=/web/blog/assets/24aabe28/theme-monokai.js
+HTTP_REFERER=http://localhost/web/blog/post/8/update
+---
+2013/10/29 02:36:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "assets/24aabe28/mode-markdown.js".' in /home/thewizard/web/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/thewizard/web/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/24aabe28...')
+#1 /home/thewizard/web/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/thewizard/web/blog/index.php(10): CApplication->run()
+#3 {main}
+REQUEST_URI=/web/blog/assets/24aabe28/mode-markdown.js
+HTTP_REFERER=http://localhost/web/blog/post/8/update
+---
+2013/10/29 02:40:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "assets/24aabe28/theme-monokai.js".' in /home/thewizard/web/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/thewizard/web/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/24aabe28...')
+#1 /home/thewizard/web/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/thewizard/web/blog/index.php(10): CApplication->run()
+#3 {main}
+REQUEST_URI=/web/blog/assets/24aabe28/theme-monokai.js
+HTTP_REFERER=http://localhost/web/blog/post/8/update
+---
+2013/10/29 02:40:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "assets/24aabe28/mode-markdown.js".' in /home/thewizard/web/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/thewizard/web/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/24aabe28...')
+#1 /home/thewizard/web/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/thewizard/web/blog/index.php(10): CApplication->run()
+#3 {main}
+REQUEST_URI=/web/blog/assets/24aabe28/mode-markdown.js
+HTTP_REFERER=http://localhost/web/blog/post/8/update
+---
+2013/10/29 02:41:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "assets/24aabe28/theme-monokai.js".' in /home/thewizard/web/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/thewizard/web/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/24aabe28...')
+#1 /home/thewizard/web/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/thewizard/web/blog/index.php(10): CApplication->run()
+#3 {main}
+REQUEST_URI=/web/blog/assets/24aabe28/theme-monokai.js
+HTTP_REFERER=http://localhost/web/blog/post/8/update
+---
+2013/10/29 02:41:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "assets/24aabe28/mode-markdown.js".' in /home/thewizard/web/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/thewizard/web/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/24aabe28...')
+#1 /home/thewizard/web/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/thewizard/web/blog/index.php(10): CApplication->run()
+#3 {main}
+REQUEST_URI=/web/blog/assets/24aabe28/mode-markdown.js
+HTTP_REFERER=http://localhost/web/blog/post/8/update
+---
+2013/10/29 02:41:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "assets/24aabe28/mode-markdown.js".' in /home/thewizard/web/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/thewizard/web/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/24aabe28...')
+#1 /home/thewizard/web/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/thewizard/web/blog/index.php(10): CApplication->run()
+#3 {main}
+REQUEST_URI=/web/blog/assets/24aabe28/mode-markdown.js
+HTTP_REFERER=http://localhost/web/blog/post/8/update
+---
+2013/10/29 02:41:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "assets/24aabe28/theme-monokai.js".' in /home/thewizard/web/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/thewizard/web/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/24aabe28...')
+#1 /home/thewizard/web/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/thewizard/web/blog/index.php(10): CApplication->run()
+#3 {main}
+REQUEST_URI=/web/blog/assets/24aabe28/theme-monokai.js
+HTTP_REFERER=http://localhost/web/blog/post/8/update
+---
+2013/10/29 02:41:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "assets/24aabe28/theme-monokai.js".' in /home/thewizard/web/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/thewizard/web/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/24aabe28...')
+#1 /home/thewizard/web/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/thewizard/web/blog/index.php(10): CApplication->run()
+#3 {main}
+REQUEST_URI=/web/blog/assets/24aabe28/theme-monokai.js
+HTTP_REFERER=http://localhost/web/blog/post/8/update
+---
+2013/10/29 02:41:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "assets/24aabe28/mode-markdown.js".' in /home/thewizard/web/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/thewizard/web/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/24aabe28...')
+#1 /home/thewizard/web/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/thewizard/web/blog/index.php(10): CApplication->run()
+#3 {main}
+REQUEST_URI=/web/blog/assets/24aabe28/mode-markdown.js
+HTTP_REFERER=http://localhost/web/blog/post/8/update
+---
+2013/10/29 02:41:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "assets/24aabe28/mode-markdown.js".' in /home/thewizard/web/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/thewizard/web/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/24aabe28...')
+#1 /home/thewizard/web/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/thewizard/web/blog/index.php(10): CApplication->run()
+#3 {main}
+REQUEST_URI=/web/blog/assets/24aabe28/mode-markdown.js
+HTTP_REFERER=http://localhost/web/blog/post/8/update
+---
+2013/10/29 02:41:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "assets/24aabe28/theme-monokai.js".' in /home/thewizard/web/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/thewizard/web/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/24aabe28...')
+#1 /home/thewizard/web/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/thewizard/web/blog/index.php(10): CApplication->run()
+#3 {main}
+REQUEST_URI=/web/blog/assets/24aabe28/theme-monokai.js
+HTTP_REFERER=http://localhost/web/blog/post/8/update
+---
+2013/10/29 03:21:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "assets/ea259356/mode-markdown.js".' in /home/thewizard/web/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/thewizard/web/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/ea259356...')
+#1 /home/thewizard/web/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/thewizard/web/blog/index.php(10): CApplication->run()
+#3 {main}
+REQUEST_URI=/web/blog/assets/ea259356/mode-markdown.js
+HTTP_REFERER=http://localhost/web/blog/post/8/update
+---
+2013/10/29 03:21:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "assets/ea259356/theme-monokai.js".' in /home/thewizard/web/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/thewizard/web/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/ea259356...')
+#1 /home/thewizard/web/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/thewizard/web/blog/index.php(10): CApplication->run()
+#3 {main}
+REQUEST_URI=/web/blog/assets/ea259356/theme-monokai.js
+HTTP_REFERER=http://localhost/web/blog/post/8/update
+---
+2013/10/29 03:23:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "assets/ea259356/theme-monokai.js".' in /home/thewizard/web/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/thewizard/web/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/ea259356...')
+#1 /home/thewizard/web/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/thewizard/web/blog/index.php(10): CApplication->run()
+#3 {main}
+REQUEST_URI=/web/blog/assets/ea259356/theme-monokai.js
+HTTP_REFERER=http://localhost/web/blog/post/8/update
+---
+2013/10/29 03:23:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "assets/ea259356/mode-markdown.js".' in /home/thewizard/web/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/thewizard/web/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('assets/ea259356...')
+#1 /home/thewizard/web/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/thewizard/web/blog/index.php(10): CApplication->run()
+#3 {main}
+REQUEST_URI=/web/blog/assets/ea259356/mode-markdown.js
+HTTP_REFERER=http://localhost/web/blog/post/8/update
+---

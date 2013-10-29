@@ -37,6 +37,8 @@
 			?>/bootstrap/js/bootstrap.min.js"></script>
 		<script src = "<?php echo Yii::app()->request->baseUrl;
 			?>/jquery-ui/js/jquery-ui.min.js"></script>
+		<script src = "<?php echo Yii::app()->request->baseUrl;
+			?>/js/ace/ace.js"></script>
 	</head>
 	<body>
 		<section class = "container panel panel-default">
