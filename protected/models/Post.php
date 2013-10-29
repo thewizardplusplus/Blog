@@ -41,7 +41,8 @@ class Post extends CActiveRecord {
 			array('title, text', 'required'),
 			array('title', 'length', 'max' => Post::
 				MAXIMAL_LENGTH_OF_TITLE_FIELD),
-			array('tags', 'safe')
+			array('tags', 'safe'),
+			array('published', 'numerical', 'min' => 0, 'max' => 1)
 		);
 	}
 
@@ -51,7 +52,8 @@ class Post extends CActiveRecord {
 			'text' => 'Текст:',
 			'create_time' => 'Дата создания:',
 			'modify_time' => 'Дата изменения:',
-			'tags' => 'Теги:'
+			'tags' => 'Теги:',
+			'published' => 'Опубликован'
 		);
 	}
 
@@ -63,6 +65,9 @@ class Post extends CActiveRecord {
 				$this->create_time = $current_time;
 			}
 			$this->modify_time = $current_time;
+
+			$this->tags = implode(',', array_map('trim', explode(',', $this->
+				tags)));
 
 			return true;
 		} else {

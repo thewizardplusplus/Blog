@@ -16,6 +16,15 @@
 	margin-left: 0;
 }
 
+.items .empty {
+	display: block;
+	font-size: larger;
+}
+
+nav + .row .items .empty {
+	margin-top: 10px;
+}
+
 .pager .pagination {
 	width: 100%;
 }
@@ -71,7 +80,6 @@ header a:hover {
 }
 
 .note {
-	margin-top: 10px;
 	font-size: larger;
 }
 
@@ -94,8 +102,14 @@ header a:hover {
 	margin: auto;
 }
 
+.tag {
+	display: block;
+	float: left;
+	margin: 0 5px 5px 0;
+}
+
 .tag.rate1 {
-	font-size: 8px;
+	font-size: 12px;
 }
 
 .tag.rate2 {
@@ -103,15 +117,15 @@ header a:hover {
 }
 
 .tag.rate3 {
-	font-size: 20px;
+	font-size: 16px;
 }
 
 .tag.rate4 {
-	font-size: 26px;
+	font-size: 18px;
 }
 
 .tag.rate5 {
-	font-size: 32px;
+	font-size: 20px;
 }
 
 footer {

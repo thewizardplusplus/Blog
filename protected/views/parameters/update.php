@@ -57,16 +57,6 @@
 			<?php echo $form->error($model, 'posts_on_page'); ?>
 		</div>
 
-		<div class = "form-group">
-			<?php echo $form->labelEx($model, 'maximum_number_of_tags'); ?>
-			<?php echo $form->numberField($model, 'maximum_number_of_tags',
-				array(
-					'min' => Parameters::MINIMUM_MAXIMUM_NUMBER_OF_TAGS,
-					'max' => Parameters::MAXIMUM_MAXIMUM_NUMBER_OF_TAGS
-				)); ?>
-			<?php echo $form->error($model, 'maximum_number_of_tags'); ?>
-		</div>
-
 		<?php echo CHtml::submitButton('Сохранить', array('class' =>
 			'btn btn-primary')); ?>
 	</fieldset>

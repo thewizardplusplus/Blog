@@ -2,6 +2,14 @@
 	/* @var $this PostController */
 	/* @var $model Post */
 	/* @var $form CActiveForm */
+
+	Yii::app()->getClientScript()->registerCssFile(CHtml::asset(
+		'jQueryFormStyler/jquery.formstyler.css'));
+
+	Yii::app()->getClientScript()->registerScriptFile(CHtml::asset(
+		'jQueryFormStyler/jquery.formstyler.min.js'), CClientScript::POS_HEAD);
+	Yii::app()->getClientScript()->registerScriptFile(CHtml::asset(
+		'js/styler.js'), CClientScript::POS_HEAD);
 ?>
 
 <?php
@@ -42,6 +50,12 @@
 			<?php echo $form->textField($model, 'tags', array('class' =>
 				'form-control')); ?>
 			<?php echo $form->error($model, 'tags'); ?>
+		</div>
+
+		<div class = "form-group">
+			<?php echo $form->checkBox($model,'published'); ?>
+			<?php echo $form->label($model,'published'); ?>
+			<?php echo $form->error($model,'published'); ?>
 		</div>
 
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Создать' :

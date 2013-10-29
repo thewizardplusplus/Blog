@@ -32,7 +32,10 @@ class PostController extends CController {
 	}
 
 	public function actionList() {
-		$criteria = new CDbCriteria(array('order' => 'create_time DESC'));
+		$criteria = new CDbCriteria(array(
+			'order' => 'create_time DESC',
+			'condition' => 'published = 1'
+		));
 		if (isset($_GET['tag'])) {
 			$criteria->addCondition('FIND_IN_SET(' . Yii::app()->db->quoteValue(
 				$_GET['tag']) . ', `tags`)');
@@ -86,7 +89,7 @@ class PostController extends CController {
 			$model->attributes = $_POST['Post'];
 			$result = $model->save();
 			if (!isset($_POST['ajax']) and $result) {
-				$this->redirect(array('list'));
+				$this->redirect(array('control'));
 			}
 		}
 

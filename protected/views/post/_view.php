@@ -4,11 +4,9 @@
 
 	if (!empty($data->tags)) {
 		$tags_list = '';
-		$tags = array_map('trim', explode(',', $data->tags));
-		for ($i = 0; $i < count($tags); $i++) {
-			$tags_list .= CHtml::link($tags[$i], $this->createUrl('post/list',
-				array('tag' => $tags[$i])), array('class' => 'label ' .
-				'label-success'));
+		foreach (array_map('trim', explode(',', $data->tags)) as $tag) {
+			$tags_list .= CHtml::link($tag, $this->createUrl('post/list', array(
+				'tag' => $tag)), array('class' => 'label label-success'));
 		}
 	}
 ?>

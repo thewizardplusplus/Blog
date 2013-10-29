@@ -2,6 +2,9 @@
 	/* @var $this PostController */
 	/* @var $data_provider CActiveDataProvider */
 
+	Yii::app()->getClientScript()->registerScriptFile(CHtml::asset(
+		'js/publishing.js'), CClientScript::POS_HEAD);
+
 	$this->pageTitle = Yii::app()->name . ' - Посты';
 ?>
 
@@ -17,6 +20,7 @@
 <div class = "table-responsive">
 	<?php
 		$this->widget('zii.widgets.grid.CGridView', array(
+			'id' => 'post_list',
 			'dataProvider' => $data_provider,
 			'template' => '{items} {pager}',
 			'selectableRows' => 0,
@@ -40,14 +44,53 @@
 					'value' => 'Post::formatTime($data->modify_time)'
 				),
 				array(
+					'name' => 'Теги',
+					'value' => 'implode(", ", explode(",", $data->tags))'
+				),
+				array(
 					'class' => 'CButtonColumn',
-					'header' => 'Действия',
+					'header' => 'Опубликован',
+					'template' => '{publish} {unpublish}',
+					'buttons' => array(
+						'publish' => array(
+							'label' => '<span class = "glyphicon ' .
+								'glyphicon-unchecked"></span>',
+							'url' => '$this->grid->controller->createUrl(' .
+								'"post/update", array("id" => $data->id))',
+							'imageUrl' => FALSE,
+							'options' => array(
+								'title' => 'Опубликовать',
+								'style' => 'font-size: larger;'
+							),
+							'click' => 'function() { return publishing(jQuery('
+								. 'this).attr("href"), true); }',
+							'visible' => '!$data->published'
+						),
+						'unpublish' => array(
+							'label' => '<span class = "glyphicon ' .
+								'glyphicon-check"></span>',
+							'url' => '$this->grid->controller->createUrl(' .
+								'"post/update", array("id" => $data->id))',
+							'imageUrl' => FALSE,
+							'options' => array(
+								'title' => 'Снять с публикации',
+								'style' => 'font-size: larger;'
+							),
+							'click' => 'function() { return publishing(jQuery('
+								. 'this).attr("href"), false); }',
+							'visible' => '$data->published'
+						)
+					)
+				),
+				array(
+					'class' => 'CButtonColumn',
+					'header' => 'Удалить',
 					'buttons' => array(
 						'view' => array('visible' => 'FALSE'),
 						'update' => array('visible' => 'FALSE'),
 						'delete' => array(
-							'label' => '<span class = ' .
-								'"glyphicon glyphicon-trash"></span>',
+							'label' => '<span class = "glyphicon ' .
+								'glyphicon-trash"></span>',
 							'imageUrl' => FALSE,
 							'options' => array(
 								'title' => 'Удалить пост',
@@ -55,7 +98,7 @@
 							)
 						)
 					)
-				),
+				)
 			),
 			'itemsCssClass' => 'table',
 			'pager' => array(

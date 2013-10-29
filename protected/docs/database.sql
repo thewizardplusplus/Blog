@@ -6,14 +6,14 @@ CREATE TABLE `blog_posts` (
 	`text` TEXT NOT NULL,
 	`create_time` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00',
 	`modify_time` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00',
-	`tags` TEXT NOT NULL
+	`tags` TEXT NOT NULL,
+	`published` BOOLEAN NOT NULL DEFAULT '0'
 ) ENGINE = MyISAM CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 CREATE TABLE `blog_parameters` (
 	`id` INT NOT NULL DEFAULT '1' PRIMARY KEY,
 	`password_hash` TEXT NOT NULL,
-	`posts_on_page` INT NOT NULL DEFAULT '10',
-	`maximum_number_of_tags` INT NOT NULL DEFAULT '25'
+	`posts_on_page` INT NOT NULL DEFAULT '10'
 ) ENGINE = MYISAM CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 INSERT INTO `blog_parameters` (`password_hash`)
