@@ -3,6 +3,9 @@
 	/* @var $model ParametersForm */
 	/* @var $form CActiveForm */
 
+	Yii::app()->getClientScript()->registerScriptFile(CHtml::asset(
+		'js/spinner.js'), CClientScript::POS_HEAD);
+
 	$this->pageTitle = Yii::app()->name . ' - Параметры';
 ?>
 
@@ -50,11 +53,26 @@
 
 		<div class = "form-group">
 			<?php echo $form->labelEx($model, 'posts_on_page'); ?>
-			<?php echo $form->numberField($model, 'posts_on_page', array(
+			<?php
+				echo $form->numberField($model, 'posts_on_page', array(
+					'class' => 'form-control',
 					'min' => Parameters::MINIMUM_POSTS_ON_PAGE,
 					'max' => Parameters::MAXIMUM_POSTS_ON_PAGE
-				)); ?>
+				));
+			?>
 			<?php echo $form->error($model, 'posts_on_page'); ?>
+		</div>
+
+		<div class = "form-group">
+			<?php echo $form->labelEx($model, 'versions_of_backups'); ?>
+			<?php
+				echo $form->numberField($model, 'versions_of_backups', array(
+					'class' => 'form-control',
+					'min' => Parameters::MINIMUM_VERSIONS_OF_BACKUPS,
+					'max' => Parameters::MAXIMUM_VERSIONS_OF_BACKUPS
+				));
+			?>
+			<?php echo $form->error($model, 'versions_of_backups'); ?>
 		</div>
 
 		<?php echo CHtml::submitButton('Сохранить', array('class' =>
@@ -63,10 +81,3 @@
 </div>
 
 <?php $this->endWidget(); ?>
-
-<?php
-	echo CHtml::script(
-		'jQuery("#ParametersForm_posts_on_page").spinner();' .
-		'jQuery("#ParametersForm_maximum_number_of_tags").spinner();'
-	);
-?>

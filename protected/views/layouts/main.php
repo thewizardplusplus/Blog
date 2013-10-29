@@ -3,7 +3,7 @@
 
 	Yii::app()->getClientScript()->registerCoreScript('jquery');
 
-	$with_aside = ($this->action->id == 'list' or $this->action->id == 'view');
+	$with_aside = ($this->route == 'post/list' or $this->route == 'post/view');
 
 	$copyright_years = Constants::COPYRIGHT_START_YEAR;
 	$current_year = date('Y');
@@ -63,6 +63,8 @@
 								'site/files')),
 							array('label' => 'Параметры', 'url' => array(
 								'parameters/update')),
+							array('label' => 'Бекапы', 'url' => array(
+								'backup/list')),
 							array('label' => 'Выход', 'url' => array(
 								'site/logout'))
 						),

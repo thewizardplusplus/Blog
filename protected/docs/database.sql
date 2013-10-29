@@ -13,7 +13,8 @@ CREATE TABLE `blog_posts` (
 CREATE TABLE `blog_parameters` (
 	`id` INT NOT NULL DEFAULT '1' PRIMARY KEY,
 	`password_hash` TEXT NOT NULL,
-	`posts_on_page` INT NOT NULL DEFAULT '10'
+	`posts_on_page` INT NOT NULL DEFAULT '10',
+	`versions_of_backups` INT NOT NULL DEFAULT '3'
 ) ENGINE = MYISAM CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 INSERT INTO `blog_parameters` (`password_hash`)

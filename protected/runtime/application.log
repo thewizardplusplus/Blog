@@ -293,3 +293,91 @@ Stack trace:
 REQUEST_URI=/web/blog/assets/ea259356/mode-markdown.js
 HTTP_REFERER=http://localhost/web/blog/post/8/update
 ---
+2013/10/29 04:01:51 [error] [php] scandir(/home/thewizard/web/blog/protected/controllers/../backups): failed to open dir: No such file or directory (/home/thewizard/web/blog/protected/controllers/BackupController.php:31)
+Stack trace:
+#0 /home/thewizard/web/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /home/thewizard/web/yii/framework/web/filters/CFilterChain.php(133): BackupController->runAction()
+#2 /home/thewizard/web/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/thewizard/web/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#4 /home/thewizard/web/yii/framework/web/filters/CInlineFilter.php(58): BackupController->filterAccessControl()
+#5 /home/thewizard/web/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#6 /home/thewizard/web/yii/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/thewizard/web/yii/framework/web/CController.php(265): BackupController->runActionWithFilters()
+#8 /home/thewizard/web/yii/framework/web/CWebApplication.php(282): BackupController->run()
+#9 /home/thewizard/web/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#10 /home/thewizard/web/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/thewizard/web/blog/index.php(10): CWebApplication->run()
+REQUEST_URI=/web/blog/backups
+2013/10/29 04:03:10 [error] [exception.CException] exception 'CException' with message 'Не определено свойство "Parameters.versions_of_backups".' in /home/thewizard/web/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /home/thewizard/web/yii/framework/db/ar/CActiveRecord.php(145): CComponent->__get('versions_of_bac...')
+#1 /home/thewizard/web/blog/protected/views/backup/list.php(46): CActiveRecord->__get('versions_of_bac...')
+#2 /home/thewizard/web/yii/framework/web/CBaseController.php(126): require('/home/thewizard...')
+#3 /home/thewizard/web/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/thewizard...', Array, true)
+#4 /home/thewizard/web/yii/framework/web/CController.php(869): CBaseController->renderFile('/home/thewizard...', Array, true)
+#5 /home/thewizard/web/yii/framework/web/CController.php(782): CController->renderPartial('list', Array, true)
+#6 /home/thewizard/web/blog/protected/controllers/BackupController.php(98): CController->render('list', Array)
+#7 /home/thewizard/web/yii/framework/web/actions/CInlineAction.php(49): BackupController->actionList()
+#8 /home/thewizard/web/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /home/thewizard/web/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 /home/thewizard/web/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#11 /home/thewizard/web/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 /home/thewizard/web/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 /home/thewizard/web/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 /home/thewizard/web/yii/framework/web/CController.php(291): CFilterChain->run()
+#15 /home/thewizard/web/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 /home/thewizard/web/yii/framework/web/CWebApplication.php(282): CController->run('list')
+#17 /home/thewizard/web/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('backup/list')
+#18 /home/thewizard/web/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#19 /home/thewizard/web/blog/index.php(10): CApplication->run()
+#20 {main}
+REQUEST_URI=/web/blog/backups
+HTTP_REFERER=http://localhost/web/blog/backups
+---
+2013/10/29 04:08:11 [error] [exception.CException] exception 'CException' with message 'Не определено свойство "Parameters.versions_of_backups".' in /home/thewizard/web/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /home/thewizard/web/yii/framework/db/ar/CActiveRecord.php(145): CComponent->__get('versions_of_bac...')
+#1 /home/thewizard/web/blog/protected/models/ParametersForm.php(12): CActiveRecord->__get('versions_of_bac...')
+#2 /home/thewizard/web/blog/protected/controllers/ParametersController.php(28): ParametersForm->__construct()
+#3 /home/thewizard/web/yii/framework/web/actions/CInlineAction.php(49): ParametersController->actionUpdate()
+#4 /home/thewizard/web/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /home/thewizard/web/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /home/thewizard/web/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /home/thewizard/web/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /home/thewizard/web/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /home/thewizard/web/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /home/thewizard/web/yii/framework/web/CController.php(291): CFilterChain->run()
+#11 /home/thewizard/web/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /home/thewizard/web/yii/framework/web/CWebApplication.php(282): CController->run('update')
+#13 /home/thewizard/web/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('parameters/upda...')
+#14 /home/thewizard/web/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /home/thewizard/web/blog/index.php(10): CApplication->run()
+#16 {main}
+REQUEST_URI=/web/blog/parameters
+HTTP_REFERER=http://localhost/web/blog/backups
+---
+2013/10/29 04:08:15 [error] [exception.CException] exception 'CException' with message 'Не определено свойство "Parameters.versions_of_backups".' in /home/thewizard/web/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /home/thewizard/web/yii/framework/db/ar/CActiveRecord.php(145): CComponent->__get('versions_of_bac...')
+#1 /home/thewizard/web/blog/protected/models/ParametersForm.php(12): CActiveRecord->__get('versions_of_bac...')
+#2 /home/thewizard/web/blog/protected/controllers/ParametersController.php(28): ParametersForm->__construct()
+#3 /home/thewizard/web/yii/framework/web/actions/CInlineAction.php(49): ParametersController->actionUpdate()
+#4 /home/thewizard/web/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /home/thewizard/web/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /home/thewizard/web/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /home/thewizard/web/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /home/thewizard/web/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /home/thewizard/web/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /home/thewizard/web/yii/framework/web/CController.php(291): CFilterChain->run()
+#11 /home/thewizard/web/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /home/thewizard/web/yii/framework/web/CWebApplication.php(282): CController->run('update')
+#13 /home/thewizard/web/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('parameters/upda...')
+#14 /home/thewizard/web/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /home/thewizard/web/blog/index.php(10): CApplication->run()
+#16 {main}
+REQUEST_URI=/web/blog/parameters
+HTTP_REFERER=http://localhost/web/blog/backups
+---
+2013/10/29 04:12:28 [info] [application] backup/list
+2013/10/29 04:14:08 [info] [backups] Длительность создания последнего бекапа: 00:00.
+2013/10/29 04:14:41 [info] [backups] Длительность создания последнего бекапа: 00:00.

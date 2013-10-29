@@ -23,11 +23,13 @@ return array(
 				'posts' => 'post/list',
 				'post/<id:\d+>-<title:.+>' => 'post/view',
 				'post/<id:\d+>' => 'post/view',
-				'create' => 'post/create',
+				'post/new' => 'post/create',
 				'post/<id:\d+>/update' => 'post/update',
 				'post/<id:\d+>/delete' => 'post/delete',
 				'files' => 'site/files',
-				'parameters' => 'parameters/update'
+				'parameters' => 'parameters/update',
+				'backups' => 'backup/list',
+				'backups/new' => 'backup/create'
 			)
 		),
 		'db' => array(
@@ -41,6 +43,12 @@ return array(
 		'log' => array(
 			'class'=>'CLogRouter',
 			'routes' => array(
+				array(
+					'class' => 'CFileLogRoute',
+					'logFile' => 'backups.log',
+					'levels' => 'info',
+					'categories' => 'backups'
+				),
 				array(
 					'class' => 'CFileLogRoute',
 					'levels' => 'trace, info, warning, error'
