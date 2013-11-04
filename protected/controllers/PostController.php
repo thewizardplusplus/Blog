@@ -8,7 +8,7 @@ class PostController extends CController {
 
 	public function filters() {
 		return array(
-			'accessControl + update, delete',
+			'accessControl + control, create, update, delete',
 			'postOnly + delete'
 		);
 	}
@@ -22,7 +22,7 @@ class PostController extends CController {
 			),
 			array(
 				'allow',
-				'users' => array('@')
+				'users' => array('admin')
 			),
 			array(
 				'deny',
@@ -94,6 +94,9 @@ class PostController extends CController {
 		}
 
 		if (!isset($_POST['ajax'])) {
+			if (!empty($model->tags)) {
+				$model->tags = str_replace(',', ', ', $model->tags);
+			}
 			$this->render('update', array('model' => $model));
 		}
 	}

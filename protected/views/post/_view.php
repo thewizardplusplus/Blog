@@ -42,11 +42,11 @@
 	<?php } ?>
 
 	<?php
-		if ($this->action->id == 'list' and preg_match(Post::CUT_TAG_PATTERN,
-			$data->text))
+		if ($this->action->id == 'list' and preg_match(Constants::
+			CUT_TAG_PATTERN, $data->text))
 		{
 	?>
-	<p style = "text-align: right;">
+	<p class = "read-next">
 		<?php echo CHtml::link('Читать дальше &gt;&gt;', $this->createUrl(
 			'post/view', array('id' => $data->id, 'title' => $data->title)),
 			array('class' => 'btn btn-default')); ?>

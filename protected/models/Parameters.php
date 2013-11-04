@@ -21,11 +21,8 @@ class Parameters extends CActiveRecord {
 			return $parameters;
 		} else {
 			$parameters = new Parameters;
-			$parameters->attributes = array(
-				'password_hash' => Parameters::DEFAULT_PASSWORD_HASH,
-				'points_on_page' => Parameters::DEFAULT_POSTS_ON_PAGE,
-				'versions_of_backups' => Parameters::DEFAULT_VERSIONS_OF_BACKUPS
-			);
+			$parameters->attributes = array('password_hash' => Parameters::
+				DEFAULT_PASSWORD_HASH);
 			$parameters->save();
 
 			return $parameters;

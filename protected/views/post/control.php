@@ -3,7 +3,7 @@
 	/* @var $data_provider CActiveDataProvider */
 
 	Yii::app()->getClientScript()->registerScriptFile(CHtml::asset(
-		'js/publishing.js'), CClientScript::POS_HEAD);
+		'scripts/publishing.js'), CClientScript::POS_HEAD);
 
 	$this->pageTitle = Yii::app()->name . ' - Посты';
 ?>
@@ -44,10 +44,6 @@
 					'value' => 'Post::formatTime($data->modify_time)'
 				),
 				array(
-					'name' => 'Теги',
-					'value' => 'implode(", ", explode(",", $data->tags))'
-				),
-				array(
 					'class' => 'CButtonColumn',
 					'header' => 'Опубликован',
 					'template' => '{publish} {unpublish}',
@@ -58,10 +54,7 @@
 							'url' => '$this->grid->controller->createUrl(' .
 								'"post/update", array("id" => $data->id))',
 							'imageUrl' => FALSE,
-							'options' => array(
-								'title' => 'Опубликовать',
-								'style' => 'font-size: larger;'
-							),
+							'options' => array('title' => 'Опубликовать'),
 							'click' => 'function() { return publishing(jQuery('
 								. 'this).attr("href"), true); }',
 							'visible' => '!$data->published'
@@ -72,10 +65,7 @@
 							'url' => '$this->grid->controller->createUrl(' .
 								'"post/update", array("id" => $data->id))',
 							'imageUrl' => FALSE,
-							'options' => array(
-								'title' => 'Снять с публикации',
-								'style' => 'font-size: larger;'
-							),
+							'options' => array('title' => 'Снять с публикации'),
 							'click' => 'function() { return publishing(jQuery('
 								. 'this).attr("href"), false); }',
 							'visible' => '$data->published'
@@ -85,17 +75,14 @@
 				array(
 					'class' => 'CButtonColumn',
 					'header' => 'Удалить',
+					'template' => '{delete}',
+					'deleteConfirmation' => 'Удалить пост?',
 					'buttons' => array(
-						'view' => array('visible' => 'FALSE'),
-						'update' => array('visible' => 'FALSE'),
 						'delete' => array(
 							'label' => '<span class = "glyphicon ' .
 								'glyphicon-trash"></span>',
 							'imageUrl' => FALSE,
-							'options' => array(
-								'title' => 'Удалить пост',
-								'style' => 'font-size: larger;'
-							)
+							'options' => array('title' => 'Удалить пост')
 						)
 					)
 				)

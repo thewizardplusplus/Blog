@@ -1,0 +1,32 @@
+.checkbox {
+	padding-left: 0;
+}
+
+.jq-checkbox {
+	width: 20px;
+	height: 20px;
+}
+
+.jq-checkbox div {
+	display: none;
+	font-size: smaller;
+}
+
+.jq-checkbox.checked div {
+	display: block;
+	background: white;
+	box-shadow: none;
+}
+
+#file-styler {
+	display: block !important;
+	width: 300px;
+}
+
+#file-styler .jq-file__name {
+	width: 200px;
+}
+
+#file-styler .jq-file__browse {
+	width: 98px;
+}

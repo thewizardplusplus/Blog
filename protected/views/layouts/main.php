@@ -3,7 +3,8 @@
 
 	Yii::app()->getClientScript()->registerCoreScript('jquery');
 
-	$with_aside = ($this->route == 'post/list' or $this->route == 'post/view');
+	$with_aside = (($this->route == 'post/list' or $this->route == 'post/view')
+		and Post::model()->count('`tags` <> "" AND published = 1'));
 
 	$copyright_years = Constants::COPYRIGHT_START_YEAR;
 	$current_year = date('Y');
@@ -16,9 +17,11 @@
 <html>
 	<head>
 		<meta charset = "utf-8" />
+
 		<meta name = "MobileOptimized" content = "320" />
 		<meta name = "HandheldFriendly" content = "true" />
 		<meta name = "viewport" content = "width=device-width" />
+
 		<link rel = "icon" type = "image/png" href = "<?php echo Yii::app()->
 			request->baseUrl; ?>/images/logo.png" />
 		<link rel = "shortcut icon" type = "image/vnd.microsoft.icon" href =
@@ -26,51 +29,53 @@
 			?>/images/favicon_for_ie.ico" />
 		<link rel = "apple-touch-icon" href = "<?php echo Yii::app()->request->
 			baseUrl; ?>/images/favicon_for_ios.png" />
+
 		<link rel = "stylesheet" href = "<?php echo Yii::app()->request->
 			baseUrl; ?>/bootstrap/css/bootstrap.min.css" />
 		<link rel = "stylesheet" href = "<?php echo Yii::app()->request->
 			baseUrl; ?>/jquery-ui/css/theme/jquery-ui.min.css" />
-		<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 		<link rel = "stylesheet" href = "<?php echo Yii::app()->request->
-			baseUrl; ?>/css/blog.css" />
+			baseUrl; ?>/styles/blog.css" />
+
+		<title><?php echo CHtml::encode($this->pageTitle); ?></title>
+
 		<script src = "<?php echo Yii::app()->request->baseUrl;
 			?>/bootstrap/js/bootstrap.min.js"></script>
 		<script src = "<?php echo Yii::app()->request->baseUrl;
 			?>/jquery-ui/js/jquery-ui.min.js"></script>
 		<script src = "<?php echo Yii::app()->request->baseUrl;
-			?>/js/ace/ace.js"></script>
+			?>/scripts/ace/ace.js"></script>
 	</head>
 	<body>
 		<section class = "container panel panel-default">
 			<header class = "page-header">
 				<h1>
 					<img src = "<?php echo Yii::app()->request->baseUrl;
-					?>/images/logo.png" alt = "logo" /> <?php echo CHtml::link(
-						Yii::app()->name, $this->createUrl('post/list')); ?>
+						?>/images/logo.png" alt = "logo" /> <?php echo CHtml::
+						link(Yii::app()->name, $this->createUrl('post/list'));
+						?>
 				</h1>
 			</header>
 
 			<?php if (!Yii::app()->user->isGuest) { ?>
 			<nav>
-				<?php
-					$this->widget('zii.widgets.CMenu',array(
-						'items' => array(
-							array('label' => 'Главная', 'url' => array(
-								'post/list')),
-							array('label' => 'Посты', 'url' => array(
-								'post/control')),
-							array('label' => 'Файлы', 'url' => array(
-								'site/files')),
-							array('label' => 'Параметры', 'url' => array(
-								'parameters/update')),
-							array('label' => 'Бекапы', 'url' => array(
-								'backup/list')),
-							array('label' => 'Выход', 'url' => array(
-								'site/logout'))
-						),
-						'htmlOptions' => array('class' => 'nav nav-pills')
-					));
-				?>
+				<?php $this->widget('zii.widgets.CMenu',array(
+					'items' => array(
+						array('label' => 'Главная', 'url' => array(
+							'post/list')),
+						array('label' => 'Посты', 'url' => array(
+							'post/control')),
+						array('label' => 'Файлы', 'url' => array(
+							'file/list')),
+						array('label' => 'Параметры', 'url' => array(
+							'parameters/update')),
+						array('label' => 'Бекапы', 'url' => array(
+							'backup/list')),
+						array('label' => 'Выход', 'url' => array(
+							'site/logout'))
+					),
+					'htmlOptions' => array('class' => 'nav nav-pills')
+				)); ?>
 			</nav>
 			<?php } ?>
 
@@ -85,10 +90,9 @@
 					<?php
 						$this->widget('TagCloud', array(
 							'title' => 'Теги:',
-							'titleCssClass' => 'label ' .
-								'label-primary',
-							'htmlOptions' => array('class' => 'panel ' .
-								'panel-default')
+							'titleCssClass' => 'label label-primary',
+							'htmlOptions' => array('class' => 'panel panel-' .
+								'default')
 						));
 					?>
 				</div>

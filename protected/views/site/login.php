@@ -5,11 +5,13 @@
 
 	Yii::app()->getClientScript()->registerCssFile(CHtml::asset(
 		'jQueryFormStyler/jquery.formstyler.css'));
+	Yii::app()->getClientScript()->registerCssFile(CHtml::asset(
+		'styles/styler.css'));
 
 	Yii::app()->getClientScript()->registerScriptFile(CHtml::asset(
 		'jQueryFormStyler/jquery.formstyler.min.js'), CClientScript::POS_HEAD);
 	Yii::app()->getClientScript()->registerScriptFile(CHtml::asset(
-		'js/styler.js'), CClientScript::POS_HEAD);
+		'scripts/styler.js'), CClientScript::POS_HEAD);
 
 	$this->pageTitle = Yii::app()->name;
 ?>
@@ -25,6 +27,9 @@
 	<fieldset>
 		<legend>Вход:</legend>
 
+		<?php echo $form->errorSummary($model, NULL, NULL, array('class' =>
+			'alert alert-danger')); ?>
+
 		<div class = "form-group">
 			<?php echo $form->labelEx($model, 'password'); ?>
 			<?php echo $form->passwordField($model, 'password', array('class' =>
@@ -32,14 +37,14 @@
 			<?php echo $form->error($model, 'password'); ?>
 		</div>
 
-		<div class = "form-group">
+		<div class = "checkbox">
 			<?php echo $form->checkBox($model,'remember_me'); ?>
 			<?php echo $form->label($model,'remember_me'); ?>
 			<?php echo $form->error($model,'remember_me'); ?>
 		</div>
 
-		<?php echo CHtml::submitButton('Вход', array('class' => 'btn ' .
-			'btn-primary')); ?>
+		<?php echo CHtml::submitButton('Вход', array('class' => 'btn btn-' .
+			'primary')); ?>
 	</fieldset>
 </div>
 

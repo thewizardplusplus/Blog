@@ -1,0 +1,149 @@
+/* addings for Twitter Bootstrap */
+.panel {
+	margin: 10px auto;
+	padding: 10px;
+}
+
+.alert {
+	margin-top: 10px;
+}
+
+legend + .alert {
+	margin-top: 0;
+}
+
+.items .empty {
+	display: block;
+	font-size: larger;
+}
+
+nav + .row .items .empty,
+nav + .list-view .items .empty {
+	margin-top: 10px;
+}
+
+.label {
+	margin-left: 5px;
+}
+
+.label:first-child {
+	margin-left: 0;
+}
+
+.pager .pagination {
+	width: 100%;
+}
+
+.pager .next a {
+	float: left;
+}
+
+.pager li:first-child a {
+	border-bottom-left-radius: 15px;
+	border-top-left-radius: 15px;
+}
+
+.pager li:last-child a {
+	border-bottom-right-radius: 15px;
+	border-top-right-radius: 15px;
+}
+
+.portlet-decoration {
+	margin-bottom: 10px;
+	font-size: 24px;
+}
+
+.breadcrumb {
+	display: inline;
+}
+
+h2.modal-title {
+	font-size: 18px;
+}
+
+/* addings for jQuery UI styles */
+.ui-spinner {
+	display: block;
+}
+
+/* blog styles */
+header a:hover,
+header a:focus {
+	text-decoration: none;
+}
+
+.note {
+	font-size: larger;
+}
+
+.wait {
+	pointer-events: none;
+	opacity: 0.75;
+}
+
+.button-column {
+	font-size: larger;
+}
+
+.button-column.wide {
+	width: 90px !important;
+}
+
+.time {
+	margin-left: 15px;
+	font-size: smaller;
+	color: rgb(128, 128, 128);
+}
+
+.read-next {
+	text-align: right;
+}
+
+.tag {
+	display: block;
+	float: left;
+	margin: 0 5px 5px 0;
+}
+
+.tag:last-child {
+	margin: 0;
+}
+
+.tag.rate1 {
+	font-size: 12px;
+}
+
+.tag.rate2 {
+	font-size: 14px;
+}
+
+.tag.rate3 {
+	font-size: 16px;
+}
+
+.tag.rate4 {
+	font-size: 18px;
+}
+
+.tag.rate5 {
+	font-size: 20px;
+}
+
+#editor {
+	width: 100%;
+	height: 250px;
+	font-size: 14px;
+}
+
+.log {
+	font-size: smaller;
+	color: rgb(128, 128, 128);
+}
+
+.file-icon {
+	margin-right: 10px;
+}
+
+footer {
+	font-size: smaller;
+}

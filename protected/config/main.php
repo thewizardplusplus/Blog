@@ -1,5 +1,7 @@
 <?php
 
+require_once('Constants.php');
+
 return array(
 	'name' => 'Хроники завоевания мира...',
 	'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
@@ -26,17 +28,20 @@ return array(
 				'post/new' => 'post/create',
 				'post/<id:\d+>/update' => 'post/update',
 				'post/<id:\d+>/delete' => 'post/delete',
-				'files' => 'site/files',
+				'files' => 'file/list',
+				'files/rename' => 'file/rename',
+				'files/delete' => 'file/remove',
 				'parameters' => 'parameters/update',
 				'backups' => 'backup/list',
 				'backups/new' => 'backup/create'
 			)
 		),
 		'db' => array(
-			'connectionString' => 'mysql:host=localhost;dbname=blog',
+			'connectionString' => 'mysql:host=' . Constants::DATABASE_HOST .
+				';dbname=' . Constants::DATABASE_NAME,
 			'emulatePrepare' => true,
-			'username' => 'root',
-			'password' => '',
+			'username' => Constants::DATABASE_USER,
+			'password' => Constants::DATABASE_PASSWORD,
 			'charset' => 'utf8',
 			'tablePrefix' => 'blog_'
 		),

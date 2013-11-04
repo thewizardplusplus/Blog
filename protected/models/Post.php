@@ -1,10 +1,6 @@
 <?php
 
 class Post extends CActiveRecord {
-	const MAXIMAL_LENGTH_OF_TITLE_FIELD =    255;
-	const CUT_TAG_PATTERN =                  '/<cut\s*\/>/';
-	const MAXIMAL_LENGTH_OF_DISPLAYED_TEXT = 100;
-
 	public static function model($className = __CLASS__) {
 		return parent::model($className);
 	}
@@ -18,14 +14,14 @@ class Post extends CActiveRecord {
 	public static function processText($view, $text) {
 		switch ($view) {
 			case 'list':
-				$result = preg_match(Post::CUT_TAG_PATTERN, $text, $matches,
-					PREG_OFFSET_CAPTURE);
+				$result = preg_match(Constants::CUT_TAG_PATTERN, $text,
+					$matches, PREG_OFFSET_CAPTURE);
 				if ($result) {
 					$text = substr($text, 0, $matches[0][1]);
 				}
 				break;
 			case 'view':
-				$text = preg_replace(Post::CUT_TAG_PATTERN, '', $text);
+				$text = preg_replace(Constants::CUT_TAG_PATTERN, '', $text);
 				break;
 		}
 
@@ -39,7 +35,7 @@ class Post extends CActiveRecord {
 	public function rules() {
 		return array(
 			array('title, text', 'required'),
-			array('title', 'length', 'max' => Post::
+			array('title', 'length', 'max' => Constants::
 				MAXIMAL_LENGTH_OF_TITLE_FIELD),
 			array('tags', 'safe'),
 			array('published', 'numerical', 'min' => 0, 'max' => 1)

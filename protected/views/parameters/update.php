@@ -4,7 +4,7 @@
 	/* @var $form CActiveForm */
 
 	Yii::app()->getClientScript()->registerScriptFile(CHtml::asset(
-		'js/spinner.js'), CClientScript::POS_HEAD);
+		'scripts/spinner.js'), CClientScript::POS_HEAD);
 
 	$this->pageTitle = Yii::app()->name . ' - Параметры';
 ?>
@@ -22,7 +22,8 @@
 	<fieldset>
 		<legend>Параметры:</legend>
 
-		<?php echo $form->errorSummary($model); ?>
+		<?php echo $form->errorSummary($model, NULL, NULL, array('class' =>
+			'alert alert-danger')); ?>
 
 		<div class = "panel panel-default">
 			<fieldset>

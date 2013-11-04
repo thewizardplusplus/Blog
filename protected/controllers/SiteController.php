@@ -6,6 +6,28 @@ class SiteController extends CController {
 		$this->defaultAction = 'login';
 	}
 
+	public function filters() {
+		return array('accessControl');
+	}
+
+	public function accessRules() {
+		return array(
+			array(
+				'allow',
+				'actions' => array('error', 'login'),
+				'users' => array('*')
+			),
+			array(
+				'allow',
+				'users' => array('admin')
+			),
+			array(
+				'deny',
+				'users' => array('*')
+			)
+		);
+	}
+
 	public function actionError() {
 		$error = Yii::app()->errorHandler->error;
 		if ($error) {
@@ -47,9 +69,5 @@ class SiteController extends CController {
 	public function actionLogout() {
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
-	}
-
-	public function actionFiles() {
-		$this->render('files');
 	}
 }

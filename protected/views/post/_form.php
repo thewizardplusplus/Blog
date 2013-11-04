@@ -5,17 +5,18 @@
 
 	Yii::app()->getClientScript()->registerCssFile(CHtml::asset(
 		'jQueryFormStyler/jquery.formstyler.css'));
+	Yii::app()->getClientScript()->registerCssFile(CHtml::asset(
+		'styles/styler.css'));
 
 	Yii::app()->getClientScript()->registerScriptFile(CHtml::asset(
-		'js/editor.js'), CClientScript::POS_HEAD);
+		'scripts/editor.js'), CClientScript::POS_HEAD);
 	Yii::app()->getClientScript()->registerScriptFile(CHtml::asset(
 		'jQueryFormStyler/jquery.formstyler.min.js'), CClientScript::POS_HEAD);
 	Yii::app()->getClientScript()->registerScriptFile(CHtml::asset(
-		'js/styler.js'), CClientScript::POS_HEAD);
+		'scripts/styler.js'), CClientScript::POS_HEAD);
 ?>
 
-<?php
-	$form=$this->beginWidget('CActiveForm', array(
+<?php $form=$this->beginWidget('CActiveForm', array(
 		'id' => 'post-form',
 		'enableAjaxValidation' => true,
 		'enableClientValidation' => true,
@@ -23,7 +24,8 @@
 )); ?>
 
 <div class = "panel panel-default">
-	<?php echo $form->errorSummary($model); ?>
+	<?php echo $form->errorSummary($model, NULL, NULL, array('class' => 'alert '
+		. 'alert-danger')); ?>
 
 	<fieldset>
 		<legend><?php echo $model->isNewRecord ? 'Создать пост:' : 'Изменить ' .
@@ -34,7 +36,7 @@
 			<?php
 				echo $form->textField($model, 'title', array(
 					'class' => 'form-control',
-					'maxlength' => Post::MAXIMAL_LENGTH_OF_TITLE_FIELD
+					'maxlength' => Constants::MAXIMAL_LENGTH_OF_TITLE_FIELD
 				));
 			?>
 			<?php echo $form->error($model, 'title'); ?>
@@ -42,7 +44,7 @@
 
 		<div class = "form-group">
 			<?php echo $form->labelEx($model, 'text'); ?>
-			<div id = "editor"><?php echo $model->text; ?></div>
+			<div id = "editor"><?php echo CHtml::encode($model->text); ?></div>
 			<?php echo $form->error($model, 'text'); ?>
 			<?php echo CHtml::hiddenField('Post[text]'); ?>
 		</div>
@@ -54,7 +56,7 @@
 			<?php echo $form->error($model, 'tags'); ?>
 		</div>
 
-		<div class = "form-group">
+		<div class = "checkbox">
 			<?php echo $form->checkBox($model,'published'); ?>
 			<?php echo $form->label($model,'published'); ?>
 			<?php echo $form->error($model,'published'); ?>
