@@ -31,7 +31,7 @@
 	</p>
 
 	<?php
-		$this->beginWidget('CMarkdown', array('purifyOutput' => TRUE));
+		$this->beginWidget('CMarkdown');
 		echo Post::processText($this->action->id == 'list' ? 'list' : 'view',
 			$data->text);
 		$this->endWidget();
