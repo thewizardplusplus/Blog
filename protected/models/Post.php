@@ -33,6 +33,7 @@ class Post extends CActiveRecord {
 			'<img class = "img-responsive" ',
 			$text
 		);
+		$text = preg_replace(';\s+</pre>;', '</pre>', $text);
 
 		return $text;
 	}
