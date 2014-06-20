@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="21356f31-0bc6-4b10-983b-8694f427a2f5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/Post.php" afterPath="$PROJECT_DIR$/protected/models/Post.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="blog.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,7 +28,7 @@
       <file leaf-file-name="Post.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/protected/models/Post.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="0" selection-start="908" selection-end="908" vertical-scroll-proportion="0.7714286" vertical-offset="0" max-vertical-offset="1335">
+            <state line="39" column="56" selection-start="1027" selection-end="1027" vertical-scroll-proportion="0.57857144" vertical-offset="180" max-vertical-offset="1440">
               <folding />
             </state>
           </provider>
@@ -481,7 +480,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/models/Post.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="0" selection-start="908" selection-end="908" vertical-scroll-proportion="0.7714286" vertical-offset="0" max-vertical-offset="1335">
+        <state line="39" column="56" selection-start="1027" selection-end="1027" vertical-scroll-proportion="0.57857144" vertical-offset="180" max-vertical-offset="1440">
           <folding />
         </state>
       </provider>

@@ -34,6 +34,13 @@ class Post extends CActiveRecord {
 			$text
 		);
 		$text = preg_replace(';\s+</pre>;', '</pre>', $text);
+		$text = str_replace(
+			'<table>',
+			'<div class = "table-responsive">'
+				. '<table class = "table table-bordered table-striped">',
+			$text
+		);
+		$text = str_replace('</table>', '</table></div>', $text);
 
 		return $text;
 	}
