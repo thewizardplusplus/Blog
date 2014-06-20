@@ -33,9 +33,11 @@ class PostController extends CController {
 
 	public function actionList() {
 		$criteria = new CDbCriteria(array(
-			'order' => 'create_time DESC',
-			'condition' => 'published = 1'
+			'order' => 'create_time DESC'
 		));
+		if (Yii::app()->user->isGuest) {
+			$criteria->condition = 'published = 1';
+		}
 		if (isset($_GET['tag'])) {
 			$criteria->addCondition('FIND_IN_SET(' . Yii::app()->db->quoteValue(
 				$_GET['tag']) . ', `tags`)');
