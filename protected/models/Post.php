@@ -25,6 +25,15 @@ class Post extends CActiveRecord {
 				break;
 		}
 
+		$translator = new CMarkdown;
+		$text = $translator->transform($text);
+
+		$text = preg_replace(
+			'/<img\s/',
+			'<img class = "img-responsive" ',
+			$text
+		);
+
 		return $text;
 	}
 

@@ -30,12 +30,10 @@
 			Post::formatTime($data->modify_time); ?></time>.
 	</p>
 
-	<?php
-		$this->beginWidget('CMarkdown');
-		echo Post::processText($this->action->id == 'list' ? 'list' : 'view',
-			$data->text);
-		$this->endWidget();
-	?>
+	<?= Post::processText(
+		$this->action->id == 'list' ? 'list' : 'view',
+		$data->text
+	) ?>
 
 	<?php if (!empty($data->tags)) { ?>
 	<p>Теги: <?php echo $tags_list; ?></p>
