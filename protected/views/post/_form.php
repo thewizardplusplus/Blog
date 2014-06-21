@@ -51,8 +51,27 @@
 
 		<div class = "form-group">
 			<?php echo $form->labelEx($model, 'tags'); ?>
-			<?php echo $form->textField($model, 'tags', array('class' =>
-				'form-control')); ?>
+			<?php $this->widget(
+				'zii.widgets.jui.CJuiAutoComplete',
+				array(
+					'model' => $model,
+					'attribute' => 'tags',
+					'sourceUrl' => $this->createUrl('post/tagsAutocomplete'),
+					'options' => array(
+						'position' => new CJavaScriptExpression(
+								'{'
+								. 'my: "left top",'
+								. 'at: "left bottom",'
+								. 'collision: "none"'
+								. '}'
+							)
+					),
+					'htmlOptions' => array(
+						'class' => 'form-control',
+						'autocomplete' => 'off'
+					)
+				)
+			); ?>
 			<?php echo $form->error($model, 'tags'); ?>
 		</div>
 

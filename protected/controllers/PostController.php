@@ -67,6 +67,67 @@ class PostController extends CController {
 		$this->render('view', array('model' => $model));
 	}
 
+	public function actionTagsAutocomplete() {
+		if (empty($_GET['term'])) {
+			echo '[]';
+			return;
+		}
+
+		$tags = array();
+		$posts = Post::model()->findAll('`tags` <> ""');
+		if (!empty($posts)) {
+			foreach ($posts as $post) {
+				$tags = array_merge(
+					$tags,
+					array_map('trim', explode(',', $post->tags))
+				);
+			}
+
+			$tags = array_unique($tags);
+			sort($tags, SORT_STRING);
+		} else {
+			echo '[]';
+			return;
+		}
+
+		$sample = str_replace('"', '\"', $_GET['term']);
+		$last_comma_index = strrpos($sample, ',');
+		if ($last_comma_index !== FALSE) {
+			$prefix = trim(substr($sample, 0, $last_comma_index));
+
+			$last_comma_index++;
+			if ($last_comma_index < strlen($sample)) {
+				$sample = trim(substr($sample, $last_comma_index));
+			} else {
+				$sample = '';
+			}
+		} else {
+			$prefix = '';
+		}
+
+		$tags = array_filter(
+			$tags,
+			function($tag) use($sample) {
+				return empty($sample) or strpos($tag, $sample) === 0;
+			}
+		);
+
+		$tags = array_map(
+			function($tag) use($prefix) {
+				if (!empty($prefix)) {
+					$value = $prefix . ', ' . $tag;
+				} else {
+					$value = $tag;
+				}
+
+				return "{ \"label\": \"$tag\", \"value\": \"$value\" }";
+			},
+			$tags
+		);
+
+		echo '[ ' . implode(', ', $tags) . ' ]';
+	}
+
 	public function actionCreate() {
 		$model = new Post;
 		$this->performAjaxValidation($model);

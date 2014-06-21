@@ -66,6 +66,18 @@ h5 {
 }
 
 /* addings for jQuery UI styles */
+.ui-autocomplete {
+	/* Minimal screen size (QVGA) on mobile (Android)
+	* minus height text point input field.
+	*/
+	max-height: 206px;
+	overflow-x: hidden;
+}
+
+.ui-autocomplete-loading {
+	background: url('/images/processing-icon.gif') right center no-repeat;
+}
+
 .ui-spinner {
 	display: block;
 }
