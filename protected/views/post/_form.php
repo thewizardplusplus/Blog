@@ -8,6 +8,10 @@
 	Yii::app()->getClientScript()->registerCssFile(CHtml::asset(
 		'styles/styler.css'));
 
+	Yii::app()->getClientScript()->registerScriptFile(
+		CHtml::asset('scripts/marked.min.js'),
+		CClientScript::POS_HEAD
+	);
 	Yii::app()->getClientScript()->registerScriptFile(CHtml::asset(
 		'scripts/editor.js'), CClientScript::POS_HEAD);
 	Yii::app()->getClientScript()->registerScriptFile(CHtml::asset(
@@ -43,10 +47,16 @@
 		</div>
 
 		<div class = "form-group">
+			<button
+				class = "btn btn-default btn-xs pull-right editor-switch-button">
+				<span class="glyphicon glyphicon-eye-open"></span>
+				<span>Предпросмотр</span>
+			</button>
 			<?php echo $form->labelEx($model, 'text'); ?>
 			<div id = "editor"><?php echo CHtml::encode($model->text); ?></div>
-			<?php echo $form->error($model, 'text'); ?>
+			<div id = "preview" class = "panel panel-default"></div>
 			<?php echo CHtml::hiddenField('Post[text]'); ?>
+			<?php echo $form->error($model, 'text'); ?>
 		</div>
 
 		<div class = "form-group">
