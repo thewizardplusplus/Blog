@@ -39,15 +39,47 @@
 	<p>Теги: <?php echo $tags_list; ?></p>
 	<?php } ?>
 
-	<?php
-		if ($this->action->id == 'list' and preg_match(Constants::
-			CUT_TAG_PATTERN, $data->text))
-		{
-	?>
-	<p class = "read-next">
-		<?php echo CHtml::link('Читать дальше &gt;&gt;', $this->createUrl(
-			'post/view', array('id' => $data->id, 'title' => $data->title)),
-			array('class' => 'btn btn-default')); ?>
-	</p>
+	<?php if ($this->action->id == 'list') { ?>
+		<div class = "clearfix">
+			<?php
+				if (preg_match(Constants::CUT_TAG_PATTERN, $data->text)) {
+			?>
+				<?= CHtml::link(
+					'Читать дальше &gt;&gt;',
+					$this->createUrl(
+						'post/view',
+						array('id' => $data->id, 'title' => $data->title)
+					),
+					array('class' => 'btn btn-default pull-right')
+				) ?>
+			<?php } ?>
+			<?= CHtml::link(
+				'Комментарии',
+				$this->createUrl(
+					'post/view',
+					array(
+						'id' => $data->id,
+						'title' => $data->title,
+						'#' => 'disqus_thread'
+					)
+				),
+				array('class' => 'btn btn-default pull-left')
+			) ?>
+		</div>
+	<?php } else { ?>
+		<div id = "disqus_thread"></div>
+		<script>
+			var disqus_shortname = 'wizardblog-thewizardpp';
+			var disqus_identifier = <?= $data->id ?>;
+			var disqus_title = '<?= CHtml::encode($data->title) ?>';
+			var disqus_url = '<?= Yii::app()->createAbsoluteUrl(
+				'post/view',
+				array(
+					'id' => $data->id,
+					'title' => $data->title
+				)
+			) ?>';
+		</script>
+		<?= CHtml::scriptFile(CHtml::asset('scripts/disqus_thread.js')) ?>
 	<?php } ?>
 </article>

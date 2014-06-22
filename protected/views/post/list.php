@@ -30,3 +30,6 @@
 		)
 	));
 ?>
+
+<?= CHtml::script("var disqus_shortname = 'wizardblog-thewizardpp';") ?>
+<?= CHtml::scriptFile(CHtml::asset('scripts/disqus_counter.js')) ?>
