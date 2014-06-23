@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21356f31-0bc6-4b10-983b-8694f427a2f5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/disqus_counters.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/disqus_counter.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/config/Constants.php" afterPath="$PROJECT_DIR$/protected/config/Constants.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/post/_view.php" afterPath="$PROJECT_DIR$/protected/views/post/_view.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/post/list.php" afterPath="$PROJECT_DIR$/protected/views/post/list.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="blog.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,9 +47,10 @@
         <option value="$PROJECT_DIR$/scripts/editor.js" />
         <option value="$PROJECT_DIR$/styles/blog.css" />
         <option value="$PROJECT_DIR$/scripts/disqus_thread.js" />
-        <option value="$PROJECT_DIR$/protected/views/post/_view.php" />
         <option value="$PROJECT_DIR$/scripts/disqus_counter.js" />
+        <option value="$PROJECT_DIR$/protected/config/Constants.php" />
         <option value="$PROJECT_DIR$/protected/views/post/list.php" />
+        <option value="$PROJECT_DIR$/protected/views/post/_view.php" />
       </list>
     </option>
   </component>
@@ -406,7 +405,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-3" y="-3" width="1158" height="871" extended-state="6" />
+    <frame x="-3" y="-3" width="1158" height="871" extended-state="7" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32756326" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -449,7 +448,9 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/bootstrap/css/bootstrap.min.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="12765" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="12765">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/images/favicon_for_ie.ico">
@@ -523,7 +524,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/styles/blog.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="113" column="0" selection-start="1455" selection-end="1455" vertical-scroll-proportion="0.39657632" vertical-offset="1417" max-vertical-offset="2760" />
+        <state line="113" column="0" selection-start="1455" selection-end="1455" vertical-scroll-proportion="0.39657632" vertical-offset="1417" max-vertical-offset="2760">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/disqus_thread.js">
@@ -545,13 +548,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/views/post/_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="57" selection-start="1731" selection-end="1731" vertical-scroll-proportion="0.42307693" vertical-offset="708" max-vertical-offset="1410">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/disqus_counters.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="0" selection-start="684" selection-end="684" vertical-scroll-proportion="0.59917355" vertical-offset="0" max-vertical-offset="726">
@@ -559,9 +555,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/protected/views/post/_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="88" column="0" selection-start="2246" selection-end="2246" vertical-scroll-proportion="0.8717949" vertical-offset="708" max-vertical-offset="1410">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/config/Constants.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="0" selection-start="760" selection-end="760" vertical-scroll-proportion="0.42735043" vertical-offset="0" max-vertical-offset="702">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/protected/views/post/list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="0" selection-start="1214" selection-end="1214" vertical-scroll-proportion="0.8717949" vertical-offset="63" max-vertical-offset="765">
+        <state line="45" column="0" selection-start="1234" selection-end="1234" vertical-scroll-proportion="0.96153843" vertical-offset="0" max-vertical-offset="765">
           <folding />
         </state>
       </provider>

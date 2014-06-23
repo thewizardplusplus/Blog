@@ -14,4 +14,7 @@ class Constants {
 	const FILES_RELATIVE_PATH =           '/../../files';
 	// relatively at /protected/controllers
 	const BACKUPS_RELATIVE_PATH =         '/../../backups';
+	const DISQUS_API_KEY =
+		'MC2blDKGnbThxh5WJR2z7qKOCNkKMgKIYUto7RM1HyDOKRLRTE2V3UDQlLaWpMqa';
+	const DISQUS_SHORTNAME = 'wizardblog-thewizardpp';
 }

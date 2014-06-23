@@ -39,7 +39,7 @@
 ?>
 
 <script>
-	var disqus_api_key = 'CmkdeCH1nJGF16zQlrzAc3VI';
-	var disqus_shortname = 'wizardblog-thewizardpp';
+	var disqus_api_key = '<?= Constants::DISQUS_API_KEY ?>';
+	var disqus_shortname = '<?= Constants::DISQUS_SHORTNAME ?>';
 </script>
 <?= CHtml::scriptFile(CHtml::asset('scripts/disqus_counters.js')) ?>

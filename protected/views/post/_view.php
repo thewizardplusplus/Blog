@@ -72,7 +72,7 @@
 	<?php } else { ?>
 		<div id = "disqus_thread"></div>
 		<script>
-			var disqus_shortname = 'wizardblog-thewizardpp';
+			var disqus_shortname = '<?= Constants::DISQUS_SHORTNAME ?>';
 			var disqus_identifier = <?= $data->id ?>;
 			var disqus_title = '<?= CHtml::encode($data->title) ?>';
 			var disqus_url = '<?= Yii::app()->createAbsoluteUrl(
