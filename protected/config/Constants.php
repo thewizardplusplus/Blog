@@ -17,4 +17,5 @@ class Constants {
 	const DISQUS_API_KEY =
 		'MC2blDKGnbThxh5WJR2z7qKOCNkKMgKIYUto7RM1HyDOKRLRTE2V3UDQlLaWpMqa';
 	const DISQUS_SHORTNAME = 'wizardblog-thewizardpp';
+	const ADDTHIS_PROFILE_ID = 'ra-539ff44f6a85001a';
 }
