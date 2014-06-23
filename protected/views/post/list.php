@@ -18,6 +18,13 @@
 		'template' => '{items} {pager}',
 		'itemView' => '_view',
 		'loadingCssClass' => 'wait',
+		'afterAjaxUpdate' => new CJavaScriptExpression(
+			'function() {'
+				. 'if (typeof UpdateCommentsCounters != "undefined") {'
+					. 'UpdateCommentsCounters();'
+				. '}'
+			. '}'
+		),
 		'pager' => array(
 			'maxButtonCount' => 0,
 			'header' => '',
@@ -31,5 +38,8 @@
 	));
 ?>
 
-<?= CHtml::script("var disqus_shortname = 'wizardblog-thewizardpp';") ?>
-<?= CHtml::scriptFile(CHtml::asset('scripts/disqus_counter.js')) ?>
+<script>
+	var disqus_api_key = 'CmkdeCH1nJGF16zQlrzAc3VI';
+	var disqus_shortname = 'wizardblog-thewizardpp';
+</script>
+<?= CHtml::scriptFile(CHtml::asset('scripts/disqus_counters.js')) ?>

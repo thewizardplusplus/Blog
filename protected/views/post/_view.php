@@ -63,7 +63,10 @@
 						'#' => 'disqus_thread'
 					)
 				),
-				array('class' => 'btn btn-default pull-left')
+				array(
+					'class' => 'btn btn-default pull-left',
+					'data-disqus-identifier' => $data->id
+				)
 			) ?>
 		</div>
 	<?php } else { ?>
