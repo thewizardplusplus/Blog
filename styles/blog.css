@@ -180,3 +180,8 @@ footer {
 .delete-post-button {
 	margin-left: 5px;
 }
+
+.navbar-form {
+	margin-right: 0 !important;
+	padding-right: 0;
+}

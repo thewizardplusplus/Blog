@@ -7,7 +7,7 @@ CREATE TABLE `blog_posts` (
 	`create_time` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00',
 	`modify_time` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00',
 	`tags` TEXT NOT NULL,
-	`published` BOOLEAN NOT NULL DEFAULT '0'
+	`published` BOOLEAN NOT NULL DEFAULT '1'
 ) ENGINE = MyISAM CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 CREATE TABLE `blog_parameters` (

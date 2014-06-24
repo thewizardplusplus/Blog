@@ -46,37 +46,89 @@
 		<script src = "<?php echo Yii::app()->request->baseUrl;
 			?>/scripts/ace/ace.js"></script>
 	</head>
-	<body>
-		<section class = "container panel panel-default">
-			<header class = "page-header">
-				<h1>
-					<img src = "<?php echo Yii::app()->request->baseUrl;
-						?>/images/logo.png" alt = "logo" /> <?php echo CHtml::
-						link(Yii::app()->name, $this->createUrl('post/list'));
-						?>
-				</h1>
-			</header>
+	<body
+		<?= !Yii::app()->user->isGuest
+			? 'style = "padding-top: 50px;"'
+			: '' ?>>
+		<?php if (!Yii::app()->user->isGuest) { ?>
+			<nav class = "navbar navbar-default navbar-fixed-top navbar-inverse">
+				<section class = "container">
+					<div class = "navbar-header">
+						<button
+							class = "navbar-toggle"
+							data-toggle = "collapse"
+							data-target = "#navbar-collapse">
+							<span class = "icon-bar"></span>
+							<span class = "icon-bar"></span>
+							<span class = "icon-bar"></span>
+						</button>
+						<a
+							class = "navbar-brand"
+							href = "<?= Yii::app()->homeUrl ?>">
+							<?= Yii::app()->name ?>
+						</a>
+					</div>
 
-			<?php if (!Yii::app()->user->isGuest) { ?>
-			<nav>
-				<?php $this->widget('zii.widgets.CMenu',array(
-					'items' => array(
-						array('label' => 'Главная', 'url' => array(
-							'post/list')),
-						array('label' => 'Посты', 'url' => array(
-							'post/control')),
-						array('label' => 'Файлы', 'url' => array(
-							'file/list')),
-						array('label' => 'Параметры', 'url' => array(
-							'parameters/update')),
-						array('label' => 'Бекапы', 'url' => array(
-							'backup/list')),
-						array('label' => 'Выход', 'url' => array(
-							'site/logout'))
-					),
-					'htmlOptions' => array('class' => 'nav nav-pills')
-				)); ?>
+					<div
+						id = "navbar-collapse"
+						class = "collapse navbar-collapse">
+						<a
+							class = "btn btn-primary navbar-btn navbar-left"
+							href = "<?= $this->createUrl('post/create') ?>">
+							<span class = "glyphicon glyphicon-plus"></span>
+							Новый пост
+						</a>
+						<?php $this->widget(
+							'zii.widgets.CMenu',
+							array(
+								'items' => array(
+									array(
+										'label' => 'Файлы',
+										'url' => array('file/list')
+									),
+									array(
+										'label' => 'Параметры',
+										'url' => array('parameters/update')
+									),
+									array(
+										'label' => 'Бекапы',
+										'url' => array('backup/list')
+									)
+								),
+								'htmlOptions' => array(
+									'class' => 'nav navbar-nav'
+								)
+							)
+						); ?>
+						<?= CHtml::beginForm(
+							$this->createUrl('site/logout'),
+							'post',
+							array('class' => 'navbar-form navbar-right')
+						) ?>
+							<?= CHtml::htmlButton(
+								'<span class = "glyphicon glyphicon-log-out">'
+									. '</span> Выход',
+								array(
+									'class' => 'btn btn-primary',
+									'type' => 'submit'
+								)
+							) ?>
+						<?= CHtml::endForm() ?>
+					</div>
+				</section>
 			</nav>
+		<?php } ?>
+
+		<section class = "container panel panel-default">
+			<?php if (Yii::app()->user->isGuest) { ?>
+				<header class = "page-header">
+					<h1>
+						<img src = "<?php echo Yii::app()->request->baseUrl;
+							?>/images/logo.png" alt = "logo" /> <?php echo CHtml::
+							link(Yii::app()->name, $this->createUrl('post/list'));
+							?>
+					</h1>
+				</header>
 			<?php } ?>
 
 			<?php if ($with_aside) { ?>

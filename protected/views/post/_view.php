@@ -2,22 +2,24 @@
 	/* @var $this PostController */
 	/* @var $data Post */
 
-	Yii::app()->getClientScript()->registerScript(
-		uniqid(rand(), true),
-		'var addthis_config = { ui_language: "ru" };'
-			. 'var addthis_share = {'
-				. 'title: "' . CHtml::encode($data->title) . '",'
-				. 'templates: {'
-					. 'twitter: "{{title}}: {{url}}"'
-				. '}'
-			. '}',
-		CClientScript::POS_HEAD
-	);
-	Yii::app()->getClientScript()->registerScriptFile(
-		'http://s7.addthis.com/js/300/addthis_widget.js#pubid='
-			. Constants::ADDTHIS_PROFILE_ID,
-		CClientScript::POS_HEAD
-	);
+	if ($this->action->id == 'view') {
+		Yii::app()->getClientScript()->registerScript(
+			uniqid(rand(), true),
+			'var addthis_config = { ui_language: "ru" };'
+				. 'var addthis_share = {'
+					. 'title: "' . CHtml::encode($data->title) . '",'
+					. 'templates: {'
+						. 'twitter: "{{title}}: {{url}}"'
+					. '}'
+				. '}',
+			CClientScript::POS_HEAD
+		);
+		Yii::app()->getClientScript()->registerScriptFile(
+			'http://s7.addthis.com/js/300/addthis_widget.js#pubid='
+				. Constants::ADDTHIS_PROFILE_ID,
+			CClientScript::POS_HEAD
+		);
+	}
 
 	if (!empty($data->tags)) {
 		$tags_list = '';

@@ -52,16 +52,6 @@ class PostController extends CController {
 		$this->render('list', array('data_provider' => $data_provider));
 	}
 
-	public function actionControl() {
-		$data_provider = new CActiveDataProvider('Post', array(
-			'criteria' => array('order' => 'create_time DESC'),
-			'pagination' => array('pagesize' => Parameters::get()->
-				posts_on_page)
-		));
-
-		$this->render('control', array('data_provider' => $data_provider));
-	}
-
 	public function actionView($id) {
 		$model = $this->loadModel($id);
 		$this->render('view', array('model' => $model));
@@ -136,7 +126,7 @@ class PostController extends CController {
 			$model->attributes = $_POST['Post'];
 			$model->save();
 
-			$this->redirect(array('control'));
+			$this->redirect(array('view', 'id' => $model->id));
 		}
 
 		if (!isset($_POST['ajax'])) {

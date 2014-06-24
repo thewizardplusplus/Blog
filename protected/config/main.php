@@ -3,7 +3,7 @@
 require_once('Constants.php');
 
 return array(
-	'name' => 'Хроники завоевания мира...',
+	'name' => 'Wizard Blog',
 	'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
 	'defaultController' => 'post/list',
 	'language' => 'ru',
