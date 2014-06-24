@@ -176,3 +176,7 @@ iframe.code {
 footer {
 	font-size: smaller;
 }
+
+.delete-post-button {
+	margin-left: 5px;
+}

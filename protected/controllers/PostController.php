@@ -152,7 +152,7 @@ class PostController extends CController {
 			$model->attributes = $_POST['Post'];
 			$result = $model->save();
 			if (!isset($_POST['ajax']) and $result) {
-				$this->redirect(array('control'));
+				$this->redirect(array('view', 'id' => $id));
 			}
 		}
 

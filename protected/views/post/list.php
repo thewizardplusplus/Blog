@@ -2,6 +2,11 @@
 	/* @var $this PostController */
 	/* @var $data_provider CActiveDataProvider */
 
+	Yii::app()->getClientScript()->registerScriptFile(
+		CHtml::asset('scripts/post_list.js'),
+		CClientScript::POS_HEAD
+	);
+
 	$this->pageTitle = Yii::app()->name;
 ?>
 
@@ -14,15 +19,16 @@
 
 <?php
 	$this->widget('zii.widgets.CListView', array(
+		'id' => 'post-list',
 		'dataProvider' => $data_provider,
 		'template' => '{items} {pager}',
+		'enableHistory' => true,
 		'itemView' => '_view',
 		'loadingCssClass' => 'wait',
 		'afterAjaxUpdate' => new CJavaScriptExpression(
 			'function() {'
-				. 'if (typeof UpdateCommentsCounters != "undefined") {'
-					. 'UpdateCommentsCounters();'
-				. '}'
+				. 'PostList.initialize();'
+				. 'UpdateCommentsCounters();'
 			. '}'
 		),
 		'pager' => array(
