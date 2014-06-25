@@ -31,29 +31,31 @@
 ?>
 
 <article class = "panel panel-default">
-	<?= CHtml::link(
-		'<span class = "glyphicon glyphicon-trash"></span>',
-		$this->createUrl(
-			'post/delete',
-			array('id' => $data->id)
-		),
-		array(
-			'class' => 'btn btn-default pull-right delete-post-button',
-			'title' => 'Удалить',
-			'data-post-title' => $data->title
-		)
-	) ?>
-	<?= CHtml::link(
-		'<span class = "glyphicon glyphicon-pencil"></span>',
-		$this->createUrl(
-			'post/update',
-			array('id' => $data->id)
-		),
-		array(
-			'class' => 'btn btn-default pull-right',
-			'title' => 'Редактировать'
-		)
-	) ?>
+	<?php if (!Yii::app()->user->isGuest) { ?>
+		<?= CHtml::link(
+			'<span class = "glyphicon glyphicon-trash"></span>',
+			$this->createUrl(
+				'post/delete',
+				array('id' => $data->id)
+			),
+			array(
+				'class' => 'btn btn-default pull-right delete-post-button',
+				'title' => 'Удалить',
+				'data-post-title' => $data->title
+			)
+		) ?>
+		<?= CHtml::link(
+			'<span class = "glyphicon glyphicon-pencil"></span>',
+			$this->createUrl(
+				'post/update',
+				array('id' => $data->id)
+			),
+			array(
+				'class' => 'btn btn-default pull-right',
+				'title' => 'Редактировать'
+			)
+		) ?>
+	<?php } ?>
 
 	<h2>
 		<?php
@@ -65,32 +67,34 @@
 			}
 		?>
 
-		<?php if ($data->published) { ?>
-			<?= CHtml::link(
-				'<span class = "glyphicon glyphicon-eye-open"></span>',
-				$this->createUrl(
-					'post/update',
-					array('id' => $data->id)
-				),
-				array(
-					'class' => 'btn btn-default publishing-post-button',
-					'title' => 'Скрыть',
-					'data-published' => 'false'
-				)
-			) ?>
-		<?php } else { ?>
-			<?= CHtml::link(
-				'<span class = "glyphicon glyphicon-eye-close"></span>',
-				$this->createUrl(
-					'post/update',
-					array('id' => $data->id)
-				),
-				array(
-					'class' => 'btn btn-default publishing-post-button',
-					'title' => 'Опубликовать',
-					'data-published' => 'true'
-				)
-			) ?>
+		<?php if (!Yii::app()->user->isGuest) { ?>
+			<?php if ($data->published) { ?>
+				<?= CHtml::link(
+					'<span class = "glyphicon glyphicon-eye-open"></span>',
+					$this->createUrl(
+						'post/update',
+						array('id' => $data->id)
+					),
+					array(
+						'class' => 'btn btn-default publishing-post-button',
+						'title' => 'Скрыть',
+						'data-published' => 'false'
+					)
+				) ?>
+			<?php } else { ?>
+				<?= CHtml::link(
+					'<span class = "glyphicon glyphicon-eye-close"></span>',
+					$this->createUrl(
+						'post/update',
+						array('id' => $data->id)
+					),
+					array(
+						'class' => 'btn btn-default publishing-post-button',
+						'title' => 'Опубликовать',
+						'data-published' => 'true'
+					)
+				) ?>
+			<?php } ?>
 		<?php } ?>
 	</h2>
 

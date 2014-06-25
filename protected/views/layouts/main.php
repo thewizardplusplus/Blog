@@ -123,10 +123,12 @@
 			<?php if (Yii::app()->user->isGuest) { ?>
 				<header class = "page-header">
 					<h1>
-						<img src = "<?php echo Yii::app()->request->baseUrl;
-							?>/images/logo.png" alt = "logo" /> <?php echo CHtml::
-							link(Yii::app()->name, $this->createUrl('post/list'));
-							?>
+						<img
+							src = "<?= Yii::app()->request->baseUrl ?>/images/logo.png"
+							alt = "logo" />
+						<a href = "<?= $this->createUrl('post/list') ?>">
+							Хроники завоевания мира...
+						</a>
 					</h1>
 				</header>
 			<?php } ?>

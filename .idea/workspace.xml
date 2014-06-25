@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21356f31-0bc6-4b10-983b-8694f427a2f5" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/protected/views/post/control.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/publishing.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/controllers/PostController.php" afterPath="$PROJECT_DIR$/protected/controllers/PostController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/post/_view.php" afterPath="$PROJECT_DIR$/protected/views/post/_view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/blog.css" afterPath="$PROJECT_DIR$/styles/blog.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/docs/database.sql" afterPath="$PROJECT_DIR$/protected/docs/database.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/config/main.php" afterPath="$PROJECT_DIR$/protected/config/main.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/layouts/main.php" afterPath="$PROJECT_DIR$/protected/views/layouts/main.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -33,11 +27,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="_view.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="_view.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/views/post/_view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="0" selection-start="607" selection-end="607" vertical-scroll-proportion="0.47008547" vertical-offset="0" max-vertical-offset="2685">
+            <state line="111" column="0" selection-start="2882" selection-end="2882" vertical-scroll-proportion="15.75" vertical-offset="2043" max-vertical-offset="2745">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/protected/views/layouts/main.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="134" column="0" selection-start="4060" selection-end="4060" vertical-scroll-proportion="0.5660377" vertical-offset="1620" max-vertical-offset="2565">
+              <folding>
+                <marker date="1403733144000" expanded="true" signature="4113:4286" placeholder="..." />
+                <marker date="1403733144000" expanded="true" signature="4142:4225" placeholder="..." />
+                <marker date="1403733144000" expanded="true" signature="4254:4286" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -66,9 +73,9 @@
         <option value="$PROJECT_DIR$/protected/config/main.php" />
         <option value="$PROJECT_DIR$/protected/controllers/PostController.php" />
         <option value="$PROJECT_DIR$/styles/blog.css" />
-        <option value="$PROJECT_DIR$/protected/views/post/_view.php" />
         <option value="$PROJECT_DIR$/protected/views/post/list.php" />
         <option value="$PROJECT_DIR$/protected/docs/database.sql" />
+        <option value="$PROJECT_DIR$/protected/views/post/_view.php" />
         <option value="$PROJECT_DIR$/protected/views/layouts/main.php" />
       </list>
     </option>
@@ -106,7 +113,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -391,6 +397,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -424,7 +431,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-3" y="-3" width="1158" height="871" extended-state="7" />
+    <frame x="-3" y="-3" width="1158" height="871" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32756326" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -433,7 +440,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26576576" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27027026" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -441,11 +448,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -465,11 +472,16 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/bootstrap/css/bootstrap.min.css">
+    <entry file="file://$PROJECT_DIR$/protected/views/post/_view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="12765">
+        <state line="22" column="0" selection-start="607" selection-end="607" vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="2685">
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bootstrap/css/bootstrap.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="12765" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/images/favicon_for_ie.ico">
@@ -489,9 +501,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/jquery-ui/css/theme/jquery-ui.min.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="207">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="207" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/components/TagCloud.php">
@@ -525,50 +535,31 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/docs/to_do.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345" />
+      </provider>
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/views/backup/list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="25" selection-start="346" selection-end="346" vertical-scroll-proportion="0.80097085" vertical-offset="0" max-vertical-offset="915">
-          <folding />
-        </state>
+        <state line="11" column="25" selection-start="346" selection-end="346" vertical-scroll-proportion="0.80097085" vertical-offset="0" max-vertical-offset="915" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/yii/zii/widgets/assets/listview/jquery.yiilistview.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="181" column="0" selection-start="5803" selection-end="5803" vertical-scroll-proportion="0.5852535" vertical-offset="2588" max-vertical-offset="2805">
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
+        <state line="181" column="0" selection-start="5803" selection-end="5803" vertical-scroll-proportion="0.5852535" vertical-offset="2588" max-vertical-offset="2805" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/post_list.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="0" selection-start="1175" selection-end="1175" vertical-scroll-proportion="0.6086956" vertical-offset="805" max-vertical-offset="1035">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/config/Constants.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="811" selection-end="811" vertical-scroll-proportion="1.5291262" vertical-offset="0" max-vertical-offset="405">
-          <folding />
-        </state>
+        <state line="63" column="0" selection-start="1175" selection-end="1175" vertical-scroll-proportion="0.6086956" vertical-offset="805" max-vertical-offset="1035" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/config/main.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="28" selection-start="78" selection-end="78" vertical-scroll-proportion="0.14563107" vertical-offset="45" max-vertical-offset="1125">
-          <folding />
-        </state>
+        <state line="5" column="28" selection-start="78" selection-end="78" vertical-scroll-proportion="0.14563107" vertical-offset="45" max-vertical-offset="1125" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/controllers/PostController.php">
@@ -580,37 +571,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/styles/blog.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="187" column="0" selection-start="2214" selection-end="2214" vertical-scroll-proportion="0.6086956" vertical-offset="2665" max-vertical-offset="2895">
-          <folding />
-        </state>
+        <state line="187" column="0" selection-start="2214" selection-end="2214" vertical-scroll-proportion="0.6086956" vertical-offset="2665" max-vertical-offset="2895" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/views/post/_form.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="6" selection-start="412" selection-end="412" vertical-scroll-proportion="-5.0436893" vertical-offset="1234" max-vertical-offset="1575">
-          <folding />
-        </state>
+        <state line="13" column="6" selection-start="412" selection-end="412" vertical-scroll-proportion="-5.0436893" vertical-offset="1234" max-vertical-offset="1575" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/views/post/view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="181" selection-end="181" vertical-scroll-proportion="0.5825243" vertical-offset="0" max-vertical-offset="210">
-          <folding />
-        </state>
+        <state line="8" column="0" selection-start="181" selection-end="181" vertical-scroll-proportion="0.5825243" vertical-offset="0" max-vertical-offset="210" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/views/post/list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="6" selection-start="208" selection-end="208" vertical-scroll-proportion="0.14957266" vertical-offset="0" max-vertical-offset="855">
-          <folding />
-        </state>
+        <state line="7" column="6" selection-start="208" selection-end="208" vertical-scroll-proportion="0.14957266" vertical-offset="0" max-vertical-offset="855" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/docs/database.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="786" selection-end="786" vertical-scroll-proportion="0.47075605" vertical-offset="0" max-vertical-offset="701">
-          <folding />
-        </state>
+        <state line="22" column="0" selection-start="786" selection-end="786" vertical-scroll-proportion="0.47075605" vertical-offset="0" max-vertical-offset="701" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/models/Post.php">
@@ -620,17 +601,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/views/layouts/main.php">
+    <entry file="file://$PROJECT_DIR$/protected/views/post/_view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="240" selection-end="240" vertical-scroll-proportion="0.15239477" vertical-offset="0" max-vertical-offset="2535">
+        <state line="111" column="0" selection-start="2882" selection-end="2882" vertical-scroll-proportion="15.75" vertical-offset="2043" max-vertical-offset="2745">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/views/post/_view.php">
+    <entry file="file://$PROJECT_DIR$/protected/config/Constants.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="607" selection-end="607" vertical-scroll-proportion="0.47008547" vertical-offset="0" max-vertical-offset="2685">
+        <state line="21" column="0" selection-start="811" selection-end="811" vertical-scroll-proportion="0.44871795" vertical-offset="0" max-vertical-offset="702">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/views/layouts/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="134" column="0" selection-start="4060" selection-end="4060" vertical-scroll-proportion="0.5660377" vertical-offset="1620" max-vertical-offset="2565">
+          <folding>
+            <marker date="1403733144000" expanded="true" signature="4113:4286" placeholder="..." />
+            <marker date="1403733144000" expanded="true" signature="4142:4225" placeholder="..." />
+            <marker date="1403733144000" expanded="true" signature="4254:4286" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
