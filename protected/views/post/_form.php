@@ -93,6 +93,22 @@
 
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Создать' :
 			'Сохранить', array('class' => 'btn btn-primary')); ?>
+		<?php if ($model->isNewRecord) { ?>
+			<a
+				class = "btn btn-default"
+				href = "<?= $this->createUrl('post/list') ?>">
+				Отмена
+			</a>
+		<?php } else { ?>
+			<a
+				class = "btn btn-default"
+				href = "<?= $this->createUrl(
+					'post/view',
+					array('id' => $model->id)
+				) ?>">
+				Отмена
+			</a>
+		<?php } ?>
 	</fieldset>
 </div>
 

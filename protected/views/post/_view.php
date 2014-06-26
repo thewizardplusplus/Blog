@@ -3,6 +3,11 @@
 	/* @var $data Post */
 
 	if ($this->action->id == 'view') {
+		Yii::app()->getClientScript()->registerScriptFile(
+			CHtml::asset('scripts/post_view.js'),
+			CClientScript::POS_HEAD
+		);
+
 		Yii::app()->getClientScript()->registerScript(
 			uniqid(rand(), true),
 			'var addthis_config = { ui_language: "ru" };'
@@ -41,7 +46,11 @@
 			array(
 				'class' => 'btn btn-default pull-right delete-post-button',
 				'title' => 'Удалить',
-				'data-post-title' => $data->title
+				'data-post-title' => $data->title,
+				'data-redirect-url' => $this->createUrl('post/list'),
+				'data-processing-icon' =>
+					Yii::app()->request->baseUrl
+					. '/images/processing-icon.gif'
 			)
 		) ?>
 		<?= CHtml::link(
@@ -78,7 +87,10 @@
 					array(
 						'class' => 'btn btn-default publishing-post-button',
 						'title' => 'Скрыть',
-						'data-published' => 'false'
+						'data-published' => 'false',
+						'data-processing-icon' =>
+							Yii::app()->request->baseUrl
+							. '/images/processing-icon.gif'
 					)
 				) ?>
 			<?php } else { ?>
@@ -91,7 +103,10 @@
 					array(
 						'class' => 'btn btn-default publishing-post-button',
 						'title' => 'Опубликовать',
-						'data-published' => 'true'
+						'data-published' => 'true',
+						'data-processing-icon' =>
+							Yii::app()->request->baseUrl
+							. '/images/processing-icon.gif'
 					)
 				) ?>
 			<?php } ?>
