@@ -167,7 +167,7 @@
 			<a class = "addthis_button_google_plusone_share"></a>
 			<a
 				class = "addthis_button_twitter"
-				addthis:url = "<?= $this->createUrl(
+				addthis:url = "<?= $this->createAbsoluteUrl(
 					'post/view',
 					array('id' => $data->id)
 				) ?>">
