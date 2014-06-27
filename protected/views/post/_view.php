@@ -179,7 +179,7 @@
 			var disqus_shortname = '<?= Constants::DISQUS_SHORTNAME ?>';
 			var disqus_identifier = <?= $data->id ?>;
 			var disqus_title = '<?= CHtml::encode($data->title) ?>';
-			var disqus_url = '<?= Yii::app()->createAbsoluteUrl(
+			var disqus_url = '<?= $this->createAbsoluteUrl(
 				'post/view',
 				array(
 					'id' => $data->id,
