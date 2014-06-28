@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21356f31-0bc6-4b10-983b-8694f427a2f5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/tag_cloud.js" afterPath="$PROJECT_DIR$/scripts/tag_cloud.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/layouts/main.php" afterPath="$PROJECT_DIR$/protected/views/layouts/main.php" />
     </list>
     <ignored path="blog.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,10 +25,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="tag_cloud.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/scripts/tag_cloud.js">
+      <file leaf-file-name="main.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/protected/views/layouts/main.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="49" selection-start="1025" selection-end="1025" vertical-scroll-proportion="0.39269406" vertical-offset="514" max-vertical-offset="825">
+            <state line="166" column="0" selection-start="5042" selection-end="5042" vertical-scroll-proportion="0.75274724" vertical-offset="2353" max-vertical-offset="2925">
               <folding />
             </state>
           </provider>
@@ -64,10 +64,10 @@
         <option value="$PROJECT_DIR$/protected/controllers/PostController.php" />
         <option value="$PROJECT_DIR$/protected/components/TagCloud.php" />
         <option value="$PROJECT_DIR$/protected/views/post/list.php" />
-        <option value="$PROJECT_DIR$/protected/views/layouts/main.php" />
         <option value="$PROJECT_DIR$/protected/config/main.php" />
         <option value="$PROJECT_DIR$/scripts/post_list.js" />
         <option value="$PROJECT_DIR$/scripts/tag_cloud.js" />
+        <option value="$PROJECT_DIR$/protected/views/layouts/main.php" />
       </list>
     </option>
   </component>
@@ -648,13 +648,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/views/layouts/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="155" column="0" selection-start="4516" selection-end="4516" vertical-scroll-proportion="0.83516484" vertical-offset="2173" max-vertical-offset="2940">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/config/main.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="0" selection-start="572" selection-end="572" vertical-scroll-proportion="0.15384616" vertical-offset="315" max-vertical-offset="1110">
@@ -671,7 +664,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/tag_cloud.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="49" selection-start="1025" selection-end="1025" vertical-scroll-proportion="0.39269406" vertical-offset="514" max-vertical-offset="825">
+        <state line="40" column="49" selection-start="1025" selection-end="1025" vertical-scroll-proportion="-0.01826484" vertical-offset="604" max-vertical-offset="825">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/views/layouts/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="166" column="0" selection-start="5042" selection-end="5042" vertical-scroll-proportion="0.75274724" vertical-offset="2353" max-vertical-offset="2925">
           <folding />
         </state>
       </provider>
