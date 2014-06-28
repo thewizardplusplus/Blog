@@ -142,6 +142,7 @@
 				<div class = "col-md-3">
 					<?php
 						$this->widget('TagCloud', array(
+							'hideOnEmpty' => false,
 							'title' => 'Теги:',
 							'titleCssClass' => 'label label-primary',
 							'htmlOptions' => array('class' => 'panel panel-' .

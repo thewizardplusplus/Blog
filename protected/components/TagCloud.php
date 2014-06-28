@@ -42,6 +42,8 @@ class TagCloud extends CPortlet {
 					'post/list', array('tag' => $tag)), array('class' =>
 					'label label-success tag ' . $rate));
 			}
+		} else {
+			echo 'Тегов нет.';
 		}
 	}
 }

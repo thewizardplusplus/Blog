@@ -4,6 +4,7 @@
     <list default="true" id="21356f31-0bc6-4b10-983b-8694f427a2f5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/components/TagCloud.php" afterPath="$PROJECT_DIR$/protected/components/TagCloud.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/layouts/main.php" afterPath="$PROJECT_DIR$/protected/views/layouts/main.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="blog.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,17 +26,7 @@
     <favorites_list name="blog" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="main.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/protected/views/layouts/main.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="147" column="51" selection-start="4371" selection-end="4371" vertical-scroll-proportion="0.4945055" vertical-offset="2115" max-vertical-offset="2550">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -63,8 +54,8 @@
         <option value="$PROJECT_DIR$/scripts/post_view.js" />
         <option value="$PROJECT_DIR$/protected/views/post/_view.php" />
         <option value="$PROJECT_DIR$/protected/views/post/_form.php" />
-        <option value="$PROJECT_DIR$/protected/components/TagCloud.php" />
         <option value="$PROJECT_DIR$/protected/views/layouts/main.php" />
+        <option value="$PROJECT_DIR$/protected/components/TagCloud.php" />
       </list>
     </option>
   </component>
@@ -418,8 +409,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="500" width="1152" height="364" extended-state="1" />
-    <editor active="true" />
+    <frame x="0" y="500" width="1152" height="364" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32756326" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -427,7 +418,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1865942" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1865942" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -626,16 +617,16 @@
         <state line="181" column="0" selection-start="5803" selection-end="5803" vertical-scroll-proportion="1.6311361" vertical-offset="1447" max-vertical-offset="2700" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/components/TagCloud.php">
+    <entry file="file://$PROJECT_DIR$/protected/views/layouts/main.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="0" selection-start="1175" selection-end="1175" vertical-scroll-proportion="0.53846157" vertical-offset="600" max-vertical-offset="795">
+        <state line="154" column="0" selection-start="4456" selection-end="4456" vertical-scroll-proportion="0.9065934" vertical-offset="2145" max-vertical-offset="2565">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/views/layouts/main.php">
+    <entry file="file://$PROJECT_DIR$/protected/components/TagCloud.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="147" column="51" selection-start="4371" selection-end="4371" vertical-scroll-proportion="0.4945055" vertical-offset="2115" max-vertical-offset="2550">
+        <state line="49" column="0" selection-start="1208" selection-end="1208" vertical-scroll-proportion="0.53846157" vertical-offset="630" max-vertical-offset="825">
           <folding />
         </state>
       </provider>
