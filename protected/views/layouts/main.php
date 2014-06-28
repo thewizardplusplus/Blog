@@ -3,8 +3,7 @@
 
 	Yii::app()->getClientScript()->registerCoreScript('jquery');
 
-	$with_aside = (($this->route == 'post/list' or $this->route == 'post/view')
-		and Post::model()->count('`tags` <> "" AND published = 1'));
+	$with_aside = $this->route == 'post/list';
 
 	$copyright_years = Constants::COPYRIGHT_START_YEAR;
 	$current_year = date('Y');
