@@ -35,12 +35,24 @@ class PostController extends CController {
 		$criteria = new CDbCriteria(array(
 			'order' => 'create_time DESC'
 		));
+		if (!empty($_GET['search'])) {
+			$string = urldecode($_GET['search']);
+			$strings = explode(' ', $string);
+			$strings = array_map('trim', $strings);
+			foreach ($strings as $string) {
+				$criteria->addSearchCondition('title', $string, true, 'OR');
+				$criteria->addSearchCondition('text', $string, true, 'OR');
+			}
+		}
 		if (Yii::app()->user->isGuest) {
-			$criteria->condition = 'published = 1';
+			$criteria->addCondition('published = 1');
 		}
 		if (isset($_GET['tag'])) {
-			$criteria->addCondition('FIND_IN_SET(' . Yii::app()->db->quoteValue(
-				$_GET['tag']) . ', `tags`)');
+			$criteria->addCondition(
+				'FIND_IN_SET('
+				. Yii::app()->db->quoteValue($_GET['tag'])
+				. ', `tags`)'
+			);
 		}
 
 		$data_provider = new CActiveDataProvider('Post', array(

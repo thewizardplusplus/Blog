@@ -3,6 +3,10 @@
 	/* @var $data_provider CActiveDataProvider */
 
 	Yii::app()->getClientScript()->registerScriptFile(
+		CHtml::asset('scripts/searching.js'),
+		CClientScript::POS_HEAD
+	);
+	Yii::app()->getClientScript()->registerScriptFile(
 		CHtml::asset('scripts/post_list.js'),
 		CClientScript::POS_HEAD
 	);
@@ -16,6 +20,21 @@
 			encode($_GET['tag']); ?></span>:
 	</p>
 <?php } ?>
+
+<div class = "panel panel-default">
+	<div class = "input-group">
+		<span class = "input-group-addon">
+			<span class = "glyphicon glyphicon-search"></span>
+		</span>
+		<input
+			class = "form-control search-input"
+			value = "<?=
+				isset($_GET['search'])
+					? CHtml::encode($_GET['search'])
+					: ''
+			?>" />
+	</div>
+</div>
 
 <?php
 	$this->widget('zii.widgets.CListView', array(

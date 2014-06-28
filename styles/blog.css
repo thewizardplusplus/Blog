@@ -185,3 +185,7 @@ footer {
 	margin-right: 0 !important;
 	padding-right: 0;
 }
+
+.search-input {
+	max-width: 250px;
+}

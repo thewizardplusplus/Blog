@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21356f31-0bc6-4b10-983b-8694f427a2f5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/layouts/main.php" afterPath="$PROJECT_DIR$/protected/views/layouts/main.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/searching.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/controllers/PostController.php" afterPath="$PROJECT_DIR$/protected/controllers/PostController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/blog.css" afterPath="$PROJECT_DIR$/styles/blog.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/post/list.php" afterPath="$PROJECT_DIR$/protected/views/post/list.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="blog.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,15 +49,17 @@
         <option value="$PROJECT_DIR$/scripts/deleting_post.js" />
         <option value="$PROJECT_DIR$/scripts/post_list.js" />
         <option value="$PROJECT_DIR$/protected/config/main.php" />
-        <option value="$PROJECT_DIR$/protected/controllers/PostController.php" />
-        <option value="$PROJECT_DIR$/styles/blog.css" />
         <option value="$PROJECT_DIR$/protected/docs/database.sql" />
         <option value="$PROJECT_DIR$/scripts/post_view.js" />
         <option value="$PROJECT_DIR$/protected/views/post/_view.php" />
         <option value="$PROJECT_DIR$/protected/views/post/_form.php" />
-        <option value="$PROJECT_DIR$/protected/views/post/list.php" />
         <option value="$PROJECT_DIR$/protected/components/TagCloud.php" />
         <option value="$PROJECT_DIR$/protected/views/layouts/main.php" />
+        <option value="$PROJECT_DIR$/styles/blog.css" />
+        <option value="$PROJECT_DIR$/protected/views/post/list.php" />
+        <option value="$PROJECT_DIR$/scripts/searching.js" />
+        <option value="$PROJECT_DIR$/protected/runtime/application.log" />
+        <option value="$PROJECT_DIR$/protected/controllers/PostController.php" />
       </list>
     </option>
   </component>
@@ -407,7 +413,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="500" width="1152" height="364" extended-state="0" />
+    <frame x="0" y="500" width="1152" height="364" extended-state="1" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32756326" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -533,11 +539,6 @@
         <state line="11" column="25" selection-start="346" selection-end="346" vertical-scroll-proportion="0.80097085" vertical-offset="0" max-vertical-offset="915" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/styles/blog.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="187" column="0" selection-start="2214" selection-end="2214" vertical-scroll-proportion="0.6086956" vertical-offset="2665" max-vertical-offset="2895" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/docs/database.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="0" selection-start="786" selection-end="786" vertical-scroll-proportion="0.47075605" vertical-offset="0" max-vertical-offset="701" />
@@ -555,11 +556,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/post_list.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="0" selection-start="1175" selection-end="1175" vertical-scroll-proportion="0.87603307" vertical-offset="309" max-vertical-offset="1035" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/config/main.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="28" selection-start="78" selection-end="78" vertical-scroll-proportion="0.042735044" vertical-offset="45" max-vertical-offset="1125" />
@@ -568,13 +564,6 @@
     <entry file="file://$PROJECT_DIR$/scripts/post_view.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="82" column="0" selection-start="2213" selection-end="2213" vertical-scroll-proportion="0.87603307" vertical-offset="594" max-vertical-offset="1320" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/controllers/PostController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="56" selection-start="1441" selection-end="1441" vertical-scroll-proportion="-3.1435184" vertical-offset="1669" max-vertical-offset="2805">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/views/post/_view.php">
@@ -612,13 +601,6 @@
         <state line="181" column="0" selection-start="5803" selection-end="5803" vertical-scroll-proportion="1.6311361" vertical-offset="1447" max-vertical-offset="2700" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/views/post/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="34" selection-start="858" selection-end="858" vertical-scroll-proportion="0.44102564" vertical-offset="409" max-vertical-offset="870">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/components/TagCloud.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="52" column="0" selection-start="1325" selection-end="1325" vertical-scroll-proportion="0.53846157" vertical-offset="675" max-vertical-offset="870">
@@ -629,6 +611,48 @@
     <entry file="file://$PROJECT_DIR$/protected/views/layouts/main.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="151" column="0" selection-start="4420" selection-end="4420" vertical-scroll-proportion="-0.978022" vertical-offset="2443" max-vertical-offset="2880">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/blog.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="191" column="0" selection-start="2252" selection-end="2252" vertical-scroll-proportion="0.5890411" vertical-offset="2736" max-vertical-offset="2955">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/post_list.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="0" selection-start="1175" selection-end="1175" vertical-scroll-proportion="4.109589" vertical-offset="45" max-vertical-offset="1035">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/views/post/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="45" selection-start="178" selection-end="178" vertical-scroll-proportion="0.3846154" vertical-offset="0" max-vertical-offset="1155">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/searching.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="0" selection-start="411" selection-end="411" vertical-scroll-proportion="1.5753424" vertical-offset="0" max-vertical-offset="435">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/runtime/application.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="0" selection-start="2660" selection-end="2660" vertical-scroll-proportion="-42.762135" vertical-offset="9274" max-vertical-offset="9480">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/controllers/PostController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="0" selection-start="1242" selection-end="1242" vertical-scroll-proportion="1.6923077" vertical-offset="510" max-vertical-offset="2985">
           <folding />
         </state>
       </provider>
