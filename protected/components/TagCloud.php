@@ -26,6 +26,14 @@ class TagCloud extends CPortlet {
 		}
 
 		if (!empty($tags)) {
+			$tags_text = array_keys($tags);
+			shuffle($tags_text);
+			$shuffled_tags = array();
+			foreach ($tags_text as $tag_text) {
+				$shuffled_tags[$tag_text] = $tags[$tag_text];
+			}
+			$tags = $shuffled_tags;
+
 			foreach ($tags as $tag => $rate) {
 				if ($rate < 20) {
 					$rate = 'rate1';
