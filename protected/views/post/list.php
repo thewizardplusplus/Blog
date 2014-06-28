@@ -7,6 +7,10 @@
 		CClientScript::POS_HEAD
 	);
 	Yii::app()->getClientScript()->registerScriptFile(
+		CHtml::asset('scripts/sorting.js'),
+		CClientScript::POS_HEAD
+	);
+	Yii::app()->getClientScript()->registerScriptFile(
 		CHtml::asset('scripts/post_list.js'),
 		CClientScript::POS_HEAD
 	);
@@ -22,17 +26,42 @@
 <?php } ?>
 
 <div class = "panel panel-default">
-	<div class = "input-group">
-		<span class = "input-group-addon">
-			<span class = "glyphicon glyphicon-search"></span>
-		</span>
-		<input
-			class = "form-control search-input"
-			value = "<?=
-				isset($_GET['search'])
-					? CHtml::encode($_GET['search'])
-					: ''
-			?>" />
+	<div class = "row">
+		<div class = "col-md-6">
+			<div class = "input-group pull-left">
+				<span class = "input-group-addon">
+					<span class = "glyphicon glyphicon-search"></span>
+				</span>
+				<input
+					class = "form-control search-input"
+					value = "<?=
+						isset($_GET['search'])
+							? CHtml::encode($_GET['search'])
+							: ''
+					?>" />
+			</div>
+		</div>
+
+		<div class = "col-md-6">
+			<div class = "btn-group pull-right">
+				<button
+					class = "btn btn-default create-sort-button <?=
+						$order == 'create'
+							? 'active'
+							: ''
+					?>">
+					Новые
+				</button>
+				<button
+					class = "btn btn-default modify-sort-button <?=
+						$order == 'modify'
+							? 'active'
+							: ''
+					?>">
+					Изменения
+				</button>
+			</div>
+		</div>
 	</div>
 </div>
 
@@ -42,6 +71,7 @@
 		'dataProvider' => $data_provider,
 		'template' => '{items} {pager}',
 		'enableHistory' => true,
+		'enableSorting' => false,
 		'itemView' => '_view',
 		'loadingCssClass' => 'wait',
 		'afterAjaxUpdate' => new CJavaScriptExpression(

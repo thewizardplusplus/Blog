@@ -32,9 +32,12 @@ class PostController extends CController {
 	}
 
 	public function actionList() {
-		$criteria = new CDbCriteria(array(
-			'order' => 'create_time DESC'
-		));
+		$order = 'create';
+		if (!empty($_GET['sort']) and $_GET['sort'] == 'modify') {
+			$order = 'modify';
+		}
+
+		$criteria = new CDbCriteria(array('order' => $order . '_time DESC'));
 		if (!empty($_GET['search'])) {
 			$string = urldecode($_GET['search']);
 			$strings = explode(' ', $string);
@@ -55,13 +58,20 @@ class PostController extends CController {
 			);
 		}
 
-		$data_provider = new CActiveDataProvider('Post', array(
-			'criteria' => $criteria,
-			'pagination' => array('pagesize' => Parameters::get()->
-				posts_on_page)
-		));
+		$data_provider = new CActiveDataProvider(
+			'Post',
+			array(
+				'criteria' => $criteria,
+				'pagination' => array(
+					'pagesize' => Parameters::get()->posts_on_page
+				)
+			)
+		);
 
-		$this->render('list', array('data_provider' => $data_provider));
+		$this->render(
+			'list',
+			array('data_provider' => $data_provider, 'order' => $order)
+		);
 	}
 
 	public function actionView($id) {
