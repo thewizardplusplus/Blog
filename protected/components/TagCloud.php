@@ -5,14 +5,9 @@ Yii::import('zii.widgets.CPortlet');
 class TagCloud extends CPortlet {
 	protected function renderContent() {
 		$tags = array();
-		$number_of_posts = Post::model()->count(
-			Yii::app()->user->isGuest ? 'published = 1' : ''
-		);
+		$number_of_posts = Post::model()->count('published = 1');
 		if (!empty($number_of_posts)) {
-			$posts = Post::model()->findAll(
-				'`tags` <> ""'
-				. (Yii::app()->user->isGuest ? ' AND published = 1' : '')
-			);
+			$posts = Post::model()->findAll('`tags` <> "" AND published = 1');
 			if (!empty($posts)) {
 				foreach ($posts as $post) {
 					$tags = array_merge($tags, array_map('trim', explode(
