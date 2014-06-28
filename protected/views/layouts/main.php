@@ -169,8 +169,8 @@
 						<script
 							src = "http://nodejs.in/octocard/bin/octocard.js"
 							data-name = "thewizardplusplus"
-							data-modules = "base,repos,eventsStatis"
-							data-reposNum = "100">
+							data-modules = "base,repos"
+							data-reposNum = "1000">
 						</script>
 					</div>
 				</div>
