@@ -145,7 +145,7 @@
 							'title' => 'Теги:',
 							'titleCssClass' => 'label label-primary',
 							'htmlOptions' => array('class' => 'panel panel-' .
-								'default')
+								'default clearfix')
 						));
 					?>
 				</div>
