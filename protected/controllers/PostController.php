@@ -140,6 +140,36 @@ class PostController extends CController {
 		echo '[ ' . implode(', ', $tags) . ' ]';
 	}
 
+	public function actionTagList() {
+		$tags = array();
+		$number_of_posts = Post::model()->count('published = 1');
+		if (!empty($number_of_posts)) {
+			$posts = Post::model()->findAll('`tags` <> "" AND published = 1');
+			if (!empty($posts)) {
+				foreach ($posts as $post) {
+					$tags = array_merge($tags, array_map('trim', explode(
+						',', $post->tags)));
+				}
+
+				$tags = array_map(function($item) use ($number_of_posts) {
+					return round(100 * $item / $number_of_posts);
+				}, array_count_values($tags));
+			}
+		}
+
+		if (!empty($tags)) {
+			$tags_text = array_keys($tags);
+			shuffle($tags_text);
+			$shuffled_tags = array();
+			foreach ($tags_text as $tag_text) {
+				$shuffled_tags[$tag_text] = $tags[$tag_text];
+			}
+			$tags = $shuffled_tags;
+		}
+
+		echo json_encode($tags);
+	}
+
 	public function actionCreate() {
 		$model = new Post;
 		$this->performAjaxValidation($model);

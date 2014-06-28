@@ -2,6 +2,10 @@
 	/* @var $this CController */
 
 	Yii::app()->getClientScript()->registerCoreScript('jquery');
+	Yii::app()->getClientScript()->registerScriptFile(
+		CHtml::asset('scripts/tag_cloud.js'),
+		CClientScript::POS_HEAD
+	);
 
 	$with_aside = $this->route == 'post/list';
 
@@ -140,15 +144,15 @@
 			<?php if ($with_aside) { ?>
 				</div>
 				<div class = "col-md-3">
-					<?php
-						$this->widget('TagCloud', array(
-							'hideOnEmpty' => false,
-							'title' => 'Теги',
-							'titleCssClass' => 'label label-primary',
-							'htmlOptions' => array('class' => 'panel panel-' .
-								'default clearfix')
-						));
-					?>
+					<div
+						class = "panel panel-default clearfix tag-cloud"
+						data-update-url = "<?= $this->createUrl(
+							'post/tagList'
+						) ?>"
+						data-tag-url = "<?= $this->createUrl(
+							'post/list'
+						) ?>">
+					</div>
 
 					<div>
 						<a

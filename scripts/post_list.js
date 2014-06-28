@@ -20,7 +20,10 @@ $(document).ready(
 					type: 'POST',
 					url: url,
 					data: data,
-					success: UpdatePostList
+					success: function() {
+						UpdatePostList();
+						UpdateTagCloud();
+					}
 				}
 			);
 		};

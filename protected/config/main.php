@@ -21,7 +21,6 @@ return array(
 			'rules' => array(
 				'login' => 'site/login',
 				'logout' => 'site/logout',
-				'posts/<tag:.+>' => 'post/list',
 				'posts' => 'post/list',
 				'post/<id:\d+>-<title:.+>' => 'post/view',
 				'post/<id:\d+>' => 'post/view',
