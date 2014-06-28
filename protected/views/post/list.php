@@ -31,6 +31,7 @@
 				. 'UpdateCommentsCounters();'
 			. '}'
 		),
+		'emptyText' => 'Нет постов.',
 		'pager' => array(
 			'maxButtonCount' => 0,
 			'header' => '',
