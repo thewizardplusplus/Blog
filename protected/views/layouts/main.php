@@ -143,7 +143,7 @@
 					<?php
 						$this->widget('TagCloud', array(
 							'hideOnEmpty' => false,
-							'title' => 'Теги:',
+							'title' => 'Теги',
 							'titleCssClass' => 'label label-primary',
 							'htmlOptions' => array('class' => 'panel panel-' .
 								'default clearfix')
