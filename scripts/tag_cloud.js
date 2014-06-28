@@ -38,7 +38,7 @@ function UpdateTagCloud() {
 						tag_cloud.append(links[i]);
 					}
 				} else {
-					tag_cloud.text('Тегов нет.');
+					tag_cloud.text('Нет тегов.');
 				}
 			},
 			'json'
