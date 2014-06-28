@@ -407,7 +407,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="500" width="1152" height="364" extended-state="1" />
+    <frame x="0" y="500" width="1152" height="364" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32756326" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -628,7 +628,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/views/layouts/main.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="166" column="0" selection-start="5015" selection-end="5015" vertical-scroll-proportion="1.1648352" vertical-offset="2278" max-vertical-offset="2745">
+        <state line="151" column="0" selection-start="4420" selection-end="4420" vertical-scroll-proportion="-0.978022" vertical-offset="2443" max-vertical-offset="2880">
           <folding />
         </state>
       </provider>
