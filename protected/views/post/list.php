@@ -18,10 +18,27 @@
 	$this->pageTitle = Yii::app()->name;
 ?>
 
-<?php if (isset($_GET['tag'])) { ?>
+<?php if (!empty($tags)) { ?>
 	<p class = "panel panel-default note">
-		Посты с тегом <span class = "label label-success"><?php echo CHtml::
-			encode($_GET['tag']); ?></span>:
+		Посты с <?= count($tags) > 1 ? 'тегами' : 'тегом' ?>:
+		<?php foreach ($tags as $tag) { ?>
+			<?php $shortcut_tags = array_diff($tags, array($tag)); ?>
+			<span class = "label label-success">
+				<?= $tag ?>
+				<a
+					class = "badge"
+					href = "<?=
+						!empty($shortcut_tags)
+							? $this->createUrl(
+								'post/list',
+								array('tags' => implode(',', $shortcut_tags))
+							)
+							: $this->createUrl('post/list')
+					?>">
+					&times;
+				</a>
+			</span>
+		<?php } ?>
 	</p>
 <?php } ?>
 

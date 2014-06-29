@@ -6,12 +6,37 @@ function UpdateTagCloud() {
 		$.get(
 			update_url,
 			function(data) {
+				var url = $.url();
+				var tags = url.param('tags');
+				if (tags) {
+					tags = $.map(
+						tags.split(','),
+						function(tag) {
+							return $.trim(tag);
+						}
+					);
+				} else {
+					tags = [];
+				}
+
 				var links = [];
 				for (var tag in data) {
 					if (data.hasOwnProperty(tag)) {
-						var link = $('<a></a>')
+						var link = null;
+						if ($.inArray(tag, tags) == -1) {
+							link =
+								$('<a></a>')
+									.attr(
+										'href',
+										tag_url
+											+ '?tags='
+											+ tags.concat(tag).join(',')
+									);
+						} else {
+							link = $('<span></span>');
+						}
+						link
 							.addClass('label label-success tag')
-							.attr('href', tag_url + '?tag=' + tag)
 							.text(tag);
 
 						var rate = data[tag];

@@ -3,6 +3,10 @@
 
 	Yii::app()->getClientScript()->registerCoreScript('jquery');
 	Yii::app()->getClientScript()->registerScriptFile(
+		CHtml::asset('scripts/purl.js'),
+		CClientScript::POS_HEAD
+	);
+	Yii::app()->getClientScript()->registerScriptFile(
 		CHtml::asset('scripts/tag_cloud.js'),
 		CClientScript::POS_HEAD
 	);

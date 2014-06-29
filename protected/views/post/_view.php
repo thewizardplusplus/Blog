@@ -26,12 +26,13 @@
 		);
 	}
 
+	$post_tags = array();
 	if (!empty($data->tags)) {
-		$tags_list = '';
-		foreach (array_map('trim', explode(',', $data->tags)) as $tag) {
-			$tags_list .= CHtml::link($tag, $this->createUrl('post/list', array(
-				'tag' => $tag)), array('class' => 'label label-success'));
-		}
+		$post_tags = array_map('trim', explode(',', $data->tags));
+	}
+	$query_tags = array();
+	if (!empty($_GET['tags'])) {
+		$query_tags = array_map('trim', explode(',', $_GET['tags']));
 	}
 ?>
 
@@ -125,8 +126,29 @@
 		$data->text
 	) ?>
 
-	<?php if (!empty($data->tags)) { ?>
-	<p>Теги: <?php echo $tags_list; ?></p>
+	<?php if (!empty($post_tags)) { ?>
+		<p>
+			Теги:
+			<?php foreach ($post_tags as $post_tag) { ?>
+				<?php if (!in_array($post_tag, $query_tags)) { ?>
+					<a
+						class = "label label-success"
+						href = "<?= $this->createUrl(
+							'post/list',
+							array(
+								'tags' => implode(
+									',',
+									array_merge($query_tags, array($post_tag))
+								)
+							)
+						) ?>">
+						<?= $post_tag ?>
+					</a>
+				<?php } else { ?>
+					<span class = "label label-success"><?= $post_tag ?></span>
+				<?php } ?>
+			<?php } ?>
+		</p>
 	<?php } ?>
 
 	<?php if ($this->action->id == 'list') { ?>

@@ -50,11 +50,16 @@ class PostController extends CController {
 		if (Yii::app()->user->isGuest) {
 			$criteria->addCondition('published = 1');
 		}
-		if (isset($_GET['tag'])) {
+
+		$tags = array();
+		if (!empty($_GET['tags'])) {
+			$tags = array_map('trim', explode(',', $_GET['tags']));
+		}
+		foreach ($tags as $tag) {
 			$criteria->addCondition(
 				'FIND_IN_SET('
-				. Yii::app()->db->quoteValue($_GET['tag'])
-				. ', `tags`)'
+					. Yii::app()->db->quoteValue($tag)
+					. ', `tags`)'
 			);
 		}
 
@@ -70,7 +75,11 @@ class PostController extends CController {
 
 		$this->render(
 			'list',
-			array('data_provider' => $data_provider, 'order' => $order)
+			array(
+				'data_provider' => $data_provider,
+				'order' => $order,
+				'tags' => $tags
+			)
 		);
 	}
 
