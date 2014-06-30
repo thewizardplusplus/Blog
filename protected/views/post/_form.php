@@ -48,7 +48,8 @@
 
 		<div class = "form-group">
 			<button
-				class = "btn btn-default btn-xs pull-right editor-switch-button">
+				class = "btn btn-default btn-xs pull-right editor-switch-button"
+				tabindex = "-1">
 				<span class="glyphicon glyphicon-eye-open"></span>
 				<span>Предпросмотр</span>
 			</button>
