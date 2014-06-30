@@ -162,7 +162,7 @@
 						<a
 							class = "twitter-timeline"
 							href = "https://twitter.com/thewizardpp"
-							height = "300"
+							height = "400"
 							data-widget-id = "482893293462622209"
 							data-chrome = "nofooter">
 						</a>
