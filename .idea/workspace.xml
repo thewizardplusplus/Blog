@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21356f31-0bc6-4b10-983b-8694f427a2f5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/post/_view.php" afterPath="$PROJECT_DIR$/protected/views/post/_view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/blog.css" afterPath="$PROJECT_DIR$/styles/blog.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/post/list.php" afterPath="$PROJECT_DIR$/protected/views/post/list.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/searching.js" afterPath="$PROJECT_DIR$/scripts/searching.js" />
     </list>
     <ignored path="blog.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,18 +47,18 @@
         <option value="$PROJECT_DIR$/protected/docs/database.sql" />
         <option value="$PROJECT_DIR$/scripts/post_view.js" />
         <option value="$PROJECT_DIR$/protected/views/post/_form.php" />
-        <option value="$PROJECT_DIR$/scripts/searching.js" />
         <option value="$PROJECT_DIR$/protected/runtime/application.log" />
         <option value="$PROJECT_DIR$/scripts/sorting.js" />
         <option value="$PROJECT_DIR$/protected/components/TagCloud.php" />
         <option value="$PROJECT_DIR$/protected/config/main.php" />
         <option value="$PROJECT_DIR$/scripts/post_list.js" />
         <option value="$PROJECT_DIR$/protected/controllers/PostController.php" />
-        <option value="$PROJECT_DIR$/protected/views/post/list.php" />
         <option value="$PROJECT_DIR$/scripts/tag_cloud.js" />
         <option value="$PROJECT_DIR$/protected/views/layouts/main.php" />
         <option value="$PROJECT_DIR$/protected/views/post/_view.php" />
         <option value="$PROJECT_DIR$/styles/blog.css" />
+        <option value="$PROJECT_DIR$/protected/views/post/list.php" />
+        <option value="$PROJECT_DIR$/scripts/searching.js" />
       </list>
     </option>
   </component>
@@ -613,11 +613,6 @@
         <state line="35" column="0" selection-start="736" selection-end="736" vertical-scroll-proportion="2.3972602" vertical-offset="0" max-vertical-offset="615" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/searching.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="13" selection-start="399" selection-end="399" vertical-scroll-proportion="0.79452056" vertical-offset="111" max-vertical-offset="435" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/config/main.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="0" selection-start="572" selection-end="572" vertical-scroll-proportion="0.15384616" vertical-offset="315" max-vertical-offset="1110" />
@@ -643,13 +638,6 @@
     <entry file="file://$PROJECT_DIR$/scripts/tag_cloud.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="74" column="0" selection-start="1526" selection-end="1526" vertical-scroll-proportion="0.61206895" vertical-offset="968" max-vertical-offset="1200" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/views/post/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="35" selection-start="801" selection-end="801" vertical-scroll-proportion="0.14957266" vertical-offset="315" max-vertical-offset="1860">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/docs/to_do.txt">
@@ -679,6 +667,20 @@
     <entry file="file://$PROJECT_DIR$/protected/views/post/_view.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="103" column="0" selection-start="2717" selection-end="2717" vertical-scroll-proportion="0.33760685" vertical-offset="1308" max-vertical-offset="3285">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/searching.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="0" selection-start="657" selection-end="657" vertical-scroll-proportion="0.7644628" vertical-offset="0" max-vertical-offset="726">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/views/post/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="0" selection-start="1634" selection-end="1634" vertical-scroll-proportion="0.74786323" vertical-offset="450" max-vertical-offset="1935">
           <folding />
         </state>
       </provider>

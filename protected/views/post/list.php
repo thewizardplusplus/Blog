@@ -56,6 +56,11 @@
 							? CHtml::encode($_GET['search'])
 							: ''
 					?>" />
+				<a
+					class = "input-group-addon clear-search-input-button"
+					href = "#">
+					<span class = "glyphicon glyphicon-remove"></span>
+				</a>
 			</div>
 		</div>
 

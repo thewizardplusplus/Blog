@@ -3,7 +3,8 @@ $(document).ready(
 		var UPDATE_DELAY = 300;
 
 		var update_timeout = null;
-		$('.search-input').keyup(
+		var search_input = $('.search-input');
+		search_input.keyup(
 			function() {
 				var text = encodeURIComponent($(this).val());
 
@@ -17,6 +18,19 @@ $(document).ready(
 					},
 					UPDATE_DELAY
 				);
+			}
+		);
+
+		$('.clear-search-input-button').click(
+			function() {
+				if (search_input.val().length) {
+					search_input.val('');
+					search_input.keyup();
+				}
+
+				search_input.focus();
+
+				return false;
 			}
 		);
 	}
