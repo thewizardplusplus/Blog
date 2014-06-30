@@ -99,18 +99,8 @@
 				),
 				array(
 					'class' => 'CButtonColumn',
-					'template' => '{view} {rename} {remove}',
+					'template' => '{rename} {remove}',
 					'buttons' => array(
-						'view' => array(
-							'label' => '<span class = "glyphicon glyphicon-' .
-								'search"></span>',
-							'url' => '$data->link',
-							'imageUrl' => FALSE,
-							'options' => array('title' => 'Ссылка на файл'),
-							'click' => 'function() { return fileView(this); '
-								. '}',
-							'visible' => '$data->is_file'
-						),
 						'rename' => array(
 							'label' => '<span class = "glyphicon glyphicon-' .
 								'pencil"></span>',
@@ -142,32 +132,4 @@
 			'itemsCssClass' => 'table'
 		));
 	?>
-</div>
-
-<div id = "file-path-dialog" class = "modal fade">
-	<div class = "modal-dialog">
-		<div class = "modal-content">
-			<div class = "modal-header">
-				<button type = "button" class = "close" data-dismiss = "modal"
-					aria-hidden = "true">&times;</button>
-				<h2 class = "modal-title">Путь к файлу</h2>
-			</div>
-
-			<div class = "modal-body">
-				<?php echo CHtml::beginForm('#'); ?>
-				<div class = "form-group">
-					<?php echo CHtml::textField('file-path', '', array(
-						'readonly' => 'readonly',
-						'class' => 'form-control'
-					)); ?>
-				</div>
-				<?php echo CHtml::endForm(); ?>
-			</div>
-
-			<div class = "modal-footer">
-				<button type = "button" class = "btn btn-default" data-dismiss =
-					"modal">Закрыть</button>
-			</div>
-		</div>
-	</div>
 </div>

@@ -1,10 +1,3 @@
-function fileView(link) {
-	$('#file-path').val('/files/' + $(link).attr('href'));
-	$('#file-path-dialog').modal();
-
-	return false;
-}
-
 function fileRename(link) {
 	var url = $(link).attr('href');
 	var old_filename = '';
