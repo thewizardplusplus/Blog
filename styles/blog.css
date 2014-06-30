@@ -177,7 +177,9 @@ footer {
 	font-size: smaller;
 }
 
-.delete-post-button {
+.delete-post-button,
+.edit-post-button
+{
 	margin-left: 5px;
 }
 

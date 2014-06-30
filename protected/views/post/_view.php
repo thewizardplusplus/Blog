@@ -61,10 +61,45 @@
 				array('id' => $data->id)
 			),
 			array(
-				'class' => 'btn btn-default pull-right',
+				'class' => 'btn btn-default pull-right edit-post-button',
 				'title' => 'Редактировать'
 			)
 		) ?>
+		<?php if ($data->published) { ?>
+			<?= CHtml::link(
+				'<span class = "glyphicon glyphicon-eye-open"></span>',
+				$this->createUrl(
+					'post/update',
+					array('id' => $data->id)
+				),
+				array(
+					'class' =>
+						'btn btn-default pull-right publishing-post-button',
+					'title' => 'Скрыть',
+					'data-published' => 'false',
+					'data-processing-icon' =>
+						Yii::app()->request->baseUrl
+						. '/images/processing-icon.gif'
+				)
+			) ?>
+		<?php } else { ?>
+			<?= CHtml::link(
+				'<span class = "glyphicon glyphicon-eye-close"></span>',
+				$this->createUrl(
+					'post/update',
+					array('id' => $data->id)
+				),
+				array(
+					'class' =>
+						'btn btn-default pull-right publishing-post-button',
+					'title' => 'Опубликовать',
+					'data-published' => 'true',
+					'data-processing-icon' =>
+						Yii::app()->request->baseUrl
+						. '/images/processing-icon.gif'
+				)
+			) ?>
+		<?php } ?>
 	<?php } ?>
 
 	<h2>
@@ -76,42 +111,6 @@
 				echo $data->title;
 			}
 		?>
-
-		<?php if (!Yii::app()->user->isGuest) { ?>
-			<?php if ($data->published) { ?>
-				<?= CHtml::link(
-					'<span class = "glyphicon glyphicon-eye-open"></span>',
-					$this->createUrl(
-						'post/update',
-						array('id' => $data->id)
-					),
-					array(
-						'class' => 'btn btn-default publishing-post-button',
-						'title' => 'Скрыть',
-						'data-published' => 'false',
-						'data-processing-icon' =>
-							Yii::app()->request->baseUrl
-							. '/images/processing-icon.gif'
-					)
-				) ?>
-			<?php } else { ?>
-				<?= CHtml::link(
-					'<span class = "glyphicon glyphicon-eye-close"></span>',
-					$this->createUrl(
-						'post/update',
-						array('id' => $data->id)
-					),
-					array(
-						'class' => 'btn btn-default publishing-post-button',
-						'title' => 'Опубликовать',
-						'data-published' => 'true',
-						'data-processing-icon' =>
-							Yii::app()->request->baseUrl
-							. '/images/processing-icon.gif'
-					)
-				) ?>
-			<?php } ?>
-		<?php } ?>
 	</h2>
 
 	<p class = "time">
