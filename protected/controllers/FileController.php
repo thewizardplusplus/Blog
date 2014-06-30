@@ -35,8 +35,10 @@ class FileController extends CController {
 			$filenames = array_diff($filenames, array('..'));
 		}
 		$files = array();
+		$counter = 0;
 		foreach ($filenames as $filename) {
 			$file = new stdClass;
+			$file->id = $counter++;
 			$file->name = $filename;
 
 			$full_path = $base_path . '/' . $filename;
@@ -88,20 +90,29 @@ class FileController extends CController {
 		));
 	}
 
-	public function actionRename($old_filename, $new_filename) {
+	public function actionRename($old_filename) {
+		if (!isset($_POST['new_filename'])) {
+			throw new CException('Неверные параметры действия file/rename.');
+		}
+
 		$base_path = __DIR__ . Constants::FILES_RELATIVE_PATH;
 		$path = $this->getPath($base_path);
 		$base_path .= '/' . $path . '/';
+		$new_filename = $_POST['new_filename'];
 		$result = rename($base_path . $old_filename, $base_path .
 			$new_filename);
 		if (!$result) {
 			throw new CException('Не удалось переименовать файл.');
 		}
 
-		if (!empty($path)) {
-			$this->redirect(array('list', 'path' => $path));
+		if (Yii::app()->request->isAjaxRequest) {
+			echo $new_filename;
 		} else {
-			$this->redirect(array('list'));
+			if (!empty($path)) {
+				$this->redirect(array('list', 'path' => $path));
+			} else {
+				$this->redirect(array('list'));
+			}
 		}
 	}
 

@@ -169,10 +169,6 @@ iframe.code {
 	color: rgb(128, 128, 128);
 }
 
-.file-icon {
-	margin-right: 10px;
-}
-
 footer {
 	font-size: smaller;
 }
@@ -194,4 +190,10 @@ footer {
 
 .label-success .badge {
 	background-color: #428BCA;
+}
+
+.icon-column {
+	width: 30px;
+	text-align: center;
+	font-size: larger;
 }

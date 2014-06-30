@@ -10,6 +10,14 @@
 
 	Yii::app()->getClientScript()->registerScriptFile(CHtml::asset(
 		'jQueryFormStyler/jquery.formstyler.min.js'), CClientScript::POS_HEAD);
+	Yii::app()->getClientScript()->registerScriptFile(
+		CHtml::asset('scripts/jquery.jeditable.min.js'),
+		CClientScript::POS_HEAD
+	);
+	Yii::app()->getClientScript()->registerScriptFile(
+		CHtml::asset('scripts/purl.js'),
+		CClientScript::POS_HEAD
+	);
 	Yii::app()->getClientScript()->registerScriptFile(CHtml::asset(
 		'scripts/files.js'), CClientScript::POS_HEAD);
 	Yii::app()->getClientScript()->registerScriptFile(CHtml::asset(
@@ -83,53 +91,129 @@
 
 <div class = "table-responsive">
 	<?php
-		$this->widget('zii.widgets.grid.CGridView', array(
-			'dataProvider' => $data_provider,
-			'template' => '{items}',
-			'hideHeader' => TRUE,
-			'selectableRows' => 0,
-			'columns' => array(
-				array(
-					'type' => 'raw',
-					'value' => 'CHtml::link("<span class = \"file-icon ' .
-						'glyphicon glyphicon-" . ($data->is_file ? "file" : ' .
-						'($data->name != ".." ? "folder-open" : "arrow-up")) . '
-						. '"\"></span>" . $data->name, $data->link, $data->' .
-						'is_file ? array("target" => "_blank") : array())'
-				),
-				array(
-					'class' => 'CButtonColumn',
-					'template' => '{rename} {remove}',
-					'buttons' => array(
-						'rename' => array(
-							'label' => '<span class = "glyphicon glyphicon-' .
-								'pencil"></span>',
-							'url' => '$this->grid->controller->createUrl("file/'
-								. 'rename", array("path" => "' . $path . '", ' .
-								'"old_filename" => $data->name))',
-							'imageUrl' => FALSE,
-							'options' => array('title' => 'Переименовать файл'),
-							'click' => 'function() { return fileRename(this); '
-								. '}',
-							'visible' => '$data->is_file'
-						),
-						'remove' => array(
-							'label' => '<span class = "glyphicon glyphicon-' .
-								'trash"></span>',
-							'url' => '$this->grid->controller->createUrl("file/'
-								. 'remove", array("path" => "' . $path . '", ' .
-								'"filename" => $data->name))',
-							'imageUrl' => FALSE,
-							'options' => array('title' => 'Удалить файл'),
-							'click' => 'function () { return fileRemove(this); '
-								. '}',
-							'visible' => '$data->is_file'
-						)
+		$this->widget(
+			'zii.widgets.grid.CGridView',
+			array(
+				'id' => 'file-list',
+				'dataProvider' => $data_provider,
+				'template' => '{items}',
+				'hideHeader' => TRUE,
+				'selectableRows' => 0,
+				'columns' => array(
+					array(
+						'type' => 'raw',
+						'value' =>
+							'"<a '
+								. 'href = \"" . $data->link . "\""'
+								. '. ($data->is_file'
+									. '? " target = \"_blank\""'
+									. ': ""'
+								. ') . ">'
+								. '<span '
+									. 'class = \"'
+										. 'glyphicon '
+										. 'glyphicon-" . ('
+											. '$data->is_file'
+												. '? "file"'
+												. ': ('
+													. '$data->name != ".."'
+														. '? "folder-open"'
+														. ': "arrow-up"'
+												. ')'
+											. ') . "\">'
+								. '</span>'
+							. '</a>"',
+						'htmlOptions' => array('class' => 'icon-column')
 					),
-					'htmlOptions' => array('class' => 'button-column wide')
-				)
-			),
-			'itemsCssClass' => 'table'
-		));
+					array(
+						'type' => 'raw',
+						'value' =>
+							'$data->is_file'
+								. '? "<span '
+									. 'id = \"file-item" . $data->id . "\" '
+									. 'class = \"file-item\" '
+									. 'data-update-url = \""'
+										. '. $this'
+											. '->grid'
+											. '->controller'
+											. '->createUrl('
+												. '"file/rename",'
+												. 'array('
+													. '"path" => "'
+														. $path
+														. '",'
+													. '"old_filename" => '
+														. '$data->name'
+												. ')'
+										. ') . "\" '
+									. 'data-saving-icon-url = \""'
+										. '. Yii::app()->request->baseUrl .'
+										. '"/images/processing-icon.gif\">"'
+										. '. $data->name .'
+								. '"</span>"'
+								. ': "<a href = \"" . $data->link . "\">"'
+									. '. $data->name .'
+									. '"</a>"'
+					),
+					array(
+						'class' => 'CButtonColumn',
+						'template' => '{rename} {remove}',
+						'buttons' => array(
+							'rename' => array(
+								'label' =>
+									'<span '
+										. 'class = "'
+											. 'glyphicon '
+											. 'glyphicon-pencil'
+										. '">'
+									. '</span>',
+								'url' =>
+									'$this->grid->controller->createUrl('
+										. '"file/rename",'
+										. 'array('
+											. '"path" => "' . $path . '",'
+											. '"old_filename" => $data->name,'
+											. '"file_id" => $data->id'
+										. ')'
+									. ')',
+								'imageUrl' => FALSE,
+								'options' => array(
+									'title' => 'Переименовать файл'
+								),
+								'click' =>
+									'function() {'
+										. 'return FileList.rename(this);'
+									. '}',
+								'visible' => '$data->is_file'
+							),
+							'remove' => array(
+								'label' =>
+									'<span '
+										. 'class = "glyphicon glyphicon-trash">'
+									. '</span>',
+								'url' =>
+									'$this->grid->controller->createUrl('
+										.'"file/remove",'
+										. 'array('
+											. '"path" => "' . $path . '",'
+											. '"filename" => $data->name'
+										. ')'
+									. ')',
+								'imageUrl' => FALSE,
+								'options' => array('title' => 'Удалить файл'),
+								'click' =>
+									'function() {'
+										. 'return FileList.removing(this);'
+									. '}',
+								'visible' => '$data->is_file'
+							)
+						)
+					)
+				),
+				'itemsCssClass' => 'table',
+				'loadingCssClass' => 'wait',
+				'afterAjaxUpdate' => 'function() { FileList.initialize(); }'
+			)
+		);
 	?>
 </div>
