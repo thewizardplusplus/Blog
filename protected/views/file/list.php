@@ -3,13 +3,6 @@
 	/* @var $data_provider CActiveDataProvider */
 	/* @var $path string */
 
-	Yii::app()->getClientScript()->registerCssFile(CHtml::asset(
-		'jQueryFormStyler/jquery.formstyler.css'));
-	Yii::app()->getClientScript()->registerCssFile(CHtml::asset(
-		'styles/styler.css'));
-
-	Yii::app()->getClientScript()->registerScriptFile(CHtml::asset(
-		'jQueryFormStyler/jquery.formstyler.min.js'), CClientScript::POS_HEAD);
 	Yii::app()->getClientScript()->registerScriptFile(
 		CHtml::asset('scripts/jquery.jeditable.min.js'),
 		CClientScript::POS_HEAD
@@ -18,10 +11,10 @@
 		CHtml::asset('scripts/purl.js'),
 		CClientScript::POS_HEAD
 	);
-	Yii::app()->getClientScript()->registerScriptFile(CHtml::asset(
-		'scripts/files.js'), CClientScript::POS_HEAD);
-	Yii::app()->getClientScript()->registerScriptFile(CHtml::asset(
-		'scripts/styler.js'), CClientScript::POS_HEAD);
+	Yii::app()->getClientScript()->registerScriptFile(
+		CHtml::asset('scripts/files.js'),
+		CClientScript::POS_HEAD
+	);
 
 	$this->pageTitle = Yii::app()->name . ' - Файлы';
 
@@ -78,8 +71,12 @@
 		<legend>Загрузить файлы:</legend>
 
 		<div class = "form-group">
-			<?php echo CHtml::label('Файл:', 'file'); ?>
-			<?php echo CHtml::fileField('file'); ?>
+			<?php echo CHtml::label('Файл:', 'files[]'); ?>
+			<?= CHtml::fileField(
+				'files[]',
+				'',
+				array('multiple' => 'multiple')
+			) ?>
 		</div>
 
 		<?php echo CHtml::submitButton('Загрузить', array('class' => 'btn btn-'

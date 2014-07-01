@@ -134,14 +134,28 @@ class FileController extends CController {
 	public function actionUpload() {
 		$base_path = __DIR__ . Constants::FILES_RELATIVE_PATH;
 		$path = $this->getPath($base_path);
-		$file = CUploadedFile::getInstanceByName('file');
-		if ($file->hasError) {
-			throw new CException('Не удалось загрузить файл.');
-		}
+		$files = CUploadedFile::getInstancesByName('files');
+		foreach($files as $file) {
+			if ($file->hasError) {
+				throw new CHttpException(
+					500,
+					'Не удалось загрузить файл «'
+						. $file->name
+						. '».'
+				);
+			}
 
-		$result = $file->saveAs($base_path . '/' . $path . '/' . $file->name);
-		if (!$result) {
-			throw new CException('Не удалось загрузить файл.');
+			$result = $file->saveAs(
+				$base_path . '/' . $path . '/' . $file->name
+			);
+			if (!$result) {
+				throw new CHttpException(
+					500,
+					'Не удалось загрузить файл «'
+						. $file->name
+						. '».'
+				);
+			}
 		}
 
 		if (!empty($path)) {
