@@ -12,17 +12,17 @@
 		CHtml::asset('scripts/purl.js'),
 		CClientScript::POS_HEAD
 	);
-	Yii::app()->getClientScript()->registerScript(
-		uniqid(rand(), true),
-		'var exists_files = ['
-			. (!empty($exists_files)
-				? '"' . implode('", "', $exists_files) . '"'
-				: '')
-			. '];',
-		CClientScript::POS_HEAD
-	);
 	Yii::app()->getClientScript()->registerScriptFile(
 		CHtml::asset('scripts/files.js'),
+		CClientScript::POS_HEAD
+	);
+	Yii::app()->getClientScript()->registerScript(
+		uniqid(rand(), true),
+		'FileList.setExistsFiles(['
+		. (!empty($exists_files)
+			? '"' . implode('", "', $exists_files) . '"'
+			: '')
+		. ']);',
 		CClientScript::POS_HEAD
 	);
 
