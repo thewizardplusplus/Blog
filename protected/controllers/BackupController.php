@@ -127,24 +127,35 @@ class BackupController extends CController {
 		}
 	}
 
-	private function backup($path, $context = NULL) {
+	private function backup($path, $context = null) {
 		if (is_null($context)) {
 			$context = new stdClass();
 			$context->base_path = $path;
 			$context->backup_name = 'backup_' . date('Y-m-d-H-i-s');
 
 			$context->archive = new ZipArchive();
-			$result = $context->archive->open(__DIR__ . Constants::
-				BACKUPS_RELATIVE_PATH . '/' . $context->backup_name . '.zip',
-				ZIPARCHIVE::CREATE);
-			if ($result === TRUE) {
-				$temporary_filename = sys_get_temp_dir() . '/' . uniqid(rand(),
-					TRUE);
-				$result = file_put_contents($temporary_filename, $this->
-					dumpDatabase());
-				if ($result !== FALSE) {
-					$result = $context->archive->addFile($temporary_filename,
-						$context->backup_name . '/database_dump.sql');
+			$result = $context->archive->open(
+				__DIR__
+					. Constants::BACKUPS_RELATIVE_PATH
+					. '/'
+					. $context->backup_name
+				. '.zip',
+				ZIPARCHIVE::CREATE
+			);
+			if ($result === true) {
+				$temporary_filename =
+					sys_get_temp_dir()
+						. '/'
+						. uniqid(rand(), true);
+				$result = file_put_contents(
+					$temporary_filename,
+					$this->dumpDatabase()
+				);
+				if ($result !== false) {
+					$result = $context->archive->addFile(
+						$temporary_filename,
+						$context->backup_name . '/database_dump.sql'
+					);
 					if ($result) {
 						$result = $this->backup($path, $context);
 					}
@@ -155,27 +166,28 @@ class BackupController extends CController {
 
 			return $result;
 		} else {
-			foreach (array_diff(scandir($path), array('.', '..')) as $file) {
+			$files = scandir($path);
+			$files = array_diff($files, array('.', '..'));
+			foreach ($files as $file) {
 				$full_path = $path . '/' . $file;
-				if (realpath($full_path) == realpath(__DIR__ . Constants::
-					BACKUPS_RELATIVE_PATH))
-				{
+				if (is_file($full_path)) {
+					$result = $context->archive->addFile(
+						$full_path,
+						$context->backup_name
+							. str_replace($context->base_path, '', $full_path)
+					);
+				} else if (is_dir($full_path)) {
+					$result = $this->backup($full_path, $context);
+				} else {
 					continue;
 				}
 
-				if (is_file($full_path)) {
-					$result = $context->archive->addFile($path, $context->
-						backup_name . str_replace($context->base_path, '',
-						$full_path));
-				} else if (is_dir($full_path)) {
-					$result = $this->backup($full_path, $context);
-				}
 				if (!$result) {
-					return FALSE;
+					return false;
 				}
 			}
 
-			return TRUE;
+			return true;
 		}
 	}
 
