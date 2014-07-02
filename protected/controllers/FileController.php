@@ -145,9 +145,8 @@ class FileController extends CController {
 				);
 			}
 
-			$result = $file->saveAs(
-				$base_path . '/' . $path . '/' . $file->name
-			);
+			$file_path = $base_path . '/' . $path . '/' . $file->name;
+			$result = $file->saveAs($file_path);
 			if (!$result) {
 				throw new CHttpException(
 					500,
@@ -155,6 +154,24 @@ class FileController extends CController {
 						. $file->name
 						. '».'
 				);
+			}
+
+			$image_type = exif_imagetype($file_path);
+			if (
+				$image_type == IMAGETYPE_PNG
+				or $image_type == IMAGETYPE_JPEG
+				or $image_type == IMAGETYPE_GIF
+			) {
+				try {
+					$image = new SimpleImage($file_path);
+					$maximal_width_of_images =
+						Parameters::get()->maximal_width_of_images;
+					if ($image->get_width() > $maximal_width_of_images) {
+						$image->fit_to_width($maximal_width_of_images)->save();
+					}
+				} catch (Exception $exception) {
+					Yii::log($exception->getMessage());
+				}
 			}
 		}
 

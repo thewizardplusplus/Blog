@@ -65,6 +65,20 @@
 		</div>
 
 		<div class = "form-group">
+			<?= $form->labelEx($model, 'maximal_width_of_images') ?>
+			<?= $form->numberField(
+				$model,
+				'maximal_width_of_images',
+				array(
+					'class' => 'form-control',
+					'min' => Parameters::MINIMUM_MAXIMAL_WIDTH_OF_IMAGES,
+					'max' => Parameters::MAXIMUM_MAXIMAL_WIDTH_OF_IMAGES
+				)
+			) ?>
+			<? echo $form->error($model, 'maximal_width_of_images') ?>
+		</div>
+
+		<div class = "form-group">
 			<?php echo $form->labelEx($model, 'versions_of_backups'); ?>
 			<?php
 				echo $form->numberField($model, 'versions_of_backups', array(
