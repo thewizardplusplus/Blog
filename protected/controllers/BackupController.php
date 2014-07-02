@@ -102,7 +102,7 @@ class BackupController extends CController {
 		$this->testBackupDirectory();
 
 		$start = date_create();
-		$result = $this->backup(__DIR__ . '/../..');
+		$result = $this->backup(__DIR__ . '/../../files');
 		if (!$result) {
 			throw new CException('Не удалось создать бекап.');
 		}
