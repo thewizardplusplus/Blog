@@ -75,7 +75,7 @@ class FileController extends CController {
 			if ($a->is_file xor $b->is_file) {
 				return $a->is_file ? 1 : -1;
 			} else {
-				return strcmp($a->name, $b->name);
+				return strnatcmp($a->name, $b->name);
 			}
 		});
 

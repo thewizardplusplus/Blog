@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21356f31-0bc6-4b10-983b-8694f427a2f5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/files.js" afterPath="$PROJECT_DIR$/scripts/files.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/file/list.php" afterPath="$PROJECT_DIR$/protected/views/file/list.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/controllers/FileController.php" afterPath="$PROJECT_DIR$/protected/controllers/FileController.php" />
     </list>
     <ignored path="blog.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,10 +64,10 @@
         <option value="$PROJECT_DIR$/protected/models/ParametersForm.php" />
         <option value="$PROJECT_DIR$/protected/views/parameters/update.php" />
         <option value="$PROJECT_DIR$/scripts/spinner.js" />
-        <option value="$PROJECT_DIR$/protected/controllers/FileController.php" />
         <option value="$PROJECT_DIR$/styles/blog.css" />
         <option value="$PROJECT_DIR$/protected/views/file/list.php" />
         <option value="$PROJECT_DIR$/scripts/files.js" />
+        <option value="$PROJECT_DIR$/protected/controllers/FileController.php" />
       </list>
     </option>
   </component>
@@ -553,7 +551,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/config/Constants.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="811" selection-end="811" vertical-scroll-proportion="0.44871795" vertical-offset="0" max-vertical-offset="702" />
+        <state line="21" column="0" selection-start="811" selection-end="811" vertical-scroll-proportion="0.44871795" vertical-offset="0" max-vertical-offset="702">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/post_view.js">
@@ -704,11 +704,6 @@
         <state line="98" column="0" selection-start="2713" selection-end="2713" vertical-scroll-proportion="0.9059829" vertical-offset="834" max-vertical-offset="1560" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/controllers/FileController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="173" column="50" selection-start="4274" selection-end="4274" vertical-scroll-proportion="0.36324787" vertical-offset="2340" max-vertical-offset="4170" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/styles/blog.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="203" column="0" selection-start="2407" selection-end="2407" vertical-scroll-proportion="0.87603307" vertical-offset="2409" max-vertical-offset="3135" />
@@ -729,6 +724,13 @@
     <entry file="file://$PROJECT_DIR$/scripts/files.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="217" column="0" selection-start="5099" selection-end="5099" vertical-scroll-proportion="0.87603307" vertical-offset="2619" max-vertical-offset="3345">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/controllers/FileController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="80" column="0" selection-start="1827" selection-end="1827" vertical-scroll-proportion="0.74786323" vertical-offset="675" max-vertical-offset="4170">
           <folding />
         </state>
       </provider>
