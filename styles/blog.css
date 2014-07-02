@@ -165,8 +165,10 @@ iframe.code {
 }
 
 .log {
+	max-height: 250px;
 	font-size: smaller;
 	color: rgb(128, 128, 128);
+	overflow: auto;
 }
 
 footer {

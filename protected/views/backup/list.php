@@ -18,7 +18,7 @@
 	<?php
 		$this->widget('zii.widgets.grid.CGridView', array(
 			'dataProvider' => $data_provider,
-			'template' => '{items}',
+			'template' => '{items} {pager}',
 			'selectableRows' => 0,
 			'columns' => array(
 				array(
@@ -45,7 +45,19 @@
 					)
 				)
 			),
-			'itemsCssClass' => 'table'
+			'itemsCssClass' => 'table',
+			'emptyText' => 'Нет бекапов.',
+			'pager' => array(
+				'header' => '',
+				'firstPageLabel' => '&lt;&lt;',
+				'prevPageLabel' => '&lt;',
+				'nextPageLabel' => '&gt;',
+				'lastPageLabel' => '&gt;&gt;',
+				'selectedPageCssClass' => 'active',
+				'hiddenPageCssClass' => 'disabled',
+				'htmlOptions' => array('class' => 'pagination')
+			),
+			'pagerCssClass' => 'page-controller'
 		));
 	?>
 </div>

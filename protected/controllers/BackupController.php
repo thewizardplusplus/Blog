@@ -60,8 +60,7 @@ class BackupController extends CController {
 			'sort' => array(
 				'attributes' => array('timestamp'),
 				'defaultOrder' => array('timestamp' => CSort::SORT_DESC)
-			),
-			'pagination' => FALSE
+			)
 		));
 
 		$log_filename = __DIR__ . '/../runtime/backups.log';
@@ -83,8 +82,6 @@ class BackupController extends CController {
 					return $line;
 				}, $lines);
 				$lines = array_reverse($lines);
-				$lines = array_slice($lines, 0, Parameters::get()->
-					versions_of_backups);
 
 				$log_text = implode("\n", $lines);
 			} else {
@@ -105,22 +102,17 @@ class BackupController extends CController {
 		$this->testBackupDirectory();
 
 		$start = date_create();
-
 		$result = $this->backup(__DIR__ . '/../..');
 		if (!$result) {
 			throw new CException('Не удалось создать бекап.');
 		}
-
-		$backups_path = __DIR__ . Constants::BACKUPS_RELATIVE_PATH;
-		$backups = array_diff(scandir($backups_path), array('.', '..'));
-		rsort($backups, SORT_STRING);
-		$old_backups = array_slice($backups, Parameters::get()->
-			versions_of_backups);
-		foreach ($old_backups as $filename) {
-			unlink($backups_path . '/' . $filename);
-		}
-		Yii::log(date_create()->diff($start)->format('Длительность создания'
-			. ' последнего бекапа: %I:%S.'), 'info', 'backups');
+		Yii::log(
+			date_create()
+				->diff($start)
+				->format('Длительность создания последнего бекапа: %I:%S.'),
+			'info',
+			'backups'
+		);
 
 		$this->redirect(array('backup/list'));
 	}
