@@ -94,12 +94,12 @@
 										'url' => array('file/list')
 									),
 									array(
-										'label' => 'Параметры',
-										'url' => array('parameters/update')
-									),
-									array(
 										'label' => 'Бекапы',
 										'url' => array('backup/list')
+									),
+									array(
+										'label' => 'Параметры',
+										'url' => array('parameters/update')
 									)
 								),
 								'htmlOptions' => array(
