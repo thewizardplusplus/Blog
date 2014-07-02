@@ -2,6 +2,7 @@
 	/* @var $this FileController */
 	/* @var $data_provider CActiveDataProvider */
 	/* @var $path string */
+	/* @var $exists_files array */
 
 	Yii::app()->getClientScript()->registerScriptFile(
 		CHtml::asset('scripts/jquery.jeditable.min.js'),
@@ -9,6 +10,15 @@
 	);
 	Yii::app()->getClientScript()->registerScriptFile(
 		CHtml::asset('scripts/purl.js'),
+		CClientScript::POS_HEAD
+	);
+	Yii::app()->getClientScript()->registerScript(
+		uniqid(rand(), true),
+		'var exists_files = ['
+			. (!empty($exists_files)
+				? '"' . implode('", "', $exists_files) . '"'
+				: '')
+			. '];',
 		CClientScript::POS_HEAD
 	);
 	Yii::app()->getClientScript()->registerScriptFile(
@@ -63,20 +73,25 @@
 	</ol>
 </div>
 
-<?php echo CHtml::beginForm($this->createUrl('file/upload', array('path' =>
-	$path)), 'post', array('enctype' => 'multipart/form-data')); ?>
+<?= CHtml::beginForm(
+	$this->createUrl('file/upload', array('path' => $path)),
+	'post',
+	array('id' => 'file-upload', 'enctype' => 'multipart/form-data')
+) ?>
 
 <div class = "panel panel-default">
 	<fieldset>
 		<legend>Загрузить файлы:</legend>
 
 		<div class = "form-group">
-			<?php echo CHtml::label('Файл:', 'files[]'); ?>
+			<?php echo CHtml::label('Файл:', 'files'); ?>
 			<?= CHtml::fileField(
 				'files[]',
 				'',
 				array('multiple' => 'multiple')
 			) ?>
+			<div class = "alert alert-danger file-upload-error-view">
+			</div>
 		</div>
 
 		<?php echo CHtml::submitButton('Загрузить', array('class' => 'btn btn-'
@@ -84,7 +99,7 @@
 	</fieldset>
 </div>
 
-<?php echo CHtml::endForm(); ?>
+<?= CHtml::endForm() ?>
 
 <div class = "table-responsive">
 	<?php

@@ -84,10 +84,22 @@ class FileController extends CController {
 			'pagination' => FALSE
 		));
 
-		$this->render('list', array(
-			'data_provider' => $data_provider,
-			'path' => $path
-		));
+		$exists_files = array_diff($filenames, array('..'));
+		$exists_files = array_filter(
+			$exists_files,
+			function($exists_file) use($base_path) {
+				return is_file($base_path . '/' . $exists_file);
+			}
+		);
+
+		$this->render(
+			'list',
+			array(
+				'data_provider' => $data_provider,
+				'path' => $path,
+				'exists_files' => $exists_files
+			)
+		);
 	}
 
 	public function actionRename($old_filename) {
@@ -134,18 +146,47 @@ class FileController extends CController {
 	public function actionUpload() {
 		$base_path = __DIR__ . Constants::FILES_RELATIVE_PATH;
 		$path = $this->getPath($base_path);
-		$files = CUploadedFile::getInstancesByName('files');
-		foreach($files as $file) {
+		$full_path = $base_path . '/' . $path;
+
+		$exists_files = scandir($full_path);
+		$exists_files = array_diff($exists_files, array('.', '..'));
+		$exists_files = array_filter(
+			$exists_files,
+			function($exists_file) use($full_path) {
+				return is_file($full_path . '/' . $exists_file);
+			}
+		);
+
+		$uploads_files = CUploadedFile::getInstancesByName('files');
+		$collisions = array();
+		foreach($uploads_files as $file) {
+			if (in_array($file->name, $exists_files)) {
+				$collisions[] = $file->name;
+			}
+		}
+		if (!empty($collisions)) {
+			throw new CHttpException(
+				500,
+				(count($collisions) > 1
+					? 'Эти файлы'
+					: 'Этот файл')
+					. ' уже есть в текущей директории: «'
+					. implode('», «', $collisions)
+					. '».'
+			);
+		}
+
+		foreach($uploads_files as $file) {
 			if ($file->hasError) {
 				throw new CHttpException(
 					500,
 					'Не удалось загрузить файл «'
-						. $file->name
-						. '».'
+					. $file->name
+					. '».'
 				);
 			}
 
-			$file_path = $base_path . '/' . $path . '/' . $file->name;
+			$file_path = $full_path . '/' . $file->name;
 			$result = $file->saveAs($file_path);
 			if (!$result) {
 				throw new CHttpException(

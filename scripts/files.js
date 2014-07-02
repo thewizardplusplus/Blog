@@ -25,6 +25,45 @@ $(document).ready(
 			);
 		};
 
+		var file_upload_form = $('#file-upload');
+		var file_upload_error_block = $(
+			'.file-upload-error-view',
+			file_upload_form
+		);
+		var collisions = [];
+		$('#files', file_upload_form).change(
+			function() {
+				var original_input = $(this).get(0);
+
+				collisions = [];
+				for (var i = 0; i < original_input.files.length; ++i) {
+					var filename = original_input.files[i].name;
+					if ($.inArray(filename, exists_files) > -1) {
+						collisions.push(filename);
+					}
+				}
+
+				if (!collisions.length) {
+					file_upload_error_block.hide();
+				} else {
+					file_upload_error_block.text(
+						(collisions.length > 1
+							? 'Эти файлы'
+							: 'Этот файл')
+							+ ' уже есть в текущей директории: «'
+							+ collisions.join('», «')
+							+ '».'
+					);
+					file_upload_error_block.show();
+				}
+			}
+		);
+		file_upload_form.submit(
+			function() {
+				return !collisions.length;
+			}
+		);
+
 		$.editable.addInputType(
 			'bootstrapped-line-edit',
 			{

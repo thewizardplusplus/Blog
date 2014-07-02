@@ -197,3 +197,7 @@ footer {
 	text-align: center;
 	font-size: larger;
 }
+
+.file-upload-error-view {
+	display: none;
+}
