@@ -69,6 +69,7 @@
         <option value="$PROJECT_DIR$/protected/views/backup/list.php" />
         <option value="$PROJECT_DIR$/styles/blog.css" />
         <option value="$PROJECT_DIR$/protected/views/layouts/main.php" />
+        <option value="$PROJECT_DIR$/protected/docs/backup_schema.xsd" />
         <option value="$PROJECT_DIR$/protected/controllers/BackupController.php" />
       </list>
     </option>
@@ -489,11 +490,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/protected/views/post/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="35" selection-start="801" selection-end="801" vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="1860" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/views/post/_view.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="85" column="52" selection-start="2240" selection-end="2240" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2910" />
@@ -552,11 +548,6 @@
     <entry file="file://$PROJECT_DIR$/scripts/disqus_counters.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="0" selection-start="684" selection-end="684" vertical-scroll-proportion="0.59917355" vertical-offset="0" max-vertical-offset="726" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/models/Post.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="21" selection-start="798" selection-end="798" vertical-scroll-proportion="0.66239315" vertical-offset="0" max-vertical-offset="1440" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/config/Constants.php">
@@ -684,11 +675,6 @@
         <state line="5" column="0" selection-start="192" selection-end="192" vertical-scroll-proportion="0.10330579" vertical-offset="0" max-vertical-offset="726" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/docs/database.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="841" selection-end="841" vertical-scroll-proportion="0.49215406" vertical-offset="0" max-vertical-offset="701" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/models/ParametersForm.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="55" selection-start="402" selection-end="402" vertical-scroll-proportion="0.2777778" vertical-offset="0" max-vertical-offset="1035" />
@@ -762,9 +748,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/protected/docs/database.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="0" selection-start="841" selection-end="841" vertical-scroll-proportion="0.49215406" vertical-offset="0" max-vertical-offset="701">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/models/Post.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="21" selection-start="798" selection-end="798" vertical-scroll-proportion="-0.3888889" vertical-offset="738" max-vertical-offset="1440">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/docs/backup_schema.xsd">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="0" selection-start="833" selection-end="833" vertical-scroll-proportion="0.6404959" vertical-offset="0" max-vertical-offset="726">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/protected/controllers/BackupController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="192" column="0" selection-start="4779" selection-end="4779" vertical-scroll-proportion="1.4957265" vertical-offset="1830" max-vertical-offset="3555">
+        <state line="224" column="0" selection-start="5669" selection-end="5669" vertical-scroll-proportion="0.8717949" vertical-offset="2748" max-vertical-offset="3450">
           <folding />
         </state>
       </provider>

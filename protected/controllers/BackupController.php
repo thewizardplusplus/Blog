@@ -154,7 +154,7 @@ class BackupController extends CController {
 				if ($result !== false) {
 					$result = $context->archive->addFile(
 						$temporary_filename,
-						$context->backup_name . '/database_dump.sql'
+						$context->backup_name . '/database_dump.xml'
 					);
 					if ($result) {
 						$result = $this->backup($path, $context);
@@ -192,40 +192,33 @@ class BackupController extends CController {
 	}
 
 	private function dumpDatabase() {
-		$connection = Yii::app()->db;
+		$posts_dump = '';
+		$posts = Post::model()->findAll(array('order' => 'create_time'));
+		foreach ($posts as $post) {
+			$title = base64_encode($post->title);
+			$create_time =
+				date_create($post->create_time)->format('Y-m-d\TH:i:s');
+			$modify_time =
+				date_create($post->modify_time)->format('Y-m-d\TH:i:s');
+			$text = base64_encode($post->text);
+			$tags = base64_encode($post->tags);
+			$published = !$post->published ? ' published = "false"' : '';
 
-		$tables = array();
-		foreach ($connection->createCommand('SHOW TABLES')->queryAll() as $row)
-		{
-			$tables[] = reset($row);
+			$posts_dump .=
+				"\t<post "
+					. "create-time = \"$create_time\" "
+					. "modify-time = \"$modify_time\""
+					. "$published>\n"
+					. "\t\t<title>$title</title>\n"
+					. "\t\t<text>$text</text>\n"
+					. "\t\t<tags>$tags</tags>\n"
+				. "\t</post>\n";
 		}
 
-		$dump = '';
-		foreach ($tables as $table) {
-			$dump .= "DROP TABLE IF EXISTS `" . $table . "`;\n" . end(reset(
-				$connection->createCommand('SHOW CREATE TABLE `' . $table . '`')
-				->queryAll())) . ";\n\n";
-
-			$rows = $connection->createCommand('SELECT * FROM `' . $table . '`')
-				->queryAll();
-			if (!empty($rows)) {
-				$dump .= "INSERT INTO `" . $table . "`\nVALUES\n";
-
-				foreach ($rows as $row) {
-					$dump .= "\t(" . implode(", ", array_map(function($item)
-						use($connection)
-					{
-						return $connection->quoteValue($item);
-					}, $row)) . "),\n";
-				}
-
-				$dump = substr($dump, 0, strlen($dump) - 2) . ";\n\n";
-			}
-		}
-		if (!empty($dump)) {
-			$dump = substr($dump, 0, strlen($dump) - 1);
-		}
-
-		return $dump;
+		return
+			"<?xml version = \"1.0\" encoding = \"utf-8\"?>\n"
+				. "<blog>\n"
+					. "$posts_dump"
+				. "</blog>\n";
 	}
 }

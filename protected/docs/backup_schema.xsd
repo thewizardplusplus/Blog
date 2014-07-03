@@ -1,0 +1,31 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<xs:schema xmlns:xs = "http://www.w3.org/2001/XMLSchema">
+	<xs:element name = "blog" type = "Blog" />
+
+	<xs:complexType name = "Blog">
+		<xs:sequence>
+			<xs:element
+				name = "post"
+				type = "Post"
+				minOccurs = "0"
+				maxOccurs = "unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name = "Post">
+		<xs:sequence>
+			<xs:element name = "title" type = "xs:string" />
+			<xs:element name = "text" type = "xs:string" />
+			<xs:element name = "tags" type = "xs:string" />
+		</xs:sequence>
+		<xs:attribute
+			name = "create-time"
+			type = "xs:dateTime"
+			use = "required" />
+		<xs:attribute
+			name = "modify-time"
+			type = "xs:dateTime"
+			use = "required" />
+		<xs:attribute name = "published" type = "xs:boolean" default = "true" />
+	</xs:complexType>
+</xs:schema>
