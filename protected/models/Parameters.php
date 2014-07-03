@@ -10,6 +10,7 @@ class Parameters extends CActiveRecord {
 	const DEFAULT_MAXIMAL_WIDTH_OF_IMAGES = 640;
 	const MINIMUM_MAXIMAL_WIDTH_OF_IMAGES = 16;
 	const MAXIMUM_MAXIMAL_WIDTH_OF_IMAGES = 1024;
+	const DROPBOX_ACCESS_TOKEN_LENGTH_MAXIMUM = 255;
 
 	public static function model($className = __CLASS__) {
 		return parent::model($className);
@@ -46,6 +47,12 @@ class Parameters extends CActiveRecord {
 				'numerical',
 				'min' => Parameters::MINIMUM_MAXIMAL_WIDTH_OF_IMAGES,
 				'max' => Parameters::MAXIMUM_MAXIMAL_WIDTH_OF_IMAGES
+			),
+			array('dropbox_access_token', 'required'),
+			array(
+				'dropbox_access_token',
+				'length',
+				'max' => Parameters::DROPBOX_ACCESS_TOKEN_LENGTH_MAXIMUM
 			)
 		);
 	}

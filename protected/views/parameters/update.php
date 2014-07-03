@@ -78,6 +78,20 @@
 			<? echo $form->error($model, 'maximal_width_of_images') ?>
 		</div>
 
+		<div class = "form-group">
+			<?= $form->labelEx($model, 'dropbox_access_token') ?>
+			<?= $form->textField(
+				$model,
+				'dropbox_access_token',
+				array(
+					'class' => 'form-control',
+					'maxlength' =>
+						Parameters::DROPBOX_ACCESS_TOKEN_LENGTH_MAXIMUM
+				)
+			) ?>
+			<?= $form->error($model, 'dropbox_access_token') ?>
+		</div>
+
 		<?php echo CHtml::submitButton('Сохранить', array('class' =>
 			'btn btn-primary')); ?>
 	</fieldset>

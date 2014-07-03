@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21356f31-0bc6-4b10-983b-8694f427a2f5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/backuping.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/controllers/BackupController.php" afterPath="$PROJECT_DIR$/protected/controllers/BackupController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/blog.css" afterPath="$PROJECT_DIR$/styles/blog.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/backup/list.php" afterPath="$PROJECT_DIR$/protected/views/backup/list.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/layouts/main.php" afterPath="$PROJECT_DIR$/protected/views/layouts/main.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/Parameters.php" afterPath="$PROJECT_DIR$/protected/models/Parameters.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/ParametersForm.php" afterPath="$PROJECT_DIR$/protected/models/ParametersForm.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/docs/database.sql" afterPath="$PROJECT_DIR$/protected/docs/database.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/parameters/update.php" afterPath="$PROJECT_DIR$/protected/views/parameters/update.php" />
     </list>
     <ignored path="blog.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -68,15 +66,15 @@
         <option value="$PROJECT_DIR$/scripts/files.js" />
         <option value="$PROJECT_DIR$/protected/controllers/FileController.php" />
         <option value="$PROJECT_DIR$/protected/docs/backup_schema.xsd" />
-        <option value="$PROJECT_DIR$/protected/docs/database.sql" />
-        <option value="$PROJECT_DIR$/protected/models/Parameters.php" />
-        <option value="$PROJECT_DIR$/protected/models/ParametersForm.php" />
-        <option value="$PROJECT_DIR$/protected/views/parameters/update.php" />
         <option value="$PROJECT_DIR$/styles/blog.css" />
         <option value="$PROJECT_DIR$/protected/views/layouts/main.php" />
         <option value="$PROJECT_DIR$/scripts/backuping.js" />
         <option value="$PROJECT_DIR$/protected/controllers/BackupController.php" />
         <option value="$PROJECT_DIR$/protected/views/backup/list.php" />
+        <option value="$PROJECT_DIR$/protected/docs/database.sql" />
+        <option value="$PROJECT_DIR$/protected/models/Parameters.php" />
+        <option value="$PROJECT_DIR$/protected/models/ParametersForm.php" />
+        <option value="$PROJECT_DIR$/protected/views/parameters/update.php" />
       </list>
     </option>
   </component>
@@ -437,7 +435,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-3" y="-3" width="1158" height="871" extended-state="6" />
+    <frame x="-3" y="-3" width="1158" height="871" extended-state="7" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32756326" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -680,26 +678,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/docs/database.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="792" selection-end="792" vertical-scroll-proportion="0.47075605" vertical-offset="0" max-vertical-offset="701" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/models/ParametersForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="0" selection-start="1489" selection-end="1489" vertical-scroll-proportion="1.1965812" vertical-offset="0" max-vertical-offset="930" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/models/Parameters.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="0" selection-start="1451" selection-end="1451" vertical-scroll-proportion="1.1111112" vertical-offset="0" max-vertical-offset="870" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/views/parameters/update.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="0" selection-start="2318" selection-end="2318" vertical-scroll-proportion="0.8717949" vertical-offset="678" max-vertical-offset="1380" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/config/main.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="0" selection-start="572" selection-end="572" vertical-scroll-proportion="0.491453" vertical-offset="0" max-vertical-offset="1110">
@@ -752,6 +730,34 @@
     <entry file="file://$PROJECT_DIR$/protected/views/backup/list.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="0" selection-start="145" selection-end="145" vertical-scroll-proportion="0.14957266" vertical-offset="0" max-vertical-offset="1035">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/docs/database.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="0" selection-start="839" selection-end="839" vertical-scroll-proportion="0.49215406" vertical-offset="0" max-vertical-offset="701">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/models/Parameters.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="0" selection-start="1666" selection-end="1666" vertical-scroll-proportion="0.8717949" vertical-offset="273" max-vertical-offset="975">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/models/ParametersForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="0" selection-start="1949" selection-end="1949" vertical-scroll-proportion="0.8717949" vertical-offset="408" max-vertical-offset="1110">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/views/parameters/update.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="100" column="0" selection-start="2665" selection-end="2665" vertical-scroll-proportion="0.8717949" vertical-offset="888" max-vertical-offset="1590">
           <folding />
         </state>
       </provider>
