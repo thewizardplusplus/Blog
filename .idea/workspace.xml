@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21356f31-0bc6-4b10-983b-8694f427a2f5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/Parameters.php" afterPath="$PROJECT_DIR$/protected/models/Parameters.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/ParametersForm.php" afterPath="$PROJECT_DIR$/protected/models/ParametersForm.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/docs/database.sql" afterPath="$PROJECT_DIR$/protected/docs/database.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/parameters/update.php" afterPath="$PROJECT_DIR$/protected/views/parameters/update.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/backuping.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/controllers/BackupController.php" afterPath="$PROJECT_DIR$/protected/controllers/BackupController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/blog.css" afterPath="$PROJECT_DIR$/styles/blog.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/backup/list.php" afterPath="$PROJECT_DIR$/protected/views/backup/list.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/layouts/main.php" afterPath="$PROJECT_DIR$/protected/views/layouts/main.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="blog.iws" />
@@ -66,15 +67,16 @@
         <option value="$PROJECT_DIR$/protected/views/file/list.php" />
         <option value="$PROJECT_DIR$/scripts/files.js" />
         <option value="$PROJECT_DIR$/protected/controllers/FileController.php" />
-        <option value="$PROJECT_DIR$/protected/views/backup/list.php" />
-        <option value="$PROJECT_DIR$/styles/blog.css" />
-        <option value="$PROJECT_DIR$/protected/views/layouts/main.php" />
         <option value="$PROJECT_DIR$/protected/docs/backup_schema.xsd" />
-        <option value="$PROJECT_DIR$/protected/controllers/BackupController.php" />
         <option value="$PROJECT_DIR$/protected/docs/database.sql" />
         <option value="$PROJECT_DIR$/protected/models/Parameters.php" />
         <option value="$PROJECT_DIR$/protected/models/ParametersForm.php" />
         <option value="$PROJECT_DIR$/protected/views/parameters/update.php" />
+        <option value="$PROJECT_DIR$/styles/blog.css" />
+        <option value="$PROJECT_DIR$/protected/views/layouts/main.php" />
+        <option value="$PROJECT_DIR$/scripts/backuping.js" />
+        <option value="$PROJECT_DIR$/protected/controllers/BackupController.php" />
+        <option value="$PROJECT_DIR$/protected/views/backup/list.php" />
       </list>
     </option>
   </component>
@@ -111,6 +113,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -317,24 +320,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="runtime" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="protected" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -413,7 +398,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -453,7 +437,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-3" y="-3" width="1158" height="871" extended-state="7" />
+    <frame x="-3" y="-3" width="1158" height="871" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32756326" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -462,7 +446,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25315315" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25765765" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -470,11 +454,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32934928" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -494,11 +478,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/protected/views/post/_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="52" selection-start="2240" selection-end="2240" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2910" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/post_view.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="0" selection-start="908" selection-end="908" vertical-scroll-proportion="0.0" vertical-offset="435" max-vertical-offset="900" />
@@ -596,11 +575,6 @@
         <state line="35" column="0" selection-start="736" selection-end="736" vertical-scroll-proportion="2.3972602" vertical-offset="0" max-vertical-offset="615" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/config/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="572" selection-end="572" vertical-scroll-proportion="0.15384616" vertical-offset="315" max-vertical-offset="1110" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/post_list.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="41" selection-start="463" selection-end="463" vertical-scroll-proportion="1.6438357" vertical-offset="0" max-vertical-offset="1080" />
@@ -689,31 +663,6 @@
         <state line="80" column="0" selection-start="1827" selection-end="1827" vertical-scroll-proportion="0.42735043" vertical-offset="900" max-vertical-offset="4170" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/views/post/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="40" selection-start="2197" selection-end="2197" vertical-scroll-proportion="0.32051283" vertical-offset="1170" max-vertical-offset="1935" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/styles/blog.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="172" column="0" selection-start="2071" selection-end="2071" vertical-scroll-proportion="0.20399429" vertical-offset="2437" max-vertical-offset="3165" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/views/backup/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="0" selection-start="1724" selection-end="1724" vertical-scroll-proportion="1.4316239" vertical-offset="0" max-vertical-offset="1095" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/views/layouts/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="98" column="38" selection-start="3157" selection-end="3157" vertical-scroll-proportion="0.52249634" vertical-offset="1110" max-vertical-offset="2985" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/runtime/backups.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="726" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/runtime/application.log">
       <provider selected="true" editor-type-id="text-editor">
         <state line="914" column="0" selection-start="86278" selection-end="86278" vertical-scroll-proportion="-3.4179523" vertical-offset="16147" max-vertical-offset="16860" />
@@ -731,37 +680,78 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/controllers/BackupController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="224" column="0" selection-start="5669" selection-end="5669" vertical-scroll-proportion="0.9059829" vertical-offset="2724" max-vertical-offset="3450">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/docs/database.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="792" selection-end="792" vertical-scroll-proportion="0.47075605" vertical-offset="0" max-vertical-offset="701">
-          <folding />
-        </state>
+        <state line="22" column="0" selection-start="792" selection-end="792" vertical-scroll-proportion="0.47075605" vertical-offset="0" max-vertical-offset="701" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/models/ParametersForm.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="0" selection-start="1489" selection-end="1489" vertical-scroll-proportion="1.1965812" vertical-offset="0" max-vertical-offset="930">
-          <folding />
-        </state>
+        <state line="56" column="0" selection-start="1489" selection-end="1489" vertical-scroll-proportion="1.1965812" vertical-offset="0" max-vertical-offset="930" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/models/Parameters.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="0" selection-start="1451" selection-end="1451" vertical-scroll-proportion="1.1111112" vertical-offset="0" max-vertical-offset="870">
-          <folding />
-        </state>
+        <state line="52" column="0" selection-start="1451" selection-end="1451" vertical-scroll-proportion="1.1111112" vertical-offset="0" max-vertical-offset="870" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/views/parameters/update.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="0" selection-start="2318" selection-end="2318" vertical-scroll-proportion="0.8717949" vertical-offset="678" max-vertical-offset="1380">
+        <state line="86" column="0" selection-start="2318" selection-end="2318" vertical-scroll-proportion="0.8717949" vertical-offset="678" max-vertical-offset="1380" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/config/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="0" selection-start="572" selection-end="572" vertical-scroll-proportion="0.491453" vertical-offset="0" max-vertical-offset="1110">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/views/post/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="123" column="0" selection-start="3025" selection-end="3025" vertical-scroll-proportion="1.7051282" vertical-offset="648" max-vertical-offset="1935">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/blog.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="169" column="0" selection-start="2032" selection-end="2032" vertical-scroll-proportion="0.5165289" vertical-offset="2160" max-vertical-offset="3210">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/runtime/backups.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="255" selection-end="255" vertical-scroll-proportion="0.06198347" vertical-offset="0" max-vertical-offset="726">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/views/layouts/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="114" column="87" selection-start="3661" selection-end="3661" vertical-scroll-proportion="0.32656023" vertical-offset="1485" max-vertical-offset="3390">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/controllers/BackupController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="54" selection-start="358" selection-end="358" vertical-scroll-proportion="0.021367522" vertical-offset="225" max-vertical-offset="3420">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/backuping.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="0" selection-start="1407" selection-end="1407" vertical-scroll-proportion="0.87603307" vertical-offset="279" max-vertical-offset="1005">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/views/backup/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="0" selection-start="145" selection-end="145" vertical-scroll-proportion="0.14957266" vertical-offset="0" max-vertical-offset="1035">
           <folding />
         </state>
       </provider>

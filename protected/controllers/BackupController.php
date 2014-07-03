@@ -14,7 +14,7 @@ class BackupController extends CController {
 		return array(
 			array(
 				'allow',
-				'actions' => array('list', 'new'),
+				'actions' => array('list', 'new', 'log'),
 				'users' => array('admin')
 			),
 			array(
@@ -63,35 +63,7 @@ class BackupController extends CController {
 			)
 		));
 
-		$log_filename = __DIR__ . '/../runtime/backups.log';
-		if (file_exists($log_filename)) {
-			$log_text = file_get_contents($log_filename);
-
-			if (!empty($log_text)) {
-				$lines = explode("\n", $log_text);
-				$lines = array_filter($lines, function($line) {
-					return preg_match('/^\d.*/', $line);
-				});
-				$lines = array_map(function($line) {
-					$line = preg_replace('/^(\d{4})\/(0[1-9]|1[0-2])\/(0[1-9]|'
-						. '[12]\d|3[01]) (([01]\d|2[0-3]):([0-5]\d):([0-5]' .
-						'\d))/', '($3.$2.$1 $4)', $line);
-					$line = preg_replace('/\[\w+\]/', '', $line);
-					$line = preg_replace('/\s+/', ' ', $line);
-
-					return $line;
-				}, $lines);
-				$lines = array_reverse($lines);
-
-				$log_text = implode("\n", $lines);
-			} else {
-				$log_text = '';
-			}
-		} else {
-			file_put_contents($log_filename, '');
-			$log_text = '';
-		}
-
+		$log_text = $this->getLog();
 		$this->render('list', array(
 			'data_provider' => $data_provider,
 			'log_text' => $log_text
@@ -115,6 +87,10 @@ class BackupController extends CController {
 		);
 
 		$this->redirect(array('backup/list'));
+	}
+
+	public function actionLog() {
+		echo $this->getLog();
 	}
 
 	private function testBackupDirectory() {
@@ -220,5 +196,27 @@ class BackupController extends CController {
 				. "<blog>\n"
 					. "$posts_dump"
 				. "</blog>\n";
+	}
+
+	private function getLog() {
+		$log_text = file(
+			__DIR__ . '/../runtime/backups.log',
+			FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES
+		);
+		if (!empty($log_text)) {
+			$log_text = end($log_text);
+			$date = substr($log_text, 0, 19);
+			$date = preg_replace(
+				';^(\d{4})/(\d\d)/(\d\d) ((\d\d):(\d\d):(\d\d));',
+				'$3.$2.$1 $4',
+				$date
+			);
+			$log_text = substr($log_text, 37);
+			$log_text = preg_replace('/:/', ' (' . $date . '):', $log_text, 1);
+		} else {
+			$log_text = '';
+		}
+
+		return $log_text;
 	}
 }

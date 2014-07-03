@@ -10,6 +10,12 @@
 		CHtml::asset('scripts/tag_cloud.js'),
 		CClientScript::POS_HEAD
 	);
+	if (!Yii::app()->user->isGuest) {
+		Yii::app()->getClientScript()->registerScriptFile(
+			CHtml::asset('scripts/backuping.js'),
+			CClientScript::POS_HEAD
+		);
+	}
 
 	$with_aside = $this->route == 'post/list';
 
@@ -96,7 +102,28 @@
 									array(
 										'label' => 'Бекапы',
 										'url' => array('backup/list')
-									),
+									)
+								),
+								'htmlOptions' => array(
+									'class' => 'nav navbar-nav'
+								)
+							)
+						); ?>
+						<button
+							class = "btn btn-primary navbar-btn navbar-left create-backup-button"
+							data-create-backup-url = "<?= $this->createUrl('backup/new') ?>"
+							data-get-log-url = "<?= $this->createUrl('backup/log') ?>">
+							<img
+								src = "<?= Yii::app()->request->baseUrl ?>/images/processing-icon.gif"
+								alt = "..." />
+							<span class = "glyphicon glyphicon-compressed">
+							</span>
+							<span>Бекап</span>
+						</button>
+						<?php $this->widget(
+							'zii.widgets.CMenu',
+							array(
+								'items' => array(
 									array(
 										'label' => 'Параметры',
 										'url' => array('parameters/update')

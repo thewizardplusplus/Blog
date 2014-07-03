@@ -165,10 +165,8 @@ iframe.code {
 }
 
 .log {
-	max-height: 250px;
 	font-size: smaller;
 	color: rgb(128, 128, 128);
-	overflow: auto;
 }
 
 footer {
@@ -202,4 +200,9 @@ footer {
 
 .file-upload-error-view {
 	display: none;
+}
+
+.navbar-btn img {
+	display: none;
+	height: 18px;
 }
