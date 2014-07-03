@@ -1,6 +1,10 @@
 <?php
 
+require_once "dropbox-sdk/Dropbox/autoload.php";
+
 class BackupController extends CController {
+	const DROPBOX_APP_NAME = 'wizard-blog';
+
 	public function __construct($id, $module = NULL) {
 		parent::__construct($id, $module);
 		$this->defaultAction = 'list';
@@ -74,10 +78,11 @@ class BackupController extends CController {
 		$this->testBackupDirectory();
 
 		$start = date_create();
-		$result = $this->backup(__DIR__ . '/../../files');
-		if (!$result) {
+		$backup_path = $this->backup(__DIR__ . '/../../files');
+		if ($backup_path === false) {
 			throw new CException('Не удалось создать бекап.');
 		}
+		$this->saveFileToDropbox($backup_path);
 		Yii::log(
 			date_create()
 				->diff($start)
@@ -108,14 +113,16 @@ class BackupController extends CController {
 			$context = new stdClass();
 			$context->base_path = $path;
 			$context->backup_name = 'backup_' . date('Y-m-d-H-i-s');
-
-			$context->archive = new ZipArchive();
-			$result = $context->archive->open(
+			$context->backup_path =
 				__DIR__
 					. Constants::BACKUPS_RELATIVE_PATH
 					. '/'
 					. $context->backup_name
-				. '.zip',
+					. '.zip';
+
+			$context->archive = new ZipArchive();
+			$result = $context->archive->open(
+				$context->backup_path,
 				ZIPARCHIVE::CREATE
 			);
 			if ($result === true) {
@@ -140,7 +147,11 @@ class BackupController extends CController {
 				$context->archive->close();
 			}
 
-			return $result;
+			if ($result) {
+				return $context->backup_path;
+			} else {
+				return false;
+			}
 		} else {
 			$files = scandir($path);
 			$files = array_diff($files, array('.', '..'));
@@ -218,5 +229,19 @@ class BackupController extends CController {
 		}
 
 		return $log_text;
+	}
+
+	private function saveFileToDropbox($path) {
+		$file = fopen($path, 'rb');
+
+		$dropbox_client = new \Dropbox\Client(
+			Parameters::get()->dropbox_access_token,
+			self::DROPBOX_APP_NAME
+		);
+		$dropbox_client->uploadFile(
+			'/' . basename($path),
+			\Dropbox\WriteMode::add(),
+			$file
+		);
 	}
 }
