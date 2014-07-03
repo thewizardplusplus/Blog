@@ -210,22 +210,29 @@ class BackupController extends CController {
 	}
 
 	private function getLog() {
-		$log_text = file(
-			__DIR__ . '/../runtime/backups.log',
+		$log_text = '';
+		$log_lines = file(
+			realpath(__DIR__ . '/../runtime/backups.log'),
 			FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES
 		);
-		if (!empty($log_text)) {
-			$log_text = end($log_text);
+		if (!empty($log_lines)) {
+			$log_lines = array_filter(
+				$log_lines,
+				function($log_line) {
+					return preg_match('/^\d.*/', $log_line);
+				}
+			);
+
+			$log_text = end($log_lines);
 			$date = substr($log_text, 0, 19);
 			$date = preg_replace(
 				';^(\d{4})/(\d\d)/(\d\d) ((\d\d):(\d\d):(\d\d));',
 				'$3.$2.$1 $4',
 				$date
 			);
+
 			$log_text = substr($log_text, 37);
 			$log_text = preg_replace('/:/', ' (' . $date . '):', $log_text, 1);
-		} else {
-			$log_text = '';
 		}
 
 		return $log_text;
