@@ -36,22 +36,29 @@ class BackupController extends CController {
 		$backups = array();
 		foreach ($filenames as $filename) {
 			$filename = $backups_path . '/' . $filename;
-			if (is_file($filename) and strtolower(pathinfo($filename,
-				PATHINFO_EXTENSION)) == 'zip')
-			{
+			if (
+				is_file($filename)
+				and strtolower(pathinfo($filename, PATHINFO_EXTENSION))
+					== 'zip'
+			) {
 				$backup = new stdClass();
 				$backup->timestamp = date('d.m.Y H:i:s', filemtime($filename));
 				$backup->size = filesize($filename);
-				if ($backup->size > 1024 and $backup->size < 1024 * 1024) {
+				if ($backup->size < 1024) {
+					$backup->size .= ' B';
+				} else if (
+					$backup->size > 1024 and $backup->size < 1024 * 1024
+				) {
 					$backup->size = round($backup->size / 1024, 2) . ' KB';
-				} else if ($backup->size > 1024 * 1024 and $backup->size < 1024
-					* 1024 * 1024)
-				{
-					$backup->size = round($backup->size / 1024 * 1024, 2) .
-						' MB';
+				} else if (
+					$backup->size > 1024 * 1024
+					and $backup->size < 1024 * 1024 * 1024
+				) {
+					$backup->size =
+						round($backup->size / (1024 * 1024), 2) . ' MB';
 				} else {
-					$backup->size = round($backup->size / 1024 * 1024 * 1024, 2)
-						. ' GB';
+					$backup->size =
+						round($backup->size / (1024 * 1024 * 1024), 2) . ' GB';
 				}
 				$backup->link = '/backups/' . basename($filename);
 
