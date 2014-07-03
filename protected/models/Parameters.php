@@ -10,9 +10,6 @@ class Parameters extends CActiveRecord {
 	const DEFAULT_MAXIMAL_WIDTH_OF_IMAGES = 640;
 	const MINIMUM_MAXIMAL_WIDTH_OF_IMAGES = 16;
 	const MAXIMUM_MAXIMAL_WIDTH_OF_IMAGES = 1024;
-	const DEFAULT_VERSIONS_OF_BACKUPS = 3;
-	const MINIMUM_VERSIONS_OF_BACKUPS = 1;
-	const MAXIMUM_VERSIONS_OF_BACKUPS = 10;
 
 	public static function model($className = __CLASS__) {
 		return parent::model($className);
@@ -49,10 +46,7 @@ class Parameters extends CActiveRecord {
 				'numerical',
 				'min' => Parameters::MINIMUM_MAXIMAL_WIDTH_OF_IMAGES,
 				'max' => Parameters::MAXIMUM_MAXIMAL_WIDTH_OF_IMAGES
-			),
-			array('versions_of_backups', 'numerical', 'min' => Parameters::
-				MINIMUM_VERSIONS_OF_BACKUPS, 'max' => Parameters::
-				MAXIMUM_VERSIONS_OF_BACKUPS)
+			)
 		);
 	}
 }

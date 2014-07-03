@@ -14,8 +14,7 @@ CREATE TABLE `blog_parameters` (
 	`id` INT NOT NULL DEFAULT '1' PRIMARY KEY,
 	`password_hash` TEXT NOT NULL,
 	`posts_on_page` INT NOT NULL DEFAULT '10',
-	`maximal_width_of_images` INT NOT NULL DEFAULT '640',
-	`versions_of_backups` INT NOT NULL DEFAULT '3'
+	`maximal_width_of_images` INT NOT NULL DEFAULT '640'
 ) ENGINE = MYISAM CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 INSERT INTO `blog_parameters` (`password_hash`)
