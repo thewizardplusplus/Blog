@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21356f31-0bc6-4b10-983b-8694f427a2f5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/layouts/main.php" afterPath="$PROJECT_DIR$/protected/views/layouts/main.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/config/Constants.php" afterPath="$PROJECT_DIR$/protected/config/Constants.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/LoginForm.php" afterPath="$PROJECT_DIR$/protected/models/LoginForm.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/site/login.php" afterPath="$PROJECT_DIR$/protected/views/site/login.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/styler.js" afterPath="$PROJECT_DIR$/scripts/styler.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="blog.iws" />
@@ -42,7 +45,6 @@
         <option value="$PROJECT_DIR$/scripts/editor.js" />
         <option value="$PROJECT_DIR$/scripts/disqus_thread.js" />
         <option value="$PROJECT_DIR$/scripts/disqus_counter.js" />
-        <option value="$PROJECT_DIR$/protected/config/Constants.php" />
         <option value="$PROJECT_DIR$/scripts/deleting_post.js" />
         <option value="$PROJECT_DIR$/scripts/post_view.js" />
         <option value="$PROJECT_DIR$/scripts/sorting.js" />
@@ -56,7 +58,6 @@
         <option value="$PROJECT_DIR$/protected/views/post/_view.php" />
         <option value="$PROJECT_DIR$/protected/views/post/_form.php" />
         <option value="$PROJECT_DIR$/scripts/jquery.jeditable.mini.js" />
-        <option value="$PROJECT_DIR$/scripts/styler.js" />
         <option value="$PROJECT_DIR$/protected/runtime/application.log" />
         <option value="$PROJECT_DIR$/protected/components/SimpleImage.php" />
         <option value="$PROJECT_DIR$/scripts/spinner.js" />
@@ -75,6 +76,10 @@
         <option value="$PROJECT_DIR$/protected/tools/backup_reformer.rb" />
         <option value="$PROJECT_DIR$/protected/tools/backup_reformer.sh" />
         <option value="$PROJECT_DIR$/protected/views/layouts/main.php" />
+        <option value="$PROJECT_DIR$/scripts/styler.js" />
+        <option value="$PROJECT_DIR$/protected/views/site/login.php" />
+        <option value="$PROJECT_DIR$/protected/config/Constants.php" />
+        <option value="$PROJECT_DIR$/protected/models/LoginForm.php" />
       </list>
     </option>
   </component>
@@ -491,7 +496,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2801802" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2846847" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -526,21 +531,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/protected/views/post/_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="607" selection-end="607" vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="2685" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bootstrap/css/bootstrap.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="12765" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/favicon_for_ie.ico">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/jquery-ui/css/theme/jquery-ui.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="207" />
@@ -564,11 +554,6 @@
     <entry file="file://$PROJECT_DIR$/scripts/disqus_counters.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="0" selection-start="684" selection-end="684" vertical-scroll-proportion="0.59917355" vertical-offset="0" max-vertical-offset="726" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/config/Constants.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="811" selection-end="811" vertical-scroll-proportion="0.44871795" vertical-offset="0" max-vertical-offset="702" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/post_view.js">
@@ -649,11 +634,6 @@
     <entry file="file://$PROJECT_DIR$/yii/web/helpers/CHtml.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="757" column="27" selection-start="27611" selection-end="27611" vertical-scroll-proportion="0.34397677" vertical-offset="11013" max-vertical-offset="39210" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/styler.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="172" selection-end="172" vertical-scroll-proportion="0.1446281" vertical-offset="0" max-vertical-offset="726" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/yii/web/CUploadedFile.php">
@@ -782,6 +762,48 @@
     <entry file="file://$PROJECT_DIR$/protected/views/layouts/main.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="219" column="0" selection-start="6501" selection-end="6501" vertical-scroll-proportion="0.8693759" vertical-offset="2686" max-vertical-offset="3375">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/components/UserIdentity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="0" selection-start="412" selection-end="412" vertical-scroll-proportion="0.4059829" vertical-offset="0" max-vertical-offset="702">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/styler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="132" selection-end="132" vertical-scroll-proportion="0.12396694" vertical-offset="0" max-vertical-offset="726">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/styler.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="0" selection-start="382" selection-end="382" vertical-scroll-proportion="0.661157" vertical-offset="0" max-vertical-offset="726">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/models/LoginForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="0" selection-start="858" selection-end="858" vertical-scroll-proportion="0.8974359" vertical-offset="0" max-vertical-offset="720">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/config/Constants.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="0" selection-start="751" selection-end="751" vertical-scroll-proportion="0.4059829" vertical-offset="0" max-vertical-offset="702">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/views/site/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="0" selection-start="899" selection-end="899" vertical-scroll-proportion="0.74786323" vertical-offset="0" max-vertical-offset="702">
           <folding />
         </state>
       </provider>

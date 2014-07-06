@@ -2,21 +2,16 @@
 
 class LoginForm extends CFormModel {
 	public $password;
-	public $remember_me;
 
 	public function rules() {
 		return array(
 			array('password', 'required'),
-			array('password', 'authenticate'),
-			array('remember_me', 'boolean')
+			array('password', 'authenticate')
 		);
 	}
 
 	public function attributeLabels() {
-		return array(
-			'password' => 'Пароль:',
-			'remember_me' => 'Запомнить',
-		);
+		return array('password' => 'Пароль:');
 	}
 
 	public function authenticate($attribute, $params) {
@@ -35,8 +30,7 @@ class LoginForm extends CFormModel {
 		}
 
 		if ($this->identity->errorCode === UserIdentity::ERROR_NONE) {
-			Yii::app()->user->login($this->identity, $this->remember_me ?
-				Constants::REMEMBER_DURATION_IN_S : 0);
+			Yii::app()->user->login($this->identity);
 
 			return true;
 		} else {
