@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21356f31-0bc6-4b10-983b-8694f427a2f5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/post/_view.php" afterPath="$PROJECT_DIR$/protected/views/post/_view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/blog.css" afterPath="$PROJECT_DIR$/styles/blog.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/file/list.php" afterPath="$PROJECT_DIR$/protected/views/file/list.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/post/list.php" afterPath="$PROJECT_DIR$/protected/views/post/list.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/layouts/main.php" afterPath="$PROJECT_DIR$/protected/views/layouts/main.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/parameters/update.php" afterPath="$PROJECT_DIR$/protected/views/parameters/update.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/config/main.php" afterPath="$PROJECT_DIR$/protected/config/main.php" />
     </list>
     <ignored path="blog.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,7 +24,17 @@
     <favorites_list name="blog" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="main.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/protected/config/main.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="71" column="0" selection-start="1869" selection-end="1869" vertical-scroll-proportion="0.8717949" vertical-offset="453" max-vertical-offset="1155">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -51,7 +55,6 @@
         <option value="$PROJECT_DIR$/scripts/post_view.js" />
         <option value="$PROJECT_DIR$/scripts/sorting.js" />
         <option value="$PROJECT_DIR$/protected/components/TagCloud.php" />
-        <option value="$PROJECT_DIR$/protected/config/main.php" />
         <option value="$PROJECT_DIR$/scripts/post_list.js" />
         <option value="$PROJECT_DIR$/protected/controllers/PostController.php" />
         <option value="$PROJECT_DIR$/scripts/tag_cloud.js" />
@@ -82,6 +85,7 @@
         <option value="$PROJECT_DIR$/styles/blog.css" />
         <option value="$PROJECT_DIR$/protected/views/post/list.php" />
         <option value="$PROJECT_DIR$/protected/views/layouts/main.php" />
+        <option value="$PROJECT_DIR$/protected/config/main.php" />
       </list>
     </option>
   </component>
@@ -490,7 +494,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="-3" width="1158" height="871" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32756326" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32934928" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -498,7 +502,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2846847" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2846847" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -533,26 +537,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/jquery-ui/css/theme/jquery-ui.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="207" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/marked.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="17" selection-start="153" selection-end="153" vertical-scroll-proportion="0.36231884" vertical-offset="0" max-vertical-offset="207" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/editor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="37" selection-start="430" selection-end="430" vertical-scroll-proportion="0.72727275" vertical-offset="20" max-vertical-offset="960" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/disqus_thread.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="280" selection-end="280" vertical-scroll-proportion="0.10518934" vertical-offset="0" max-vertical-offset="713" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/disqus_counters.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="0" selection-start="684" selection-end="684" vertical-scroll-proportion="0.59917355" vertical-offset="0" max-vertical-offset="726" />
@@ -669,11 +653,6 @@
     <entry file="file://$PROJECT_DIR$/protected/models/Post.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="31" column="21" selection-start="798" selection-end="798" vertical-scroll-proportion="-0.3888889" vertical-offset="738" max-vertical-offset="1440" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/config/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="572" selection-end="572" vertical-scroll-proportion="0.491453" vertical-offset="0" max-vertical-offset="1110" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/backuping.js">
@@ -818,6 +797,45 @@
     <entry file="file://$PROJECT_DIR$/protected/views/layouts/main.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="0" selection-start="767" selection-end="767" vertical-scroll-proportion="0.58780843" vertical-offset="0" max-vertical-offset="3405">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bootstrap/css/bootstrap.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="12765">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bootstrap/js/bootstrap.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="713">
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery-ui/js/jquery-ui.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="713">
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery-ui/css/theme/jquery-ui.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="713">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/config/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="0" selection-start="1869" selection-end="1869" vertical-scroll-proportion="0.8717949" vertical-offset="453" max-vertical-offset="1155">
           <folding />
         </state>
       </provider>
