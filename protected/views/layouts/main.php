@@ -17,7 +17,7 @@
 		);
 	}
 
-	$with_aside = $this->route == 'post/list';
+	$with_aside = ($this->route == 'post/list' or $this->route == 'post/view');
 
 	$copyright_years = Constants::COPYRIGHT_START_YEAR;
 	$current_year = date('Y');
@@ -153,7 +153,7 @@
 			</nav>
 		<?php } ?>
 
-		<section class = "container panel panel-default">
+		<section class = "container">
 			<?php if (Yii::app()->user->isGuest) { ?>
 				<header class = "page-header">
 					<h1>
@@ -210,9 +210,11 @@
 
 			<footer>
 				<hr />
-				&copy; thewizardplusplus, <?= $copyright_years; ?><br />
-				Текст и изображения доступны по лицензии CC-BY, если не указано
-				иное.
+				<p>
+					&copy; thewizardplusplus, <?= $copyright_years; ?><br />
+					Текст и изображения доступны по лицензии CC-BY, если не
+					указано иное.
+				</p>
 			</footer>
 		</section>
 	</body>

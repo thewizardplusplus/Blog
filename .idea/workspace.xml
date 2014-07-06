@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21356f31-0bc6-4b10-983b-8694f427a2f5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/config/Constants.php" afterPath="$PROJECT_DIR$/protected/config/Constants.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/LoginForm.php" afterPath="$PROJECT_DIR$/protected/models/LoginForm.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/site/login.php" afterPath="$PROJECT_DIR$/protected/views/site/login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/styler.js" afterPath="$PROJECT_DIR$/scripts/styler.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/post/_view.php" afterPath="$PROJECT_DIR$/protected/views/post/_view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/blog.css" afterPath="$PROJECT_DIR$/styles/blog.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/file/list.php" afterPath="$PROJECT_DIR$/protected/views/file/list.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/post/list.php" afterPath="$PROJECT_DIR$/protected/views/post/list.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/layouts/main.php" afterPath="$PROJECT_DIR$/protected/views/layouts/main.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/parameters/update.php" afterPath="$PROJECT_DIR$/protected/views/parameters/update.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="blog.iws" />
@@ -53,33 +55,33 @@
         <option value="$PROJECT_DIR$/scripts/post_list.js" />
         <option value="$PROJECT_DIR$/protected/controllers/PostController.php" />
         <option value="$PROJECT_DIR$/scripts/tag_cloud.js" />
-        <option value="$PROJECT_DIR$/protected/views/post/list.php" />
         <option value="$PROJECT_DIR$/scripts/searching.js" />
-        <option value="$PROJECT_DIR$/protected/views/post/_view.php" />
-        <option value="$PROJECT_DIR$/protected/views/post/_form.php" />
         <option value="$PROJECT_DIR$/scripts/jquery.jeditable.mini.js" />
         <option value="$PROJECT_DIR$/protected/runtime/application.log" />
         <option value="$PROJECT_DIR$/protected/components/SimpleImage.php" />
         <option value="$PROJECT_DIR$/scripts/spinner.js" />
-        <option value="$PROJECT_DIR$/protected/views/file/list.php" />
         <option value="$PROJECT_DIR$/scripts/files.js" />
         <option value="$PROJECT_DIR$/protected/controllers/FileController.php" />
         <option value="$PROJECT_DIR$/protected/docs/backup_schema.xsd" />
-        <option value="$PROJECT_DIR$/styles/blog.css" />
         <option value="$PROJECT_DIR$/scripts/backuping.js" />
         <option value="$PROJECT_DIR$/protected/views/backup/list.php" />
         <option value="$PROJECT_DIR$/protected/docs/database.sql" />
         <option value="$PROJECT_DIR$/protected/models/Parameters.php" />
         <option value="$PROJECT_DIR$/protected/models/ParametersForm.php" />
-        <option value="$PROJECT_DIR$/protected/views/parameters/update.php" />
         <option value="$PROJECT_DIR$/protected/controllers/BackupController.php" />
         <option value="$PROJECT_DIR$/protected/tools/backup_reformer.rb" />
         <option value="$PROJECT_DIR$/protected/tools/backup_reformer.sh" />
-        <option value="$PROJECT_DIR$/protected/views/layouts/main.php" />
         <option value="$PROJECT_DIR$/scripts/styler.js" />
         <option value="$PROJECT_DIR$/protected/views/site/login.php" />
         <option value="$PROJECT_DIR$/protected/config/Constants.php" />
         <option value="$PROJECT_DIR$/protected/models/LoginForm.php" />
+        <option value="$PROJECT_DIR$/protected/views/post/_view.php" />
+        <option value="$PROJECT_DIR$/protected/views/file/list.php" />
+        <option value="$PROJECT_DIR$/protected/views/parameters/update.php" />
+        <option value="$PROJECT_DIR$/protected/views/post/_form.php" />
+        <option value="$PROJECT_DIR$/styles/blog.css" />
+        <option value="$PROJECT_DIR$/protected/views/post/list.php" />
+        <option value="$PROJECT_DIR$/protected/views/layouts/main.php" />
       </list>
     </option>
   </component>
@@ -616,16 +618,6 @@
         <state line="37" column="0" selection-start="657" selection-end="657" vertical-scroll-proportion="0.7644628" vertical-offset="0" max-vertical-offset="726" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/views/post/_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="213" column="0" selection-start="5456" selection-end="5456" vertical-scroll-proportion="1.8974359" vertical-offset="1863" max-vertical-offset="3285" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/views/post/_form.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="30" selection-start="1671" selection-end="1671" vertical-scroll-proportion="0.32051283" vertical-offset="540" max-vertical-offset="1830" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/jquery.jeditable.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="51" column="367" selection-start="8338" selection-end="8341" vertical-scroll-proportion="0.80668604" vertical-offset="0" max-vertical-offset="688" />
@@ -664,11 +656,6 @@
         <state line="217" column="0" selection-start="5099" selection-end="5099" vertical-scroll-proportion="0.87603307" vertical-offset="2619" max-vertical-offset="3345" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/views/file/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="0" selection-start="739" selection-end="739" vertical-scroll-proportion="-1.1538461" vertical-offset="1215" max-vertical-offset="3555" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/controllers/FileController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="80" column="0" selection-start="1827" selection-end="1827" vertical-scroll-proportion="0.42735043" vertical-offset="900" max-vertical-offset="4170" />
@@ -687,16 +674,6 @@
     <entry file="file://$PROJECT_DIR$/protected/config/main.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="0" selection-start="572" selection-end="572" vertical-scroll-proportion="0.491453" vertical-offset="0" max-vertical-offset="1110" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/views/post/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="0" selection-start="3025" selection-end="3025" vertical-scroll-proportion="1.7051282" vertical-offset="648" max-vertical-offset="1935" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/styles/blog.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="169" column="0" selection-start="2032" selection-end="2032" vertical-scroll-proportion="0.5165289" vertical-offset="2160" max-vertical-offset="3210" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/backuping.js">
@@ -722,11 +699,6 @@
     <entry file="file://$PROJECT_DIR$/protected/models/ParametersForm.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="68" column="0" selection-start="1949" selection-end="1949" vertical-scroll-proportion="0.8717949" vertical-offset="408" max-vertical-offset="1110" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/views/parameters/update.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="0" selection-start="2665" selection-end="2665" vertical-scroll-proportion="0.8717949" vertical-offset="888" max-vertical-offset="1590" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/runtime/backups.log">
@@ -757,13 +729,6 @@
       </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state line="50" column="0" selection-start="1708" selection-end="1708" vertical-scroll-proportion="1.0518934" vertical-offset="0" max-vertical-offset="840" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/views/layouts/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="219" column="0" selection-start="6501" selection-end="6501" vertical-scroll-proportion="0.8693759" vertical-offset="2686" max-vertical-offset="3375">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/components/UserIdentity.php">
@@ -804,6 +769,55 @@
     <entry file="file://$PROJECT_DIR$/protected/views/site/login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="35" column="0" selection-start="899" selection-end="899" vertical-scroll-proportion="0.74786323" vertical-offset="0" max-vertical-offset="702">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/views/post/_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="0" selection-start="974" selection-end="974" vertical-scroll-proportion="0.72649574" vertical-offset="45" max-vertical-offset="3285">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/views/file/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="87" column="35" selection-start="2050" selection-end="2050" vertical-scroll-proportion="0.61538464" vertical-offset="873" max-vertical-offset="3555">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/views/parameters/update.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="96" column="0" selection-start="2514" selection-end="2514" vertical-scroll-proportion="0.9358974" vertical-offset="783" max-vertical-offset="1530">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/views/post/_form.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="35" selection-start="1024" selection-end="1024" vertical-scroll-proportion="0.6196581" vertical-offset="0" max-vertical-offset="1830">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/blog.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="185" column="0" selection-start="2196" selection-end="2196" vertical-scroll-proportion="0.5247934" vertical-offset="2394" max-vertical-offset="3210">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/views/post/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="0" selection-start="1624" selection-end="1624" vertical-scroll-proportion="0.23504274" vertical-offset="810" max-vertical-offset="1965">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/views/layouts/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="0" selection-start="767" selection-end="767" vertical-scroll-proportion="0.58780843" vertical-offset="0" max-vertical-offset="3405">
           <folding />
         </state>
       </provider>

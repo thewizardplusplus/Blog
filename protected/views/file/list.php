@@ -57,22 +57,6 @@
 	));
 ?>
 
-<div class = "panel panel-default">
-	Текущий путь:
-	<ol class = "breadcrumb">
-		<?php foreach ($path_items as $item) { ?>
-		<?php if (!empty($item['link'])) { ?>
-		<li>
-			<a href = "<?php echo $item['link']; ?>"><?php echo $item['name'];
-				?></a>
-		</li>
-		<?php } else { ?>
-		<li class = "active"><?php echo $item['name']; ?></li>
-		<?php } ?>
-		<?php } ?>
-	</ol>
-</div>
-
 <?= CHtml::beginForm(
 	$this->createUrl('file/upload', array('path' => $path)),
 	'post',
@@ -100,6 +84,22 @@
 </div>
 
 <?= CHtml::endForm() ?>
+
+<div class = "panel panel-default">
+	Текущий путь:
+	<ol class = "breadcrumb">
+		<?php foreach ($path_items as $item) { ?>
+			<?php if (!empty($item['link'])) { ?>
+				<li>
+					<a href = "<?php echo $item['link']; ?>"><?php echo $item['name'];
+						?></a>
+				</li>
+			<?php } else { ?>
+				<li class = "active"><?php echo $item['name']; ?></li>
+			<?php } ?>
+		<?php } ?>
+	</ol>
+</div>
 
 <div class = "table-responsive">
 	<?php

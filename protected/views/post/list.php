@@ -45,7 +45,7 @@
 <div class = "panel panel-default">
 	<div class = "row">
 		<div class = "col-md-6">
-			<div class = "input-group pull-left">
+			<div class = "input-group">
 				<span class = "input-group-addon">
 					<span class = "glyphicon glyphicon-search"></span>
 				</span>
@@ -95,6 +95,7 @@
 		'enableHistory' => true,
 		'enableSorting' => false,
 		'itemView' => '_view',
+		'separator' => '<hr />',
 		'loadingCssClass' => 'wait',
 		'afterAjaxUpdate' => new CJavaScriptExpression(
 			'function() {'
@@ -111,8 +112,9 @@
 			'firstPageCssClass' => 'hidden',
 			'lastPageCssClass' => 'hidden',
 			'hiddenPageCssClass' => 'disabled',
-			'htmlOptions' => array('class' => 'pagination')
-		)
+			'htmlOptions' => array('class' => 'pager')
+		),
+		'pagerCssClass' => 'page-controller',
 	));
 ?>
 

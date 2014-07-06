@@ -36,7 +36,7 @@
 	}
 ?>
 
-<article class = "panel panel-default">
+<article>
 	<?php if (!Yii::app()->user->isGuest) { ?>
 		<?= CHtml::link(
 			'<span class = "glyphicon glyphicon-trash"></span>',
