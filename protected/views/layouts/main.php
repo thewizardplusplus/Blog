@@ -210,10 +210,9 @@
 
 			<footer>
 				<hr />
-				<!-- Format of copyright symbol: http://www.copyright.ru/documents/zashita_prav_internet/copyright_in_site/ -->
-				Copyright &copy; thewizardplusplus <?php echo $copyright_years;
-					?> Все права защищены<br />
-				<?php echo Yii::powered(); ?>
+				&copy; thewizardplusplus, <?= $copyright_years; ?><br />
+				Текст и изображения доступны по лицензии CC-BY, если не указано
+				иное.
 			</footer>
 		</section>
 	</body>
