@@ -17,8 +17,6 @@
 		'errorMessageCssClass' => 'alert alert-danger'
 	));
 ?>
-
-<div>
 	<?php echo $form->errorSummary($model, NULL, NULL, array('class' =>
 		'alert alert-danger')); ?>
 
@@ -52,7 +50,7 @@
 	<div class = "form-group">
 		<?php echo $form->labelEx($model, 'posts_on_page'); ?>
 		<?php
-			echo $form->numberField($model, 'posts_on_page', array(
+			echo $form->textField($model, 'posts_on_page', array(
 				'class' => 'form-control',
 				'min' => Parameters::MINIMUM_POSTS_ON_PAGE,
 				'max' => Parameters::MAXIMUM_POSTS_ON_PAGE
@@ -63,7 +61,7 @@
 
 	<div class = "form-group">
 		<?= $form->labelEx($model, 'maximal_width_of_images') ?>
-		<?= $form->numberField(
+		<?= $form->textField(
 			$model,
 			'maximal_width_of_images',
 			array(
@@ -91,6 +89,4 @@
 
 	<?php echo CHtml::submitButton('Сохранить', array('class' =>
 		'btn btn-primary')); ?>
-</div>
-
 <?php $this->endWidget(); ?>

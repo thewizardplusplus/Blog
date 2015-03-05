@@ -44,9 +44,6 @@ return array(
 			'charset' => 'utf8',
 			'tablePrefix' => 'blog_'
 		),
-		'request' => array(
-			'enableCookieValidation' => true
-		),
 		'log' => array(
 			'class'=>'CLogRouter',
 			'routes' => array(

@@ -45,7 +45,7 @@
 <div class = "panel panel-default">
 	<div class = "row">
 		<div class = "col-md-6">
-			<div class = "input-group">
+			<div class = "input-group pull-left">
 				<span class = "input-group-addon">
 					<span class = "glyphicon glyphicon-search"></span>
 				</span>
@@ -95,12 +95,10 @@
 		'enableHistory' => true,
 		'enableSorting' => false,
 		'itemView' => '_view',
-		'separator' => '<hr />',
 		'loadingCssClass' => 'wait',
 		'afterAjaxUpdate' => new CJavaScriptExpression(
 			'function() {'
 				. 'PostList.initialize();'
-				. 'UpdateCommentsCounters();'
 			. '}'
 		),
 		'emptyText' => 'Нет постов.',
@@ -112,14 +110,7 @@
 			'firstPageCssClass' => 'hidden',
 			'lastPageCssClass' => 'hidden',
 			'hiddenPageCssClass' => 'disabled',
-			'htmlOptions' => array('class' => 'pager')
-		),
-		'pagerCssClass' => 'page-controller',
+			'htmlOptions' => array('class' => 'pagination')
+		)
 	));
 ?>
-
-<script>
-	var disqus_api_key = '<?= Constants::DISQUS_API_KEY ?>';
-	var disqus_shortname = '<?= Constants::DISQUS_SHORTNAME ?>';
-</script>
-<?= CHtml::scriptFile(CHtml::asset('scripts/disqus_counters.js')) ?>

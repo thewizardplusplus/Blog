@@ -198,10 +198,11 @@
 
 					<div class = "hidden-xs hidden-sm">
 						<script
-							src = "http://nodejs.in/octocard/bin/octocard.js"
+							src = "http://octocard.in/o.js"
 							data-name = "thewizardplusplus"
 							data-modules = "base,repos"
-							data-reposNum = "1000">
+							data-reposNum = "-1"
+							data-theme = "azzura-black">
 						</script>
 					</div>
 				</div>
@@ -210,11 +211,10 @@
 
 			<footer>
 				<hr />
-				<p>
-					&copy; thewizardplusplus, <?= $copyright_years; ?><br />
-					Текст и изображения доступны по лицензии CC-BY, если не
-					указано иное.
-				</p>
+				<!-- Format of copyright symbol: http://www.copyright.ru/documents/zashita_prav_internet/copyright_in_site/ -->
+				Copyright &copy; thewizardplusplus <?php echo $copyright_years;
+					?> Все права защищены<br />
+				<?php echo Yii::powered(); ?>
 			</footer>
 		</section>
 	</body>

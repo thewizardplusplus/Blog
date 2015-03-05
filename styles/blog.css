@@ -184,8 +184,19 @@ footer {
 	padding-right: 0;
 }
 
+.search-input {
+	max-width: 250px;
+}
+
 .label-success .badge {
 	background-color: #428BCA;
+}
+
+.label {
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 0;
+    padding: 5px;
 }
 
 .icon-column {
@@ -201,4 +212,8 @@ footer {
 .navbar-btn img {
 	display: none;
 	height: 18px;
+}
+
+.with-top-margin {
+    margin: 20px 0;
 }

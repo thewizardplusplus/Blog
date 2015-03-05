@@ -36,7 +36,7 @@
 	}
 ?>
 
-<article>
+<article class = "panel panel-default">
 	<?php if (!Yii::app()->user->isGuest) { ?>
 		<?= CHtml::link(
 			'<span class = "glyphicon glyphicon-trash"></span>',
@@ -164,21 +164,6 @@
 					array('class' => 'btn btn-default pull-right')
 				) ?>
 			<?php } ?>
-			<?= CHtml::link(
-				'Комментарии',
-				$this->createUrl(
-					'post/view',
-					array(
-						'id' => $data->id,
-						'title' => $data->title,
-						'#' => 'disqus_thread'
-					)
-				),
-				array(
-					'class' => 'btn btn-default pull-left',
-					'data-disqus-identifier' => $data->id
-				)
-			) ?>
 		</div>
 	<?php } else { ?>
 		<div
@@ -194,20 +179,5 @@
 				) ?>">
 			</a>
 		</div>
-
-		<div id = "disqus_thread"></div>
-		<script>
-			var disqus_shortname = '<?= Constants::DISQUS_SHORTNAME ?>';
-			var disqus_identifier = <?= $data->id ?>;
-			var disqus_title = '<?= CHtml::encode($data->title) ?>';
-			var disqus_url = '<?= $this->createAbsoluteUrl(
-				'post/view',
-				array(
-					'id' => $data->id,
-					'title' => $data->title
-				)
-			) ?>';
-		</script>
-		<?= CHtml::scriptFile(CHtml::asset('scripts/disqus_thread.js')) ?>
 	<?php } ?>
 </article>
