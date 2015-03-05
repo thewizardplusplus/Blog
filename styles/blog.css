@@ -128,7 +128,7 @@ iframe.code {
 }
 
 .tag.rate1 {
-	font-size: 12px;
+	font-size: 8px;
 }
 
 .tag.rate2 {
@@ -136,15 +136,15 @@ iframe.code {
 }
 
 .tag.rate3 {
-	font-size: 16px;
+	font-size: 20px;
 }
 
 .tag.rate4 {
-	font-size: 18px;
+	font-size: 26px;
 }
 
 .tag.rate5 {
-	font-size: 20px;
+	font-size: 32px;
 }
 
 .editor-switch-button {
