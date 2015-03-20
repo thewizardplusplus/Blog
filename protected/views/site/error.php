@@ -2,7 +2,7 @@
 	/* @var $this SiteController */
 	/* @var $error array */
 
-	$this->pageTitle = Yii::app()->name . ' - Ошибка' . $code;
+	$this->pageTitle = Yii::app()->name . ' - Ошибка ' . $code;
 ?>
 
 <div class = "alert alert-danger">

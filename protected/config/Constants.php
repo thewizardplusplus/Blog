@@ -12,8 +12,7 @@ class Constants {
 	const FILES_RELATIVE_PATH =           '/../../files';
 	// relatively at /protected/controllers
 	const BACKUPS_RELATIVE_PATH =         '/../../backups';
-	const DISQUS_API_KEY =
-		'MC2blDKGnbThxh5WJR2z7qKOCNkKMgKIYUto7RM1HyDOKRLRTE2V3UDQlLaWpMqa';
-	const DISQUS_SHORTNAME = 'wizardblog-thewizardpp';
 	const ADDTHIS_PROFILE_ID = 'ra-539ff44f6a85001a';
+	const MAXIMAL_LENGTH_SEARCH_QUERY_IN_TITLE = 12;
+	const MAXIMAL_LENGTH_TAGS_LIST_IN_TITLE = 12;
 }

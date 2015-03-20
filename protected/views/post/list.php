@@ -16,6 +16,65 @@
 	);
 
 	$this->pageTitle = Yii::app()->name;
+	if (isset($_GET["search"]) or isset($_GET["tags"])) {
+		$this->pageTitle .= ' - Результаты поиска ';
+		if (isset($_GET["search"])) {
+			$query_for_title = CHtml::encode($_GET["search"]);
+			if (
+				strlen($query_for_title)
+				> Constants::MAXIMAL_LENGTH_SEARCH_QUERY_IN_TITLE
+			) {
+				$query_for_title = substr(
+					$query_for_title,
+					0,
+					Constants::MAXIMAL_LENGTH_SEARCH_QUERY_IN_TITLE
+				) . '...';
+			}
+
+			$this->pageTitle .= 'по запросу "' . $query_for_title . '"';
+		}
+		if (isset($_GET["tags"])) {
+			if (isset($_GET["search"])) {
+				$this->pageTitle .= ' и ';
+			}
+
+			$tags_for_title = explode(',', $_GET["tags"]);
+			$tags_for_title = array_map(
+				function($tag) {
+					return CHtml::encode(trim($tag));
+				},
+				$tags_for_title
+			);
+			$tags_for_title = '"' . implode('", "', $tags_for_title) . '"';
+			if (
+				strlen($tags_for_title)
+				> Constants::MAXIMAL_LENGTH_TAGS_LIST_IN_TITLE
+			) {
+				$tags_for_title = substr(
+					$tags_for_title,
+					0,
+					Constants::MAXIMAL_LENGTH_TAGS_LIST_IN_TITLE
+				) . '...';
+			}
+
+			$this->pageTitle .= 'по тегам ' . $tags_for_title;
+		}
+	} else {
+		$this->pageTitle .= ' - Посты';
+	}
+	if (
+		isset($_GET["sort"])
+		and ($_GET["sort"] == 'create' or $_GET["sort"] == 'modify')
+	) {
+		if ($_GET["sort"] == 'create') {
+			$this->pageTitle .= ' - Сортировка по дате создания';
+		} else if ($_GET["sort"] == 'modify') {
+			$this->pageTitle .= ' - Сортировка по дате изменения';
+		}
+	}
+	if (isset($_GET["Post_page"]) and is_numeric($_GET["Post_page"])) {
+		$this->pageTitle .= ' - Страница ' . $_GET["Post_page"];
+	}
 ?>
 
 <?php if (!empty($tags)) { ?>
