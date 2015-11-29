@@ -1,6 +1,8 @@
 <?php
 
 class Constants {
+	const APP_NAME = 'Wizard Blog';
+	const APP_VERSION = 'v2.0';
 	const DATABASE_HOST =                 'localhost';
 	const DATABASE_NAME =                 'blog';
 	const DATABASE_USER =                 'root';

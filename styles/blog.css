@@ -1,4 +1,12 @@
 /* addings for Twitter Bootstrap */
+footer {
+	margin-top: 20px;
+}
+
+footer hr {
+	margin: 0 0 10px;
+}
+
 .table {
 	margin: 0;
 }
@@ -261,4 +269,12 @@ footer {
 
 .with-top-margin {
 	margin: 20px 0;
+}
+
+.unimportant-text {
+	color: #777;
+}
+
+.without-bottom-margin {
+	margin-bottom: 0;
 }

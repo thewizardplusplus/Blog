@@ -211,10 +211,16 @@
 
 			<footer>
 				<hr />
-				<!-- Format of copyright symbol: http://www.copyright.ru/documents/zashita_prav_internet/copyright_in_site/ -->
-				Copyright &copy; thewizardplusplus <?php echo $copyright_years;
-					?> Все права защищены<br />
-				<?php echo Yii::powered(); ?>
+				<p class = "without-bottom-margin">
+					<?= Yii::app()->name ?>, <?= Constants::APP_VERSION ?>
+				</p>
+				<p class = "unimportant-text without-bottom-margin">
+					&copy; thewizardplusplus, <?= $copyright_years ?>
+				</p>
+				<p class = "unimportant-text">
+					Текст и изображения доступны по лицензии CC-BY, если
+					не указано иное.
+				</p>
 			</footer>
 		</section>
 	</body>
