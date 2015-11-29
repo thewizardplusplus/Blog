@@ -1,4 +1,8 @@
 /* addings for Twitter Bootstrap */
+.table {
+	margin: 0;
+}
+
 .panel {
 	margin: 10px auto;
 	padding: 10px;
@@ -46,6 +50,18 @@ nav + .list-view .items .empty {
 .pager li:last-child a {
 	border-bottom-right-radius: 15px;
 	border-top-right-radius: 15px;
+}
+
+.pager {
+	margin: 0 0 10px !important;
+}
+
+.summary {
+	margin: 10px 0 0 !important;
+}
+
+.pagination {
+	margin: 10px 0 0;
 }
 
 .portlet-decoration {
@@ -105,6 +121,10 @@ header a:focus {
 	width: 90px !important;
 }
 
+.backup-timestamp-column {
+	width: 155px;
+}
+
 .time {
 	margin-left: 15px;
 	font-size: smaller;
@@ -112,9 +132,9 @@ header a:focus {
 }
 
 iframe.code {
-    width: 100%;
-    height: 250px;
-    border: none;
+	width: 100%;
+	height: 250px;
+	border: none;
 }
 
 .tag {
@@ -193,10 +213,10 @@ footer {
 }
 
 .label {
-    display: inline-block;
-    margin-top: 5px;
-    margin-left: 0;
-    padding: 5px;
+	display: inline-block;
+	margin-top: 5px;
+	margin-left: 0;
+	padding: 5px;
 }
 
 .icon-column {
@@ -215,5 +235,5 @@ footer {
 }
 
 .with-top-margin {
-    margin: 20px 0;
+	margin: 20px 0;
 }

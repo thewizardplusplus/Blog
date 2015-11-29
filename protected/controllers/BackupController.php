@@ -3,7 +3,10 @@
 require_once "dropbox-sdk/Dropbox/autoload.php";
 
 class BackupController extends CController {
-	const DROPBOX_APP_NAME = 'wizard-blog';
+	/* v2:
+	 *     - remove using of Base64;
+	 */
+	const BACKUP_VERSION = 2;
 
 	public function __construct($id, $module = NULL) {
 		parent::__construct($id, $module);
@@ -42,7 +45,11 @@ class BackupController extends CController {
 					== 'zip'
 			) {
 				$backup = new stdClass();
-				$backup->timestamp = date('d.m.Y H:i:s', filemtime($filename));
+				$backup->timestamp = filemtime($filename);
+				$backup->formatted_timestamp = date(
+					'd.m.Y H:i:s',
+					$backup->timestamp
+				);
 				$backup->size = filesize($filename);
 				if ($backup->size < 1024) {
 					$backup->size .= ' B';
@@ -60,7 +67,10 @@ class BackupController extends CController {
 					$backup->size =
 						round($backup->size / (1024 * 1024 * 1024), 2) . ' GB';
 				}
-				$backup->link = '/backups/' . basename($filename);
+				$backup->link = substr(
+					realpath($filename),
+					strlen($_SERVER['DOCUMENT_ROOT'])
+				);
 
 				$backups[] = $backup;
 			}
@@ -85,7 +95,7 @@ class BackupController extends CController {
 		$this->testBackupDirectory();
 
 		$start = date_create();
-		$backup_path = $this->backup(__DIR__ . '/../../files');
+		$backup_path = $this->backup(__DIR__ . Constants::FILES_RELATIVE_PATH);
 		if ($backup_path === false) {
 			throw new CException('Не удалось создать бекап.');
 		}
@@ -189,13 +199,13 @@ class BackupController extends CController {
 		$posts_dump = '';
 		$posts = Post::model()->findAll(array('order' => 'create_time'));
 		foreach ($posts as $post) {
-			$title = base64_encode($post->title);
+			$title = $this->escape($post->title);
 			$create_time =
 				date_create($post->create_time)->format('Y-m-d\TH:i:s');
 			$modify_time =
 				date_create($post->modify_time)->format('Y-m-d\TH:i:s');
-			$text = base64_encode($post->text);
-			$tags = base64_encode($post->tags);
+			$text = $this->escape($post->text);
+			$tags = $this->escape($post->tags);
 			$published = !$post->published ? ' published = "false"' : '';
 
 			$posts_dump .=
@@ -211,15 +221,20 @@ class BackupController extends CController {
 
 		return
 			"<?xml version = \"1.0\" encoding = \"utf-8\"?>\n"
-				. "<blog>\n"
+				. "<blog version = \"" . self::BACKUP_VERSION . "\">\n"
 					. "$posts_dump"
 				. "</blog>\n";
 	}
 
 	private function getLog() {
+		$path = realpath(__DIR__ . '/../runtime/backups.log');
+		if ($path === false) {
+			return '';
+		}
+
 		$log_text = '';
 		$log_lines = file(
-			realpath(__DIR__ . '/../runtime/backups.log'),
+			$path,
 			FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES
 		);
 		if (!empty($log_lines)) {
@@ -250,12 +265,21 @@ class BackupController extends CController {
 
 		$dropbox_client = new \Dropbox\Client(
 			Parameters::get()->dropbox_access_token,
-			self::DROPBOX_APP_NAME
+			Constants::DROPBOX_APP_NAME
 		);
 		$dropbox_client->uploadFile(
 			'/' . basename($path),
 			\Dropbox\WriteMode::add(),
 			$file
 		);
+	}
+
+	private function escape($text) {
+		return
+			!empty($text)
+				? '<![CDATA['
+						. str_replace(']]>', ']]]><![CDATA[]>', $text)
+					. ']]>'
+				: '';
 	}
 }
