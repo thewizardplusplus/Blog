@@ -2,7 +2,7 @@
 
 class Constants {
 	const APP_NAME = 'Wizard Blog';
-	const APP_VERSION = 'v2.0';
+	const APP_VERSION = 'v2.0-alpha5';
 	const DATABASE_HOST =                 'localhost';
 	const DATABASE_NAME =                 'blog';
 	const DATABASE_USER =                 'root';
