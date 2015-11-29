@@ -7,23 +7,6 @@
 			CHtml::asset('scripts/post_view.js'),
 			CClientScript::POS_HEAD
 		);
-
-		Yii::app()->getClientScript()->registerScript(
-			uniqid(rand(), true),
-			'var addthis_config = { ui_language: "ru" };'
-				. 'var addthis_share = {'
-					. 'title: "' . CHtml::encode($data->title) . '",'
-					. 'templates: {'
-						. 'twitter: "{{title}}: {{url}}"'
-					. '}'
-				. '}',
-			CClientScript::POS_HEAD
-		);
-		Yii::app()->getClientScript()->registerScriptFile(
-			'http://s7.addthis.com/js/300/addthis_widget.js#pubid='
-				. Constants::ADDTHIS_PROFILE_ID,
-			CClientScript::POS_HEAD
-		);
 	}
 
 	$post_tags = array();
@@ -164,20 +147,6 @@
 					array('class' => 'btn btn-default pull-right')
 				) ?>
 			<?php } ?>
-		</div>
-	<?php } else { ?>
-		<div
-			class = "addthis_toolbox addthis_default_style addthis_32x32_style">
-			<a class = "addthis_button_facebook"></a>
-			<a class = "addthis_button_vk"></a>
-			<a class = "addthis_button_google_plusone_share"></a>
-			<a
-				class = "addthis_button_twitter"
-				addthis:url = "<?= $this->createAbsoluteUrl(
-					'post/view',
-					array('id' => $data->id)
-				) ?>">
-			</a>
 		</div>
 	<?php } ?>
 </article>

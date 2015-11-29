@@ -122,7 +122,6 @@
 				</a>
 			</div>
 		</div>
-
 		<div class = "col-md-6">
 			<div class = "btn-group pull-right">
 				<button
@@ -146,30 +145,35 @@
 	</div>
 </div>
 
-<?php
-	$this->widget('zii.widgets.CListView', array(
-		'id' => 'post-list',
-		'dataProvider' => $data_provider,
-		'template' => '{items} {pager}',
-		'enableHistory' => true,
-		'enableSorting' => false,
-		'itemView' => '_view',
-		'loadingCssClass' => 'wait',
-		'afterAjaxUpdate' => new CJavaScriptExpression(
-			'function() {'
-				. 'PostList.initialize();'
-			. '}'
-		),
-		'emptyText' => 'Нет постов.',
-		'pager' => array(
-			'maxButtonCount' => 0,
-			'header' => '',
-			'prevPageLabel' => '&lt;&lt; Следующие',
-			'nextPageLabel' => 'Предыдующие &gt;&gt;',
-			'firstPageCssClass' => 'hidden',
-			'lastPageCssClass' => 'hidden',
-			'hiddenPageCssClass' => 'disabled',
-			'htmlOptions' => array('class' => 'pagination')
-		)
-	));
-?>
+<div class = "clearfix">
+	<?php
+		$this->widget('zii.widgets.CListView', array(
+			'id' => 'post-list',
+			'dataProvider' => $data_provider,
+			'template' => '{items} {summary} {pager}',
+			'enableHistory' => true,
+			'enableSorting' => false,
+			'itemView' => '_view',
+			'loadingCssClass' => 'wait',
+			'summaryCssClass' => 'summary pull-right',
+			'afterAjaxUpdate' => new CJavaScriptExpression(
+				'function() {'
+					. 'PostList.initialize();'
+				. '}'
+			),
+			'emptyText' => 'Нет постов.',
+			'summaryText' => 'Посты {start}-{end} из {count}.',
+			'pager' => array(
+				'header' => '',
+				'firstPageLabel' => '&lt;&lt;',
+				'prevPageLabel' => '&lt;',
+				'nextPageLabel' => '&gt;',
+				'lastPageLabel' => '&gt;&gt;',
+				'selectedPageCssClass' => 'active',
+				'hiddenPageCssClass' => 'disabled',
+				'htmlOptions' => array('class' => 'pagination')
+			),
+			'pagerCssClass' => 'page-controller'
+		));
+	?>
+</div>

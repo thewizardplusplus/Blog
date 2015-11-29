@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	var markdown_editor = ace.edit('editor');
-	markdown_editor.setTheme('ace/theme/twilight');
+	markdown_editor.setTheme('ace/theme/pastel_on_dark');
 	markdown_editor.getSession().setMode('ace/mode/markdown');
 	markdown_editor.setShowInvisibles(true);
 
