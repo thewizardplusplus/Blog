@@ -44,7 +44,10 @@ class FileController extends CController {
 			$full_path = $base_path . '/' . $filename;
 			$file->is_file = is_file($full_path);
 			if ($file->is_file) {
-				$file->link = $path . '/' . $filename;
+				$file->link = substr(
+					realpath($full_path),
+					strlen($_SERVER['DOCUMENT_ROOT'])
+				);
 			} else {
 				$new_path = $path;
 				if ($filename != '..') {

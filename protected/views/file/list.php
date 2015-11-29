@@ -52,7 +52,7 @@
 		}
 	}
 	array_unshift($path_items, array(
-		'name' => 'files',
+		'name' => 'media',
 		'link' => $this->createUrl('file/list')
 	));
 ?>
