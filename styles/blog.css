@@ -1,4 +1,11 @@
 /* addings for Twitter Bootstrap */
+@media (min-width: 768px) {
+	.navbar-fixed-top .navbar-collapse {
+		padding-right: 0px;
+		padding-left: 0px;
+	}
+}
+
 footer {
 	margin-top: 20px;
 }
