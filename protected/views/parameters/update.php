@@ -4,7 +4,7 @@
 	/* @var $form CActiveForm */
 
 	Yii::app()->getClientScript()->registerScriptFile(CHtml::asset(
-		'scripts/spinner.js'), CClientScript::POS_HEAD);
+		'scripts/parameters_form.js'), CClientScript::POS_HEAD);
 
 	$this->pageTitle = Yii::app()->name . ' - Параметры';
 ?>
@@ -70,7 +70,7 @@
 				'max' => Parameters::MAXIMUM_MAXIMAL_WIDTH_OF_IMAGES
 			)
 		) ?>
-		<? echo $form->error($model, 'maximal_width_of_images') ?>
+		<?php echo $form->error($model, 'maximal_width_of_images') ?>
 	</div>
 
 	<div class = "form-group">
