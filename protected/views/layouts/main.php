@@ -30,18 +30,11 @@
 <html>
 	<head>
 		<meta charset = "utf-8" />
-
-		<meta name = "MobileOptimized" content = "320" />
-		<meta name = "HandheldFriendly" content = "true" />
 		<meta name = "viewport" content = "width=device-width" />
-
-		<link rel = "icon" type = "image/png" href = "<?php echo Yii::app()->
-			request->baseUrl; ?>/images/logo.png" />
-		<link rel = "shortcut icon" type = "image/vnd.microsoft.icon" href =
-			"<?php echo Yii::app()->request->baseUrl;
-			?>/images/favicon_for_ie.ico" />
-		<link rel = "apple-touch-icon" href = "<?php echo Yii::app()->request->
-			baseUrl; ?>/images/favicon_for_ios.png" />
+		<link
+			rel = "icon"
+			type = "image/png"
+			href = "<?= Yii::app()->request->baseUrl ?>/images/logo.png" />
 
 		<link rel = "stylesheet" href = "<?php echo Yii::app()->request->
 			baseUrl; ?>/bootstrap/css/bootstrap.min.css" />
