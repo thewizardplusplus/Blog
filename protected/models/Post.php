@@ -14,11 +14,7 @@ class Post extends CActiveRecord {
 	public static function processText($view, $text) {
 		switch ($view) {
 			case 'list':
-				$result = preg_match(Constants::CUT_TAG_PATTERN, $text,
-					$matches, PREG_OFFSET_CAPTURE);
-				if ($result) {
-					$text = substr($text, 0, $matches[0][1]);
-				}
+				$text = self::cut($text);
 				break;
 			case 'view':
 				$text = preg_replace(Constants::CUT_TAG_PATTERN, '', $text);
@@ -42,6 +38,14 @@ class Post extends CActiveRecord {
 		);
 		$text = str_replace('</table>', '</table></div>', $text);
 
+		return $text;
+	}
+
+	public static function processDescription($text) {
+		$text = self::cut($text);
+		$text = preg_replace('/!\[[^\[]*\]\([^\)]+\)/', '', $text);
+		$text = preg_replace('/[\n\r]+/', ' ', $text);
+		$text = trim($text);
 		return $text;
 	}
 
@@ -86,5 +90,15 @@ class Post extends CActiveRecord {
 		} else {
 			return false;
 		}
+	}
+
+	private static function cut($text) {
+		$result = preg_match(Constants::CUT_TAG_PATTERN, $text,
+			$matches, PREG_OFFSET_CAPTURE);
+		if ($result) {
+			$text = substr($text, 0, $matches[0][1]);
+		}
+
+		return $text;
 	}
 }

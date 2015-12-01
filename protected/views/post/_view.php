@@ -3,6 +3,10 @@
 	/* @var $data Post */
 
 	if ($this->action->id == 'view') {
+		Yii::app()->getClientScript()->registerMetaTag(
+			Post::processDescription($data->text),
+			'description'
+		);
 		Yii::app()->getClientScript()->registerScriptFile(
 			CHtml::asset('scripts/post_view.js'),
 			CClientScript::POS_HEAD
