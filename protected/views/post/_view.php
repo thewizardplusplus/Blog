@@ -128,7 +128,7 @@
 			<?php foreach ($post_tags as $post_tag) { ?>
 				<?php if (!in_array($post_tag, $query_tags)) { ?>
 					<a
-						class = "label label-success"
+						class = "label label-success post-tag"
 						href = "<?= $this->createUrl(
 							'post/list',
 							array(
@@ -137,11 +137,16 @@
 									array_merge($query_tags, array($post_tag))
 								)
 							)
-						) ?>">
-						<?= $post_tag ?>
+						) ?>"
+						title = "<?= CHtml::encode($post_tag) ?>">
+						<?= CHtml::encode($post_tag) ?>
 					</a>
 				<?php } else { ?>
-					<span class = "label label-success"><?= $post_tag ?></span>
+					<span
+						class = "label label-success post-tag"
+						title = "<?= CHtml::encode($post_tag) ?>">
+						<?= CHtml::encode($post_tag) ?>
+					</span>
 				<?php } ?>
 			<?php } ?>
 		</p>

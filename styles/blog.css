@@ -1,4 +1,10 @@
 /* addings for Twitter Bootstrap */
+code {
+	word-break: break-all;
+	word-wrap: break-word;
+	white-space: normal;
+}
+
 .table-responsive {
 	border: none;
 	overflow: visible;
@@ -182,6 +188,12 @@ iframe.code {
 	text-overflow: ellipsis;
 }
 
+.post-tag {
+	max-width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
 .tag.rate1 {
 	font-size: 8px;
 }
@@ -200,10 +212,6 @@ iframe.code {
 
 .tag.rate5 {
 	font-size: 40px;
-}
-
-.tag-cloud {
-	overflow: hidden;
 }
 
 .editor-switch-button {
