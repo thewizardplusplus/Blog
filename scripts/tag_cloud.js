@@ -37,7 +37,8 @@ function UpdateTagCloud() {
 						}
 						link
 							.addClass('label label-success tag')
-							.text(tag);
+							.text(tag)
+							.attr('title', tag);
 
 						var rate = data[tag];
 						if (rate < 20) {
