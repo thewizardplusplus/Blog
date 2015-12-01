@@ -2,17 +2,6 @@
 	/* @var $this PostController */
 	/* @var $data Post */
 
-	if ($this->action->id == 'view') {
-		Yii::app()->getClientScript()->registerMetaTag(
-			Post::processDescription($data->text),
-			'description'
-		);
-		Yii::app()->getClientScript()->registerScriptFile(
-			CHtml::asset('scripts/post_view.js'),
-			CClientScript::POS_HEAD
-		);
-	}
-
 	$post_tags = array();
 	if (!empty($data->tags)) {
 		$post_tags = array_map('trim', explode(',', $data->tags));
@@ -20,6 +9,22 @@
 	$query_tags = array();
 	if (!empty($_GET['tags'])) {
 		$query_tags = array_map('trim', explode(',', $_GET['tags']));
+	}
+
+	if ($this->action->id == 'view') {
+		Yii::app()->getClientScript()->registerMetaTag(
+			Post::processDescription($data->text),
+			'description'
+		);
+		Yii::app()->getClientScript()->registerMetaTag(
+			implode(', ', $post_tags),
+			'keywords'
+		);
+
+		Yii::app()->getClientScript()->registerScriptFile(
+			CHtml::asset('scripts/post_view.js'),
+			CClientScript::POS_HEAD
+		);
 	}
 ?>
 
