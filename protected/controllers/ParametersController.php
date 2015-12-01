@@ -34,8 +34,12 @@ class ParametersController extends CController {
 
 		if (isset($_POST['ParametersForm'])) {
 			$model->attributes = $_POST['ParametersForm'];
-			if ($model->validate()) {
-				$model->getParameters()->save();
+			$result = $model->validate();
+			if ($result) {
+				$model->save();
+
+				$model->password = '';
+				$model->password_copy = '';
 			}
 		}
 

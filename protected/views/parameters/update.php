@@ -56,8 +56,8 @@
 		<?php
 			echo $form->textField($model, 'posts_on_page', array(
 				'class' => 'form-control',
-				'min' => Parameters::MINIMUM_POSTS_ON_PAGE,
-				'max' => Parameters::MAXIMUM_POSTS_ON_PAGE
+				'min' => Constants::MINIMUM_POSTS_ON_PAGE,
+				'max' => Constants::MAXIMUM_POSTS_ON_PAGE
 			));
 		?>
 		<?php echo $form->error($model, 'posts_on_page'); ?>
@@ -70,8 +70,8 @@
 			'maximal_width_of_images',
 			array(
 				'class' => 'form-control',
-				'min' => Parameters::MINIMUM_MAXIMAL_WIDTH_OF_IMAGES,
-				'max' => Parameters::MAXIMUM_MAXIMAL_WIDTH_OF_IMAGES
+				'min' => Constants::MINIMUM_MAXIMAL_WIDTH_OF_IMAGES,
+				'max' => Constants::MAXIMUM_MAXIMAL_WIDTH_OF_IMAGES
 			)
 		) ?>
 		<?php echo $form->error($model, 'maximal_width_of_images') ?>
@@ -85,7 +85,7 @@
 			array(
 				'class' => 'form-control',
 				'maxlength' =>
-					Parameters::DROPBOX_ACCESS_TOKEN_LENGTH_MAXIMUM
+					Constants::DROPBOX_ACCESS_TOKEN_LENGTH_MAXIMUM
 			)
 		) ?>
 		<?= $form->error($model, 'dropbox_access_token') ?>
