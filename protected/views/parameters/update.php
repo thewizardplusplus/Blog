@@ -9,6 +9,10 @@
 	$this->pageTitle = Yii::app()->name . ' - Параметры';
 ?>
 
+<header class = "page-header visible-xs">
+	<h4>Параметры</h4>
+</header>
+
 <?php
 	$form = $this->beginWidget('CActiveForm', array(
 		'id' => 'parameters-form',

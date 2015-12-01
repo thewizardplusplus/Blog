@@ -101,7 +101,7 @@
 	</p>
 <?php } ?>
 
-<div class = "panel panel-default">
+<div class = "panel panel-default search-controls">
 	<div class = "row">
 		<div class = "col-md-6">
 			<div class = "input-group pull-left">

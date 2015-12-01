@@ -57,6 +57,10 @@
 	));
 ?>
 
+<header class = "page-header visible-xs">
+	<h4>Файлы</h4>
+</header>
+
 <div class = "with-top-margin">
 	Текущий путь:
 	<ol class = "breadcrumb">
@@ -222,7 +226,7 @@
 						)
 					)
 				),
-				'itemsCssClass' => 'table',
+				'itemsCssClass' => 'table table-striped',
 				'loadingCssClass' => 'wait',
 				'afterAjaxUpdate' => 'function() { FileList.initialize(); }'
 			)

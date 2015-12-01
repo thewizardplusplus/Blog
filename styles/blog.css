@@ -1,4 +1,18 @@
 /* addings for Twitter Bootstrap */
+.table-responsive {
+	border: none;
+	overflow: visible;
+}
+
+.page-header {
+	margin: 20px 0 0;
+	padding-bottom: 10px;
+}
+
+.page-header h4 {
+	margin: 0;
+}
+
 @media (min-width: 768px) {
 	.navbar-fixed-top .navbar-collapse {
 		padding-right: 0px;
@@ -267,4 +281,26 @@ footer {
 
 article :last-child {
 	margin-bottom: 0;
+}
+
+#backup-list {
+	padding-top: 20px;
+}
+
+#parameters-form {
+	margin-top: 20px;
+}
+
+#file-list {
+	margin-top: 20px;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.tag-cloud,
+.note,
+.search-controls,
+.post-view,
+.post-editor {
+	margin-top: 20px;
 }

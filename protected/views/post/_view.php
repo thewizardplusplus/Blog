@@ -19,7 +19,12 @@
 	}
 ?>
 
-<article class = "panel panel-default">
+<article
+	class = "panel panel-default<?=
+		$this->action->id == 'view'
+			? ' post-view'
+			: ''
+	?>">
 	<?php if (!Yii::app()->user->isGuest) { ?>
 		<?= CHtml::link(
 			'<span class = "glyphicon glyphicon-trash"></span>',

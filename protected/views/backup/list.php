@@ -5,6 +5,10 @@
 	$this->pageTitle = Yii::app()->name . ' - Бекапы';
 ?>
 
+<header class = "page-header visible-xs">
+	<h4>Бекапы</h4>
+</header>
+
 <div class = "table-responsive clearfix">
 	<?php
 		$this->widget(
@@ -45,7 +49,7 @@
 						)
 					)
 				),
-				'itemsCssClass' => 'table',
+				'itemsCssClass' => 'table table-striped',
 				'loadingCssClass' => 'wait',
 				'summaryCssClass' => 'summary pull-right',
 				'emptyText' => 'Нет бекапов.',
