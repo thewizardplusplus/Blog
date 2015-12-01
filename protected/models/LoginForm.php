@@ -2,7 +2,7 @@
 
 class LoginForm extends CFormModel {
 	public $password;
-	public $remember_me;
+	public $remember_me = true;
 
 	public function rules() {
 		return array(

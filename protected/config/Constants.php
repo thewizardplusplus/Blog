@@ -7,6 +7,7 @@ class Constants {
 	const DATABASE_NAME =                 'blog';
 	const DATABASE_USER =                 'root';
 	const DATABASE_PASSWORD =             '';
+	const DATABASE_TABLE_PREFIX = 'blog_';
 	const COPYRIGHT_START_YEAR =          2013;
 	const MAXIMAL_LENGTH_OF_TITLE_FIELD = 255;
 	const CUT_TAG_PATTERN =               '/<cut\s*\/>/';
