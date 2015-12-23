@@ -4,7 +4,7 @@ source_path="."
 target_path="."
 
 function ShowHelp() {
-	local -r script_name=$(basename $0)
+	local -r script_name=$(basename "$0")
 
 	echo "Usage:"
 	echo -e "\t$script_name -h | --help"
@@ -15,12 +15,12 @@ function ShowHelp() {
 	echo
 	echo "Arguments:"
 	echo -e "\t<source-path>  - path to backups [default: .];"
-	echo -e "\t<target-path>  - path for reformered backups " \
+	echo -e "\t<target-path>  - path for reformered backups" \
 		"[default: equals to <source-path>]."
 }
 
 function ShowError() {
-	local -r message=$1
+	local -r message="$1"
 
 	echo "Error: $message."
 	echo ""
@@ -70,15 +70,43 @@ function ProcessOptions() {
 }
 
 function CreateTarget() {
-	local -r path=$1
+	local -r path="$1"
 
 	mkdir -p "$path"
 }
 
-function FindBackups() {
-	local -r path=$1
+function FindFiles() {
+	local -r path="$1"
+	local -r extension="$2"
 
-	find "$path" -maxdepth 1 -name "*.zip"
+	find "$path" -maxdepth 1 -name "$extension"
+}
+
+function FindDumps() {
+	local -r path="$1"
+
+	FindFiles "$path" "*.xml"
+}
+
+function CopyDump() {
+	local -r dump_path="$1"
+
+	cp "$dump_path" "$target_path"
+}
+
+function CopyDumps() {
+	local -r dumps_paths=("$@")
+
+	for dump_path in ${dumps_paths[@]}
+	do
+		CopyDump "$dump_path"
+	done
+}
+
+function FindBackups() {
+	local -r path="$1"
+
+	FindFiles "$path" "*.zip"
 }
 
 function GetName() {
@@ -135,6 +163,9 @@ function ProcessBackups() {
 
 ProcessOptions "$@"
 CreateTarget "$target_path"
+
+readonly dumps=`FindDumps "$source_path"`
+CopyDumps "$dumps"
 
 readonly backups=`FindBackups "$source_path"`
 ProcessBackups "$backups"
