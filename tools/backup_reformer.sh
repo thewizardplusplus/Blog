@@ -88,12 +88,34 @@ function UnpackBackup() {
 	unzip -p "$backup_path" "$backup_name/database_dump.xml"
 }
 
+function GetTimestamp() {
+	local -r backup_path="$1"
+
+	local -r backup_name=`GetName "$backup_path"`
+	echo "$backup_name" | sed "s/backup_//"
+}
+
+function MakeDumpName() {
+	local -r backup_path="$1"
+
+	local -r timestamp=`GetTimestamp "$backup_path"`
+	echo "database_dump_$timestamp.xml"
+}
+
+function SaveDump() {
+	local -r dump_name="$1"
+	local -r dump_content="$2"
+
+	echo "$dump_content" > "$target_path/$dump_name"
+}
+
 function ProcessBackup() {
 	local -r backup_path="$1"
 
-	echo "Processing backup \"$backup_path\"..."
 	local -r database_dump=`UnpackBackup "$backup_path"`
-	echo "$database_dump"
+
+	local -r new_dump_name=`MakeDumpName "$backup_path"`
+	SaveDump "$new_dump_name" "$database_dump"
 }
 
 function ProcessBackups() {
