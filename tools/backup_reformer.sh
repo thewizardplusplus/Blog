@@ -1,19 +1,74 @@
 #!/usr/bin/env bash
 
-function ProcessBackup {
-	local -r backup_name=$1;
-	local -r backup_data=$(unzip -p $backup_name $backup_name/database_dump.sql)
-	local -r posts_data=$(echo "$backup_data" | awk '/^INSERT INTO `blog_posts`$/{ echo = 1 } /^$/{echo = 0} echo' | grep "^\s\?('[0-9]\+'")
-	echo $posts_data
+source_path="."
+target_path="."
+
+function ShowHelp() {
+	local -r script_name=$(basename $0)
+
+	echo "Usage:"
+	echo -e "\t$script_name -h | --help"
+	echo -e "\t$script_name [<source-path> [<target-path>]]"
+	echo
+	echo "Options:"
+	echo -e "\t-h, --help  - show help."
+	echo
+	echo "Arguments:"
+	echo -e "\t<source-path>  - path to backups [default: .];"
+	echo -e "\t<target-path>  - path for reformered backups " \
+		"[default: equals to <source-path>]."
 }
 
-IFS=$'\n'
-readonly backup_list=$(find *.zip)
-for backup in ${backup_list[@]}
-do
-	backup_name=$(basename $backup .zip)
-	echo "Processing $backup_name..." >&2
+function ShowError {
+	local -r message=$1
 
-	new_backup_name=$(echo $backup_name | sed "s/backup\(.*\)/database_dump\1.sql/")
-	ProcessBackup $backup_name > $new_backup_name
-done
+	echo "Error: $message."
+	echo ""
+	ShowHelp
+
+	exit 1
+}
+
+function ProcessOption() {
+	local -r option="$1"
+
+	case "$option" in
+		-h|--help)
+			ShowHelp
+			exit
+
+			;;
+	esac
+}
+
+function ProcessOptions() {
+	local -r options=("$@")
+
+	local -r number_of_options=${#options[@]}
+	case $number_of_options in
+		0)
+			;;
+		1)
+			local -r option="$1"
+			ProcessOption "$option"
+
+			# if the script isn't yet complete by ProcessOption(),
+			# so the path passed
+			source_path="$option"
+			target_path="$option"
+
+			;;
+		2)
+			source_path="${options[0]}"
+			target_path="${options[1]}"
+
+			;;
+		*)
+			ShowError "it was passed too many options"
+			;;
+	esac
+}
+
+ProcessOptions "$@"
+echo "$source_path"
+echo "$target_path"
