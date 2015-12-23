@@ -75,10 +75,25 @@ function FindBackups() {
 	find "$path" -maxdepth 1 -name "*.zip"
 }
 
+function GetName() {
+	local -r backup_path="$1"
+
+	basename "$backup_path" ".zip"
+}
+
+function UnpackBackup() {
+	local -r backup_path="$1"
+
+	local -r backup_name=`GetName "$backup_path"`
+	unzip -p "$backup_path" "$backup_name/database_dump.xml"
+}
+
 function ProcessBackup() {
 	local -r backup_path="$1"
 
 	echo "Processing backup \"$backup_path\"..."
+	local -r database_dump=`UnpackBackup "$backup_path"`
+	echo "$database_dump"
 }
 
 function ProcessBackups() {
