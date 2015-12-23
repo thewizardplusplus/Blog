@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 function ProcessBackup {
 	local -r backup_name=$1;
