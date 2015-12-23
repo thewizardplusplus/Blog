@@ -164,8 +164,11 @@ function ProcessBackups() {
 ProcessOptions "$@"
 CreateTarget "$target_path"
 
-readonly dumps=`FindDumps "$source_path"`
-CopyDumps "$dumps"
+if [[ "$source_path" != "$target_path" ]]
+then
+	readonly dumps=`FindDumps "$source_path"`
+	CopyDumps "$dumps"
+fi
 
 readonly backups=`FindBackups "$source_path"`
 ProcessBackups "$backups"
