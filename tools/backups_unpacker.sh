@@ -69,6 +69,12 @@ function ProcessOptions() {
 	esac
 }
 
+function CreateTarget() {
+	local -r path=$1
+
+	mkdir -p "$path"
+}
+
 function FindBackups() {
 	local -r path=$1
 
@@ -128,6 +134,7 @@ function ProcessBackups() {
 }
 
 ProcessOptions "$@"
+CreateTarget "$target_path"
 
 readonly backups=`FindBackups "$source_path"`
 ProcessBackups "$backups"
