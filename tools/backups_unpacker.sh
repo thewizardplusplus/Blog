@@ -91,6 +91,7 @@ function FindDumps() {
 function CopyDump() {
 	local -r dump_path="$1"
 
+	echo "Copy dump \"$dump_path\"..."
 	cp "$dump_path" "$target_path"
 }
 
@@ -146,6 +147,7 @@ function SaveDump() {
 function ProcessBackup() {
 	local -r backup_path="$1"
 
+	echo "Process backup \"$backup_path\"..."
 	local -r database_dump=`UnpackBackup "$backup_path"`
 
 	local -r new_dump_name=`MakeDumpName "$backup_path"`
