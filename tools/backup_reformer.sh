@@ -19,7 +19,7 @@ function ShowHelp() {
 		"[default: equals to <source-path>]."
 }
 
-function ShowError {
+function ShowError() {
 	local -r message=$1
 
 	echo "Error: $message."
@@ -69,6 +69,28 @@ function ProcessOptions() {
 	esac
 }
 
+function FindBackups() {
+	local -r path=$1
+
+	find "$path" -maxdepth 1 -name "*.zip"
+}
+
+function ProcessBackup() {
+	local -r backup_path="$1"
+
+	echo "Processing backup \"$backup_path\"..."
+}
+
+function ProcessBackups() {
+	local -r backups_paths=("$@")
+
+	for backup_path in ${backups_paths[@]}
+	do
+		ProcessBackup "$backup_path"
+	done
+}
+
 ProcessOptions "$@"
-echo "$source_path"
-echo "$target_path"
+
+readonly backups=`FindBackups "$source_path"`
+ProcessBackups "$backups"
