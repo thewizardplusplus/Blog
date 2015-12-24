@@ -68,11 +68,16 @@ def text_node_to_string(node, prefix):
 	if not node.data:
 		return ''
 
+	text = node.data
+	if node.parentNode.tagName == 'tags':
+		tags = text.split(',')
+		text = ', '.join(tags)
+
 	text_prefix = ''
 	if node.parentNode.tagName != 'text':
 		text_prefix = prefix + '\t'
 
-	return prefix + escape(node.data, prefix, text_prefix) + '\n'
+	return prefix + escape(text, prefix, text_prefix) + '\n'
 
 def node_to_string(node, prefix = ''):
 	result = ''
