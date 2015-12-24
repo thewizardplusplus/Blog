@@ -1,36 +1,31 @@
 #!/usr/bin/env python
 
-import base64
-import HTMLParser
-import sys
-import xml.dom.minidom
+"""
+Usage:
+  {0:s} -h | --help
+  {0:s} <dump-file> [<decoded-dump-file>]
 
-def process(node, html_parser):
-	for child in node.childNodes:
-		process(child, html_parser)
+Options:
+  -h, --help  - show help.
+"""
 
-	if node.nodeType == node.TEXT_NODE:
-		data = node.data
-		data = base64.b64decode(data)
-		data = data.decode('string_escape')
-		data = data.decode('utf-8')
-		data = data.strip()
-		data = html_parser.unescape(data)
-		if node.parentNode.tagName == 'text':
-			data = '\n%s\n\t\t' % data
+import docopt
+import os.path
 
-		node.data = data
+def parse_options():
+	script_name = os.path.basename(__file__)
+	return docopt.docopt(__doc__.format(script_name))
 
-dom = xml.dom.minidom.parse(sys.argv[1])
+def process_options(options):
+	if options["<decoded-dump-file>"] == None:
+		decoded_dump_file = os.path.basename(options["<dump-file>"])
+		options["<decoded-dump-file>"] = decoded_dump_file
 
-html_parser = HTMLParser.HTMLParser()
-process(dom.documentElement, html_parser)
+def parse_parameters():
+	options = parse_options()
+	process_options(options)
 
-with open(sys.argv[2], 'w') as target_file:
-	content = dom.toprettyxml(encoding = 'utf-8')
+	return options
 
-	lines = content.split('\n')
-	# lines = map(lambda line: line.rstrip(), lines)
-	# lines = filter(lambda line: line, lines)
-
-	target_file.write('\n'.join(lines))
+parameters = parse_parameters()
+print(parameters)
