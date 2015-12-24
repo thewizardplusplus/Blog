@@ -36,11 +36,7 @@ def read_xml(filename):
 def decode_node(node):
 	data = base64.b64decode(node.data)
 	data = data.decode('string_escape')
-	data = data.strip()
-	if node.parentNode.tagName == 'text':
-		data = '\n%s\n\t\t' % data
-
-	node.data = data
+	node.data = data.strip()
 
 def process_node(node):
 	for child in node.childNodes:
@@ -49,20 +45,65 @@ def process_node(node):
 	if node.nodeType == node.TEXT_NODE:
 		decode_node(node)
 
-def write_xml_to_file(dom, filename):
-	with open(filename, 'w') as target_file:
-		dom.writexml(target_file, encoding = 'utf-8')
+def attributes_to_string(node):
+	attributes = ''
+	for i in range(0, node.attributes.length):
+		attribute = node.attributes.item(i)
+		attributes += ' {:s}="{:s}"'.format(attribute.name, attribute.value)
 
-def write_xml_to_stdout(dom):
-	dom.writexml(sys.stdout, encoding = 'utf-8')
+	return attributes
 
-def write_xml(dom, target):
-	if target != "-":
-		write_xml_to_file(dom, target)
+def generate_start_tag(node, prefix):
+	attributes = attributes_to_string(node)
+	return prefix + '<{:s}{:s}>\n'.format(node.tagName, attributes)
+
+def generate_end_tag(node, prefix):
+	return prefix + '</{:s}>\n'.format(node.tagName)
+
+def escape(text, prefix, text_prefix):
+	text = text.replace(']]>', ']]]><![CDATA[]>')
+	return '<![CDATA[\n{2:s}{0:s}\n{1:s}]]>'.format(text, prefix, text_prefix)
+
+def text_node_to_string(node, prefix):
+	if not node.data:
+		return ''
+
+	text_prefix = ''
+	if node.parentNode.tagName != 'text':
+		text_prefix = prefix + '\t'
+
+	return prefix + escape(node.data, prefix, text_prefix) + '\n'
+
+def node_to_string(node, prefix = ''):
+	result = ''
+	if not prefix:
+		result += '<?xml version="1.1" encoding="utf-8" ?>\n'
+
+	if node.nodeType != node.TEXT_NODE:
+		result += generate_start_tag(node, prefix)
+		for child in node.childNodes:
+			result += node_to_string(child, prefix + '\t')
+		result += generate_end_tag(node, prefix)
 	else:
-		write_xml_to_stdout(dom)
+		result += text_node_to_string(node, prefix)
+
+	return result
+
+def write_xml_to_file(content, filename):
+	with open(filename, 'w') as target_file:
+		target_file.write(content)
+
+def write_xml_to_stdout(content):
+	print(content)
+
+def write_xml(content, target):
+	if target != "-":
+		write_xml_to_file(content, target)
+	else:
+		write_xml_to_stdout(content)
 
 parameters = parse_parameters()
 dom = read_xml(parameters['<dump-file>'])
 process_node(dom.documentElement)
-write_xml(dom, parameters['<decoded-dump-file>'])
+content = node_to_string(dom.documentElement)
+write_xml(content, parameters['<decoded-dump-file>'])
