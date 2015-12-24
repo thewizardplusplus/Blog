@@ -155,12 +155,13 @@ function ProcessBackup() {
 	local -r backup_path="$1"
 	local -r script_path="$2"
 
-	echo "Process backup \"$backup_path\"..."
+	echo "Unpack backup \"$backup_path\"..."
 	local -r database_dump=`UnpackBackup "$backup_path"`
 
 	local -r new_dump_name=`MakeDumpName "$backup_path"`
 	SaveDump "$new_dump_name" "$database_dump"
 
+	echo "Decode dump \"$new_dump_name\"..."
 	DecodeDump "$new_dump_name" "$script_path"
 }
 
