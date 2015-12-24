@@ -134,14 +134,14 @@ function MakeDumpName() {
 	local -r backup_path="$1"
 
 	local -r timestamp=`GetTimestamp "$backup_path"`
-	echo "database_dump_$timestamp.xml"
+	echo "$target_path/database_dump_$timestamp.xml"
 }
 
 function SaveDump() {
 	local -r dump_name="$1"
 	local -r dump_content="$2"
 
-	echo "$dump_content" > "$target_path/$dump_name"
+	echo "$dump_content" > "$dump_name"
 }
 
 function ProcessBackup() {
