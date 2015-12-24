@@ -64,8 +64,9 @@ def generate_end_tag(node, prefix):
 	return prefix + '</{:s}>\n'.format(node.tagName)
 
 def escape(text, prefix, text_prefix):
+	text = text.decode('utf-8')
 	text = text.replace(']]>', ']]]><![CDATA[]>')
-	return '<![CDATA[\n{2:s}{0:s}\n{1:s}]]>'.format(text, prefix, text_prefix)
+	return u'<![CDATA[\n{2:s}{0:s}\n{1:s}]]>'.format(text, prefix, text_prefix)
 
 def text_node_to_string(node, prefix):
 	if not node.data:
@@ -87,19 +88,20 @@ def node_to_string(node, prefix = ''):
 	if not prefix:
 		result += '<?xml version="1.1" encoding="utf-8" ?>\n'
 
-	if node.nodeType != node.TEXT_NODE:
+	if node.nodeType == node.ELEMENT_NODE:
 		result += generate_start_tag(node, prefix)
 		for child in node.childNodes:
 			result += node_to_string(child, prefix + '\t')
 		result += generate_end_tag(node, prefix)
-	else:
+	elif node.nodeType == node.TEXT_NODE \
+		or node.nodeType == node.CDATA_SECTION_NODE:
 		result += text_node_to_string(node, prefix)
 
 	return result
 
 def write_xml_to_file(content, filename):
 	with open(filename, 'w') as target_file:
-		target_file.write(content)
+		target_file.write(content.encode('utf8'))
 
 def write_xml_to_stdout(content):
 	print(content)
