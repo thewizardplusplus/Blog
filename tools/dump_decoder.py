@@ -46,6 +46,9 @@ def process_node(node):
 		decode_node(node)
 
 def attributes_to_string(node):
+	if node.attributes is None:
+		return ''
+
 	attributes = ''
 	for i in range(0, node.attributes.length):
 		attribute = node.attributes.item(i)
