@@ -12,6 +12,7 @@ Options:
 import docopt
 import os.path
 import xml.dom.minidom
+import base64
 import sys
 
 def parse_options():
@@ -32,6 +33,22 @@ def parse_parameters():
 def read_xml(filename):
 	return xml.dom.minidom.parse(filename)
 
+def decode_node(node):
+	data = base64.b64decode(node.data)
+	data = data.decode('string_escape')
+	data = data.strip()
+	if node.parentNode.tagName == 'text':
+		data = '\n%s\n\t\t' % data
+
+	node.data = data
+
+def process_node(node):
+	for child in node.childNodes:
+		process_node(child)
+
+	if node.nodeType == node.TEXT_NODE:
+		decode_node(node)
+
 def write_xml_to_file(dom, filename):
 	with open(filename, 'w') as target_file:
 		dom.writexml(target_file, encoding = 'utf-8')
@@ -47,4 +64,5 @@ def write_xml(dom, target):
 
 parameters = parse_parameters()
 dom = read_xml(parameters['<dump-file>'])
+process_node(dom.documentElement)
 write_xml(dom, parameters['<decoded-dump-file>'])
