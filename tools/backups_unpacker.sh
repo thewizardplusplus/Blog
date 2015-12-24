@@ -144,22 +144,33 @@ function SaveDump() {
 	echo "$dump_content" > "$dump_name"
 }
 
+function DecodeDump() {
+	local -r dump_name="$1"
+	local -r script_path="$2"
+
+	"$script_path/dump_decoder.py" "$dump_name" "$dump_name"
+}
+
 function ProcessBackup() {
 	local -r backup_path="$1"
+	local -r script_path="$2"
 
 	echo "Process backup \"$backup_path\"..."
 	local -r database_dump=`UnpackBackup "$backup_path"`
 
 	local -r new_dump_name=`MakeDumpName "$backup_path"`
 	SaveDump "$new_dump_name" "$database_dump"
+
+	DecodeDump "$new_dump_name" "$script_path"
 }
 
 function ProcessBackups() {
 	local -r backups_paths=("$@")
 
+	local -r script_path=$(dirname "$0")
 	for backup_path in ${backups_paths[@]}
 	do
-		ProcessBackup "$backup_path"
+		ProcessBackup "$backup_path" "$script_path"
 	done
 }
 
