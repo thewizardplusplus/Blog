@@ -111,14 +111,23 @@ function UnpackBackups() {
 	"$script_path/backups_unpacker.sh" "$source_path" "$target_path"
 }
 
-function FindDumpsNotMatchedQuery() {
+function FindNotMatchedDumps() {
 	local -r base_path="$1"
 	local -r search_query="$2"
 
-	grep -lEiv -e "$search_query" "$base_path"/*.xml
+	grep -LEi -e "$search_query" "$base_path"/*.xml
+}
+
+function RemoveNotMatchedDumps() {
+	local -r dump_list=("$@")
+
+	for dump in ${dump_list[@]}
+	do
+		rm "$dump"
+	done
 }
 
 ProcessAndValidateOptions "$@"
 # UnpackBackups "$backups_path" "$tmp_storage_path"
-readonly dumps=`FindDumpsNotMatchedQuery "$tmp_storage_path" "$query"`
-echo "$dumps"
+readonly dumps=`FindNotMatchedDumps "$tmp_storage_path" "$query"`
+RemoveNotMatchedDumps "$dumps"
