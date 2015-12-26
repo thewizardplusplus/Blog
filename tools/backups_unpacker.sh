@@ -88,15 +88,24 @@ function ProcessOptions() {
 ################################################################################
 # Utils functions.
 ################################################################################
-function GetScriptPath() {
-	dirname "$0"
-}
-
 function FindFiles() {
 	local -r path="$1"
 	local -r extension="$2"
 
 	find "$path" -maxdepth 1 -name "$extension"
+}
+
+function GetTimestamp() {
+	local -r path="$1"
+
+	echo "$path" | sed -r "s/.*([[:digit:]]{4}(-[[:digit:]]{2}){5}).*/\1/"
+}
+
+function GetDumpName() {
+	local -r path="$1"
+
+	local -r timestamp=`GetTimestamp "$path"`
+	echo "$target_path/database_dump_$timestamp.xml"
 }
 
 function DecodeDump() {
@@ -105,6 +114,10 @@ function DecodeDump() {
 	local -r script_path="$3"
 
 	"$script_path/dump_decoder.py" "$source_filename" "$target_filename"
+}
+
+function GetScriptPath() {
+	dirname "$0"
 }
 ################################################################################
 
@@ -123,8 +136,8 @@ function ProcessDump() {
 
 	echo "Copy and decode dump \"$dump_path\"..."
 
-	local -r dump_name=`basename "$dump_path"`
-	DecodeDump "$dump_path" "$target_path/$dump_name" "$script_path"
+	local -r new_dump_path=`GetDumpName "$dump_path"`
+	DecodeDump "$dump_path" "$new_dump_path" "$script_path"
 }
 
 function ProcessDumps() {
@@ -161,20 +174,6 @@ function GetBackupName() {
 	local -r backup_path="$1"
 
 	basename "$backup_path" ".zip"
-}
-
-function GetBackupTimestamp() {
-	local -r backup_path="$1"
-
-	local -r backup_name=`GetBackupName "$backup_path"`
-	echo "$backup_name" | sed "s/backup_//"
-}
-
-function GetDumpName() {
-	local -r backup_path="$1"
-
-	local -r timestamp=`GetBackupTimestamp "$backup_path"`
-	echo "$target_path/database_dump_$timestamp.xml"
 }
 
 function UnpackBackup() {
