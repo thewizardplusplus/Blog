@@ -99,7 +99,17 @@ function ProcessAndValidateOptions() {
 	ValidateOptions
 }
 
+function GetScriptPath() {
+	dirname "$0"
+}
+
+function UnpackBackups() {
+	local -r source_path="$1"
+	local -r target_path="$2"
+
+	local -r script_path=`GetScriptPath`
+	"$script_path/backups_unpacker.sh" "$source_path" "$target_path"
+}
+
 ProcessAndValidateOptions "$@"
-echo "\"$query\""
-echo "\"$backups_path\""
-echo "\"$tmp_storage_path\""
+UnpackBackups "$backups_path" "$tmp_storage_path"
