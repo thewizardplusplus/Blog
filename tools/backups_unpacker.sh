@@ -88,19 +88,30 @@ function FindDumps() {
 	FindFiles "$path" "*.xml"
 }
 
+function DecodeDump() {
+	local -r source_filename="$1"
+	local -r target_filename="$2"
+	local -r script_path="$3"
+
+	"$script_path/dump_decoder.py" "$source_filename" "$target_filename"
+}
+
 function CopyDump() {
 	local -r dump_path="$1"
+	local -r script_path="$2"
 
-	echo "Copy dump \"$dump_path\"..."
-	cp "$dump_path" "$target_path"
+	echo "Copy and decode dump \"$dump_path\"..."
+	dump_name=`basename "$dump_path"`
+	DecodeDump "$dump_path" "$target_path/$dump_name" "$script_path"
 }
 
 function CopyDumps() {
 	local -r dumps_paths=("$@")
 
+	local -r script_path=$(dirname "$0")
 	for dump_path in ${dumps_paths[@]}
 	do
-		CopyDump "$dump_path"
+		CopyDump "$dump_path" "$script_path"
 	done
 }
 
@@ -144,13 +155,6 @@ function SaveDump() {
 	echo "$dump_content" > "$dump_name"
 }
 
-function DecodeDump() {
-	local -r dump_name="$1"
-	local -r script_path="$2"
-
-	"$script_path/dump_decoder.py" "$dump_name" "$dump_name"
-}
-
 function ProcessBackup() {
 	local -r backup_path="$1"
 	local -r script_path="$2"
@@ -162,7 +166,7 @@ function ProcessBackup() {
 	SaveDump "$new_dump_name" "$database_dump"
 
 	echo "Decode dump \"$new_dump_name\"..."
-	DecodeDump "$new_dump_name" "$script_path"
+	DecodeDump "$new_dump_name" "$new_dump_name" "$script_path"
 }
 
 function ProcessBackups() {
