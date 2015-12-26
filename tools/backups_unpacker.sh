@@ -1,10 +1,17 @@
 #!/usr/bin/env bash
 
+################################################################################
+# Global variables.
+################################################################################
 source_path="."
 target_path="."
+################################################################################
 
+################################################################################
+# Options processing.
+################################################################################
 function ShowHelp() {
-	local -r script_name=$(basename "$0")
+	local -r script_name=`basename "$0"`
 
 	echo "Usage:"
 	echo -e "\t$script_name -h | --help"
@@ -27,6 +34,12 @@ function ShowError() {
 	ShowHelp
 
 	exit 1
+}
+
+function CreateTarget() {
+	local -r path="$1"
+
+	mkdir -p "$path"
 }
 
 function ProcessOption() {
@@ -60,7 +73,9 @@ function ProcessOptions() {
 			;;
 		2)
 			source_path="${options[0]}"
+
 			target_path="${options[1]}"
+			CreateTarget "$target_path"
 
 			;;
 		*)
@@ -68,11 +83,13 @@ function ProcessOptions() {
 			;;
 	esac
 }
+################################################################################
 
-function CreateTarget() {
-	local -r path="$1"
-
-	mkdir -p "$path"
+################################################################################
+# Utils functions.
+################################################################################
+function GetScriptPath() {
+	dirname "$0"
 }
 
 function FindFiles() {
@@ -82,12 +99,6 @@ function FindFiles() {
 	find "$path" -maxdepth 1 -name "$extension"
 }
 
-function FindDumps() {
-	local -r path="$1"
-
-	FindFiles "$path" "*.xml"
-}
-
 function DecodeDump() {
 	local -r source_filename="$1"
 	local -r target_filename="$2"
@@ -95,57 +106,82 @@ function DecodeDump() {
 
 	"$script_path/dump_decoder.py" "$source_filename" "$target_filename"
 }
+################################################################################
 
-function CopyDump() {
+################################################################################
+# Dumps processing.
+################################################################################
+function FindDumps() {
+	local -r path="$1"
+
+	FindFiles "$path" "*.xml"
+}
+
+function ProcessDump() {
 	local -r dump_path="$1"
 	local -r script_path="$2"
 
 	echo "Copy and decode dump \"$dump_path\"..."
-	dump_name=`basename "$dump_path"`
+
+	local -r dump_name=`basename "$dump_path"`
 	DecodeDump "$dump_path" "$target_path/$dump_name" "$script_path"
 }
 
-function CopyDumps() {
+function ProcessDumps() {
 	local -r dumps_paths=("$@")
 
-	local -r script_path=$(dirname "$0")
+	local -r script_path=`GetScriptPath`
 	for dump_path in ${dumps_paths[@]}
 	do
-		CopyDump "$dump_path" "$script_path"
+		ProcessDump "$dump_path" "$script_path"
 	done
 }
 
+function FindAndProcessDumps() {
+	local -r source_path="$1"
+
+	if [[ "$source_path" != "$target_path" ]]
+	then
+		local -r dumps=`FindDumps "$source_path"`
+		ProcessDumps "$dumps"
+	fi
+}
+################################################################################
+
+################################################################################
+# Backups processing.
+################################################################################
 function FindBackups() {
 	local -r path="$1"
 
 	FindFiles "$path" "*.zip"
 }
 
-function GetName() {
+function GetBackupName() {
 	local -r backup_path="$1"
 
 	basename "$backup_path" ".zip"
 }
 
-function UnpackBackup() {
+function GetBackupTimestamp() {
 	local -r backup_path="$1"
 
-	local -r backup_name=`GetName "$backup_path"`
-	unzip -p "$backup_path" "$backup_name/database_dump.xml"
-}
-
-function GetTimestamp() {
-	local -r backup_path="$1"
-
-	local -r backup_name=`GetName "$backup_path"`
+	local -r backup_name=`GetBackupName "$backup_path"`
 	echo "$backup_name" | sed "s/backup_//"
 }
 
-function MakeDumpName() {
+function GetDumpName() {
 	local -r backup_path="$1"
 
-	local -r timestamp=`GetTimestamp "$backup_path"`
+	local -r timestamp=`GetBackupTimestamp "$backup_path"`
 	echo "$target_path/database_dump_$timestamp.xml"
+}
+
+function UnpackBackup() {
+	local -r backup_path="$1"
+
+	local -r backup_name=`GetBackupName "$backup_path"`
+	unzip -p "$backup_path" "$backup_name/database_dump.xml"
 }
 
 function SaveDump() {
@@ -162,7 +198,7 @@ function ProcessBackup() {
 	echo "Unpack backup \"$backup_path\"..."
 	local -r database_dump=`UnpackBackup "$backup_path"`
 
-	local -r new_dump_name=`MakeDumpName "$backup_path"`
+	local -r new_dump_name=`GetDumpName "$backup_path"`
 	SaveDump "$new_dump_name" "$database_dump"
 
 	echo "Decode dump \"$new_dump_name\"..."
@@ -172,21 +208,25 @@ function ProcessBackup() {
 function ProcessBackups() {
 	local -r backups_paths=("$@")
 
-	local -r script_path=$(dirname "$0")
+	local -r script_path=`GetScriptPath`
 	for backup_path in ${backups_paths[@]}
 	do
 		ProcessBackup "$backup_path" "$script_path"
 	done
 }
 
+function FindAndProcessBackups() {
+	local -r source_path="$1"
+
+	local -r backups=`FindBackups "$source_path"`
+	ProcessBackups "$backups"
+}
+################################################################################
+
+################################################################################
+# Main code.
+################################################################################
 ProcessOptions "$@"
-CreateTarget "$target_path"
-
-if [[ "$source_path" != "$target_path" ]]
-then
-	readonly dumps=`FindDumps "$source_path"`
-	CopyDumps "$dumps"
-fi
-
-readonly backups=`FindBackups "$source_path"`
-ProcessBackups "$backups"
+FindAndProcessDumps "$source_path"
+FindAndProcessBackups "$source_path"
+################################################################################
