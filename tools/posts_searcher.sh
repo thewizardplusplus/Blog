@@ -111,5 +111,14 @@ function UnpackBackups() {
 	"$script_path/backups_unpacker.sh" "$source_path" "$target_path"
 }
 
+function FindDumpsMatchedQuery() {
+	local -r base_path="$1"
+	local -r query="$2"
+
+	grep -lEi -e "$query" "$base_path"/*.xml
+}
+
 ProcessAndValidateOptions "$@"
-UnpackBackups "$backups_path" "$tmp_storage_path"
+# UnpackBackups "$backups_path" "$tmp_storage_path"
+readonly dumps=`FindDumpsMatchedQuery "$tmp_storage_path" "$query"`
+echo "$dumps"
