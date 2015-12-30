@@ -11,6 +11,7 @@ Options:
 
 import docopt
 import os.path
+import xml.dom.minidom
 
 def parse_options():
 	script_name = os.path.basename(__file__)
@@ -28,5 +29,9 @@ def parse_parameters():
 
 	return options
 
+def read_xml(filename):
+	return xml.dom.minidom.parse(filename)
+
 parameters = parse_parameters()
-print(parameters)
+dom = read_xml(parameters['<dump-file>'])
+print(dom)
