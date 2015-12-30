@@ -32,6 +32,10 @@ def parse_parameters():
 def read_xml(filename):
 	return xml.dom.minidom.parse(filename)
 
+def find_posts(node):
+	return node.getElementsByTagName('post')
+
 parameters = parse_parameters()
 dom = read_xml(parameters['<dump-file>'])
-print(dom)
+posts = find_posts(dom.documentElement)
+print(posts)
