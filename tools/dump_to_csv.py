@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 """
 Usage:
@@ -19,6 +20,8 @@ import slugify
 import csv
 import sys
 
+slug_minimal_length = 3
+slug_maximal_length = 64
 cut_tag_pattern = re.compile('<cut\s*\/>')
 image_tag_pattern = re.compile('!\[([^\]]*)\]\(([^\)]+)\)')
 
@@ -60,6 +63,13 @@ def get_node_text(nodes):
 
 	return text
 
+def generate_slug(title):
+	slug = slugify.slugify(title)[0:slug_maximal_length]
+	slug_length = len(slug.decode('utf-8'))
+	if slug_length < slug_minimal_length:
+		slug += '-' * (slug_minimal_length - slug_length)
+	return slug
+
 def extract_excerpt(text):
 	excerpt = cut_tag_pattern.split(text)[0]
 	return excerpt.strip()
@@ -100,7 +110,7 @@ def prepare_post(post, base_path):
 	text = get_post_text(post, base_path)
 	return { \
 		'Title': title, \
-		'Slug': slugify.slugify(title), \
+		'Slug': generate_slug(title), \
 		'Excerpt': extract_excerpt(text), \
 		'Content': extract_content(text), \
 		'Tags': get_post_tags(post), \
