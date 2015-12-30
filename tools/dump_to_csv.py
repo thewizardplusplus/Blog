@@ -3,10 +3,11 @@
 """
 Usage:
   {0:s} -h | --help
-  {0:s} <dump-file> [<csv-file>]
+  {0:s} (-b PATH | --base-path PATH) <dump-file> [<csv-file>]
 
 Options:
-  -h, --help  - show help.
+  -h, --help                 - show help;
+  -b PATH, --base-path PATH  - set new base path for images.
 """
 
 import re
@@ -19,6 +20,7 @@ import csv
 import sys
 
 cut_tag_pattern = re.compile('<cut\s*\/>')
+image_tag_pattern = re.compile('!\[([^\]]*)\]\(([^\)]+)\)')
 
 def parse_options():
 	script_name = os.path.basename(__file__)
@@ -65,6 +67,24 @@ def extract_excerpt(text):
 def extract_content(text):
 	return cut_tag_pattern.sub('', text)
 
+def correct_path(base_path, path):
+	filename = os.path.basename(path)
+	return os.path.join(base_path, filename)
+
+def correct_image_tag(base_path, path, alt):
+	corrected_path = correct_path(base_path, path)
+	return '![{:s}]({:s})'.format(alt, corrected_path)
+
+def get_post_text(post, base_path):
+	text = get_node_text(get_subnode(post, 'text'))
+	text = image_tag_pattern.sub( \
+		lambda match: correct_image_tag( \
+			base_path, \
+			match.group(2), \
+			match.group(1)), \
+		text)
+	return text
+
 def get_post_tags(post):
 	tags = get_node_text(get_subnode(post, 'tags'))
 	return '|'.join(map(lambda tag: tag.strip(), tags.split(',')))
@@ -72,9 +92,9 @@ def get_post_tags(post):
 def get_attribute(node, attribute_name):
 	return node.attributes[attribute_name].value
 
-def prepare_post(post):
+def prepare_post(post, base_path):
 	title = get_node_text(get_subnode(post, 'title'))
-	text = get_node_text(get_subnode(post, 'text'))
+	text = get_post_text(post, base_path)
 	return { \
 		'Title': title, \
 		'Slug': slugify.slugify(title), \
@@ -84,8 +104,8 @@ def prepare_post(post):
 		'Created date': get_attribute(post, 'create-time'), \
 		'Updated date': get_attribute(post, 'modify-time')}
 
-def prepare_posts(posts):
-	return map(prepare_post, posts)
+def prepare_posts(posts, base_path):
+	return map(lambda post: prepare_post(post, base_path), posts)
 
 def write_csv_to_writer(writer, posts):
 	field_names = [ \
@@ -121,5 +141,5 @@ def write_csv(target, posts):
 parameters = parse_parameters()
 dom = read_xml(parameters['<dump-file>'])
 posts = find_posts(dom.documentElement)
-prepared_posts = prepare_posts(posts)
+prepared_posts = prepare_posts(posts, parameters['--base-path'])
 write_csv(parameters['<csv-file>'], prepared_posts)
