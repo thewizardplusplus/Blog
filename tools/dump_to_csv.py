@@ -35,7 +35,14 @@ def read_xml(filename):
 def find_posts(node):
 	return node.getElementsByTagName('post')
 
+def prepare_post(post):
+	return {'test 1': 'ololo 1', 'test 2': 'ololo 2'}
+
+def prepare_posts(posts):
+	return map(prepare_post, posts)
+
 parameters = parse_parameters()
 dom = read_xml(parameters['<dump-file>'])
 posts = find_posts(dom.documentElement)
-print(posts)
+prepared_posts = prepare_posts(posts)
+print(prepared_posts)
