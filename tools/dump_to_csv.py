@@ -152,7 +152,8 @@ def write_csv_to_writer(writer, posts):
 	writer = csv.DictWriter( \
 		writer, \
 		fieldnames = field_names, \
-		lineterminator = '\n')
+		lineterminator = '\n', \
+		quoting = csv.QUOTE_ALL)
 
 	writer.writeheader()
 	for post in posts:
