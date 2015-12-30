@@ -63,12 +63,19 @@ def get_node_text(nodes):
 
 	return text
 
-def generate_slug(title):
-	slug = slugify.slugify(title)[0:slug_maximal_length]
-	slug_length = len(slug.decode('utf-8'))
+def get_slug_length(slug):
+	return len(slug.decode('utf-8'))
+
+def crop_slug_length(slug):
+	slug = slug[:slug_maximal_length]
+	slug_length = get_slug_length(slug)
 	if slug_length < slug_minimal_length:
 		slug += '-' * (slug_minimal_length - slug_length)
+
 	return slug
+
+def generate_slug(text):
+	return crop_slug_length(slugify.slugify(text))
 
 def extract_excerpt(text):
 	excerpt = cut_tag_pattern.split(text)[0]
@@ -95,9 +102,22 @@ def get_post_text(post, base_path):
 		text)
 	return text
 
+def crop_tag_length(tag):
+	while True:
+		slug_length = get_slug_length(generate_slug(tag))
+		if slug_length < slug_minimal_length:
+			tag += '-'
+		elif slug_length > slug_maximal_length:
+			tag = tag[:-1]
+		else:
+			break
+
+	return tag
+
 def get_post_tags(post):
 	tags = get_node_text(get_subnode(post, 'tags'))
-	return '|'.join(map(lambda tag: tag.strip(), tags.split(',')))
+	tags = map(lambda tag: crop_tag_length(tag.strip()), tags.split(','))
+	return '|'.join(tags)
 
 def get_attribute(node, attribute_name):
 	return node.attributes[attribute_name].value
