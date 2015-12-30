@@ -92,6 +92,9 @@ def get_post_tags(post):
 def get_attribute(node, attribute_name):
 	return node.attributes[attribute_name].value
 
+def correct_timestamp(timestamp):
+	return timestamp.replace('T', ' ')
+
 def prepare_post(post, base_path):
 	title = get_node_text(get_subnode(post, 'title'))
 	text = get_post_text(post, base_path)
@@ -101,8 +104,8 @@ def prepare_post(post, base_path):
 		'Excerpt': extract_excerpt(text), \
 		'Content': extract_content(text), \
 		'Tags': get_post_tags(post), \
-		'Created date': get_attribute(post, 'create-time'), \
-		'Updated date': get_attribute(post, 'modify-time')}
+		'Created date': correct_timestamp(get_attribute(post, 'create-time')), \
+		'Updated date': correct_timestamp(get_attribute(post, 'modify-time'))}
 
 def prepare_posts(posts, base_path):
 	return map(lambda post: prepare_post(post, base_path), posts)
