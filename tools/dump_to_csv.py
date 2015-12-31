@@ -80,7 +80,12 @@ def extract_excerpt(text):
 	return excerpt.strip()
 
 def extract_content(text):
-	return cut_tag_pattern.sub('', text)
+	parts = cut_tag_pattern.split(text)
+	if len(parts) > 1:
+		parts = parts[1:]
+
+	parts = map(lambda part: part.strip(), parts)
+	return ''.join(parts)
 
 def correct_path(base_path, path):
 	filename = os.path.basename(path)
