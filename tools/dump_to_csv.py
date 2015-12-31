@@ -22,6 +22,7 @@ import sys
 
 slug_minimal_length = 3
 slug_maximal_length = 64
+slug_additional_symbol = '0'
 cut_tag_pattern = re.compile('<cut\s*\/>')
 image_tag_pattern = re.compile('!\[([^\]]*)\]\(([^\)]+)\)')
 
@@ -70,12 +71,9 @@ def crop_slug_length(slug):
 	slug = slug[:slug_maximal_length]
 	slug_length = get_slug_length(slug)
 	if slug_length < slug_minimal_length:
-		slug += '-' * (slug_minimal_length - slug_length)
+		slug += slug_additional_symbol * (slug_minimal_length - slug_length)
 
 	return slug
-
-def generate_slug(text):
-	return crop_slug_length(slugify.slugify(text))
 
 def extract_excerpt(text):
 	excerpt = cut_tag_pattern.split(text)[0]
@@ -104,11 +102,11 @@ def get_post_text(post, base_path):
 
 def crop_tag_length(tag):
 	while True:
-		slug_length = get_slug_length(generate_slug(tag))
+		slug_length = get_slug_length(slugify.slugify(tag))
 		if slug_length < slug_minimal_length:
-			tag += '-'
+			tag += slug_additional_symbol
 		elif slug_length > slug_maximal_length:
-			tag = tag[:-1]
+			tag = tag.decode('utf-8')[:-1].encode('utf-8')
 		else:
 			break
 
@@ -116,6 +114,9 @@ def crop_tag_length(tag):
 
 def get_post_tags(post):
 	tags = get_node_text(get_subnode(post, 'tags'))
+	if not tags:
+		return ''
+
 	tags = map(lambda tag: crop_tag_length(tag.strip()), tags.split(','))
 	return '|'.join(tags)
 
@@ -130,7 +131,7 @@ def prepare_post(post, base_path):
 	text = get_post_text(post, base_path)
 	return { \
 		'Title': title, \
-		'Slug': generate_slug(title), \
+		'Slug': crop_slug_length(slugify.slugify(title)), \
 		'Excerpt': extract_excerpt(text), \
 		'Content': extract_content(text), \
 		'Tags': get_post_tags(post), \
