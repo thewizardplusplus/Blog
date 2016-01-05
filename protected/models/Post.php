@@ -43,7 +43,7 @@ class Post extends CActiveRecord {
 
 	public static function processDescription($text) {
 		$text = self::cut($text);
-		$text = preg_replace('/!\[[^\[]*\]\([^\)]+\)/', '', $text);
+		$text = preg_replace('/!\[[^\]]*\]\([^\)]+\)/', '', $text);
 		$text = preg_replace('/[\n\r]+/', ' ', $text);
 		$text = trim($text);
 		return $text;
