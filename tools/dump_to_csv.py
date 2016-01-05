@@ -75,18 +75,6 @@ def crop_slug_length(slug):
 
 	return slug
 
-def extract_excerpt(text):
-	excerpt = cut_tag_pattern.split(text)[0]
-	return excerpt.strip()
-
-def extract_content(text):
-	parts = cut_tag_pattern.split(text)
-	if len(parts) > 1:
-		parts = parts[1:]
-
-	parts = map(lambda part: part.strip(), parts)
-	return ''.join(parts)
-
 def correct_path(base_path, path):
 	filename = os.path.basename(path)
 	return os.path.join(base_path, filename)
@@ -97,6 +85,7 @@ def correct_image_tag(base_path, path, alt):
 
 def get_post_text(post, base_path):
 	text = get_node_text(get_subnode(post, 'text'))
+	text = cut_tag_pattern.sub('<!--more Читать дальше &gt;&gt;-->', text)
 	text = image_tag_pattern.sub( \
 		lambda match: correct_image_tag( \
 			base_path, \
@@ -133,12 +122,10 @@ def correct_timestamp(timestamp):
 
 def prepare_post(post, base_path):
 	title = get_node_text(get_subnode(post, 'title'))
-	text = get_post_text(post, base_path)
 	return { \
 		'Title': title, \
 		'Slug': crop_slug_length(slugify.slugify(title)), \
-		'Excerpt': extract_excerpt(text), \
-		'Content': extract_content(text), \
+		'Content': get_post_text(post, base_path), \
 		'Tags': get_post_tags(post), \
 		'Created date': correct_timestamp(get_attribute(post, 'create-time')), \
 		'Updated date': correct_timestamp(get_attribute(post, 'modify-time'))}
@@ -150,7 +137,6 @@ def write_csv_to_writer(writer, posts):
 	field_names = [ \
 		'Title', \
 		'Slug', \
-		'Excerpt', \
 		'Content', \
 		'Tags', \
 		'Created date', \
