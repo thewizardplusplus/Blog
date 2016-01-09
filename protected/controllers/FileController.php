@@ -44,7 +44,10 @@ class FileController extends CController {
 			$full_path = $base_path . '/' . $filename;
 			$file->is_file = is_file($full_path);
 			if ($file->is_file) {
-				$file->link = $path . '/' . $filename;
+				$file->link = substr(
+					realpath($full_path),
+					strlen($_SERVER['DOCUMENT_ROOT'])
+				);
 			} else {
 				$new_path = $path;
 				if ($filename != '..') {
@@ -75,7 +78,7 @@ class FileController extends CController {
 			if ($a->is_file xor $b->is_file) {
 				return $a->is_file ? 1 : -1;
 			} else {
-				return strnatcmp($a->name, $b->name);
+				return strnatcmp($b->name, $a->name);
 			}
 		});
 

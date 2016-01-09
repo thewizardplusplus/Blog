@@ -1,8 +1,5 @@
 RewriteEngine On
 
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d [OR]
-RewriteCond %{REQUEST_URI} ^/web/blog/files/$ [OR]
-RewriteCond %{REQUEST_URI} ^/web/blog/backups/$ [NC]
-
+RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php

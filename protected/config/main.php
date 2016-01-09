@@ -3,7 +3,7 @@
 require_once('Constants.php');
 
 return array(
-	'name' => 'Wizard Blog',
+	'name' => Constants::APP_NAME,
 	'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
 	'defaultController' => 'post/list',
 	'language' => 'ru',
@@ -42,7 +42,15 @@ return array(
 			'username' => Constants::DATABASE_USER,
 			'password' => Constants::DATABASE_PASSWORD,
 			'charset' => 'utf8',
-			'tablePrefix' => 'blog_'
+			'tablePrefix' => Constants::DATABASE_TABLE_PREFIX
+		),
+		'session' => array(
+			'class' => 'CDbHttpSession',
+			'connectionID' => 'db',
+			'sessionTableName' => Constants::DATABASE_TABLE_PREFIX . 'sessions'
+		),
+		'request' => array(
+			'enableCookieValidation' => true
 		),
 		'log' => array(
 			'class'=>'CLogRouter',

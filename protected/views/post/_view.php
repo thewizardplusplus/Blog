@@ -2,30 +2,6 @@
 	/* @var $this PostController */
 	/* @var $data Post */
 
-	if ($this->action->id == 'view') {
-		Yii::app()->getClientScript()->registerScriptFile(
-			CHtml::asset('scripts/post_view.js'),
-			CClientScript::POS_HEAD
-		);
-
-		Yii::app()->getClientScript()->registerScript(
-			uniqid(rand(), true),
-			'var addthis_config = { ui_language: "ru" };'
-				. 'var addthis_share = {'
-					. 'title: "' . CHtml::encode($data->title) . '",'
-					. 'templates: {'
-						. 'twitter: "{{title}}: {{url}}"'
-					. '}'
-				. '}',
-			CClientScript::POS_HEAD
-		);
-		Yii::app()->getClientScript()->registerScriptFile(
-			'http://s7.addthis.com/js/300/addthis_widget.js#pubid='
-				. Constants::ADDTHIS_PROFILE_ID,
-			CClientScript::POS_HEAD
-		);
-	}
-
 	$post_tags = array();
 	if (!empty($data->tags)) {
 		$post_tags = array_map('trim', explode(',', $data->tags));
@@ -34,9 +10,30 @@
 	if (!empty($_GET['tags'])) {
 		$query_tags = array_map('trim', explode(',', $_GET['tags']));
 	}
+
+	if ($this->action->id == 'view') {
+		Yii::app()->getClientScript()->registerMetaTag(
+			Post::processDescription($data->text),
+			'description'
+		);
+		Yii::app()->getClientScript()->registerMetaTag(
+			implode(', ', $post_tags),
+			'keywords'
+		);
+
+		Yii::app()->getClientScript()->registerScriptFile(
+			CHtml::asset('scripts/post_view.js'),
+			CClientScript::POS_HEAD
+		);
+	}
 ?>
 
-<article class = "panel panel-default">
+<article
+	class = "panel panel-default<?=
+		$this->action->id == 'view'
+			? ' post-view'
+			: ''
+	?>">
 	<?php if (!Yii::app()->user->isGuest) { ?>
 		<?= CHtml::link(
 			'<span class = "glyphicon glyphicon-trash"></span>',
@@ -131,7 +128,7 @@
 			<?php foreach ($post_tags as $post_tag) { ?>
 				<?php if (!in_array($post_tag, $query_tags)) { ?>
 					<a
-						class = "label label-success"
+						class = "label label-success post-tag"
 						href = "<?= $this->createUrl(
 							'post/list',
 							array(
@@ -140,11 +137,16 @@
 									array_merge($query_tags, array($post_tag))
 								)
 							)
-						) ?>">
-						<?= $post_tag ?>
+						) ?>"
+						title = "<?= CHtml::encode($post_tag) ?>">
+						<?= CHtml::encode($post_tag) ?>
 					</a>
 				<?php } else { ?>
-					<span class = "label label-success"><?= $post_tag ?></span>
+					<span
+						class = "label label-success post-tag"
+						title = "<?= CHtml::encode($post_tag) ?>">
+						<?= CHtml::encode($post_tag) ?>
+					</span>
 				<?php } ?>
 			<?php } ?>
 		</p>
@@ -164,50 +166,6 @@
 					array('class' => 'btn btn-default pull-right')
 				) ?>
 			<?php } ?>
-			<?= CHtml::link(
-				'Комментарии',
-				$this->createUrl(
-					'post/view',
-					array(
-						'id' => $data->id,
-						'title' => $data->title,
-						'#' => 'disqus_thread'
-					)
-				),
-				array(
-					'class' => 'btn btn-default pull-left',
-					'data-disqus-identifier' => $data->id
-				)
-			) ?>
 		</div>
-	<?php } else { ?>
-		<div
-			class = "addthis_toolbox addthis_default_style addthis_32x32_style">
-			<a class = "addthis_button_facebook"></a>
-			<a class = "addthis_button_vk"></a>
-			<a class = "addthis_button_google_plusone_share"></a>
-			<a
-				class = "addthis_button_twitter"
-				addthis:url = "<?= $this->createAbsoluteUrl(
-					'post/view',
-					array('id' => $data->id)
-				) ?>">
-			</a>
-		</div>
-
-		<div id = "disqus_thread"></div>
-		<script>
-			var disqus_shortname = '<?= Constants::DISQUS_SHORTNAME ?>';
-			var disqus_identifier = <?= $data->id ?>;
-			var disqus_title = '<?= CHtml::encode($data->title) ?>';
-			var disqus_url = '<?= $this->createAbsoluteUrl(
-				'post/view',
-				array(
-					'id' => $data->id,
-					'title' => $data->title
-				)
-			) ?>';
-		</script>
-		<?= CHtml::scriptFile(CHtml::asset('scripts/disqus_thread.js')) ?>
 	<?php } ?>
 </article>

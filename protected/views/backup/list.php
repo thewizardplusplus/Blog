@@ -5,20 +5,30 @@
 	$this->pageTitle = Yii::app()->name . ' - Бекапы';
 ?>
 
-<div class = "table-responsive">
+<header class = "page-header visible-xs">
+	<h4>Бекапы</h4>
+</header>
+
+<div class = "table-responsive clearfix">
 	<?php
 		$this->widget(
 			'zii.widgets.grid.CGridView',
 			array(
 				'id' => 'backup-list',
 				'dataProvider' => $data_provider,
-				'template' => '{items} {pager}',
+				'template' => '{items} {summary} {pager}',
 				'selectableRows' => 0,
 				'columns' => array(
 					array(
 						'name' => 'Время создания',
 						'type' => 'raw',
-						'value' => '"<time>" . $data->timestamp . "</time>"'
+						'value' =>
+							'"<time>"'
+								. '. $data->formatted_timestamp'
+							. '. "</time>"',
+						'htmlOptions' => array(
+							'class' => 'backup-timestamp-column'
+						)
 					),
 					array(
 						'name' => 'Размер',
@@ -39,9 +49,11 @@
 						)
 					)
 				),
-				'itemsCssClass' => 'table',
+				'itemsCssClass' => 'table table-striped',
 				'loadingCssClass' => 'wait',
+				'summaryCssClass' => 'summary pull-right',
 				'emptyText' => 'Нет бекапов.',
+				'summaryText' => 'Бекапы {start}-{end} из {count}.',
 				'pager' => array(
 					'header' => '',
 					'firstPageLabel' => '&lt;&lt;',

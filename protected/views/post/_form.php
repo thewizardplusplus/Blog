@@ -27,7 +27,7 @@
 		'errorMessageCssClass' => 'alert alert-danger'
 )); ?>
 
-<div class = "panel panel-default">
+<div class = "post-editor">
 	<?php echo $form->errorSummary($model, NULL, NULL, array('class' => 'alert '
 		. 'alert-danger')); ?>
 

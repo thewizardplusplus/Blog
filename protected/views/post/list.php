@@ -16,6 +16,65 @@
 	);
 
 	$this->pageTitle = Yii::app()->name;
+	if (isset($_GET["search"]) or isset($_GET["tags"])) {
+		$this->pageTitle .= ' - Результаты поиска ';
+		if (isset($_GET["search"])) {
+			$query_for_title = CHtml::encode($_GET["search"]);
+			if (
+				strlen($query_for_title)
+				> Constants::MAXIMAL_LENGTH_SEARCH_QUERY_IN_TITLE
+			) {
+				$query_for_title = substr(
+					$query_for_title,
+					0,
+					Constants::MAXIMAL_LENGTH_SEARCH_QUERY_IN_TITLE
+				) . '...';
+			}
+
+			$this->pageTitle .= 'по запросу "' . $query_for_title . '"';
+		}
+		if (isset($_GET["tags"])) {
+			if (isset($_GET["search"])) {
+				$this->pageTitle .= ' и ';
+			}
+
+			$tags_for_title = explode(',', $_GET["tags"]);
+			$tags_for_title = array_map(
+				function($tag) {
+					return CHtml::encode(trim($tag));
+				},
+				$tags_for_title
+			);
+			$tags_for_title = '"' . implode('", "', $tags_for_title) . '"';
+			if (
+				strlen($tags_for_title)
+				> Constants::MAXIMAL_LENGTH_TAGS_LIST_IN_TITLE
+			) {
+				$tags_for_title = substr(
+					$tags_for_title,
+					0,
+					Constants::MAXIMAL_LENGTH_TAGS_LIST_IN_TITLE
+				) . '...';
+			}
+
+			$this->pageTitle .= 'по тегам ' . $tags_for_title;
+		}
+	} else {
+		$this->pageTitle .= ' - Посты';
+	}
+	if (
+		isset($_GET["sort"])
+		and ($_GET["sort"] == 'create' or $_GET["sort"] == 'modify')
+	) {
+		if ($_GET["sort"] == 'create') {
+			$this->pageTitle .= ' - Сортировка по дате создания';
+		} else if ($_GET["sort"] == 'modify') {
+			$this->pageTitle .= ' - Сортировка по дате изменения';
+		}
+	}
+	if (isset($_GET["Post_page"]) and is_numeric($_GET["Post_page"])) {
+		$this->pageTitle .= ' - Страница ' . $_GET["Post_page"];
+	}
 ?>
 
 <?php if (!empty($tags)) { ?>
@@ -42,7 +101,7 @@
 	</p>
 <?php } ?>
 
-<div class = "panel panel-default">
+<div class = "panel panel-default search-controls">
 	<div class = "row">
 		<div class = "col-md-6">
 			<div class = "input-group pull-left">
@@ -63,7 +122,6 @@
 				</a>
 			</div>
 		</div>
-
 		<div class = "col-md-6">
 			<div class = "btn-group pull-right">
 				<button
@@ -87,37 +145,35 @@
 	</div>
 </div>
 
-<?php
-	$this->widget('zii.widgets.CListView', array(
-		'id' => 'post-list',
-		'dataProvider' => $data_provider,
-		'template' => '{items} {pager}',
-		'enableHistory' => true,
-		'enableSorting' => false,
-		'itemView' => '_view',
-		'loadingCssClass' => 'wait',
-		'afterAjaxUpdate' => new CJavaScriptExpression(
-			'function() {'
-				. 'PostList.initialize();'
-				. 'UpdateCommentsCounters();'
-			. '}'
-		),
-		'emptyText' => 'Нет постов.',
-		'pager' => array(
-			'maxButtonCount' => 0,
-			'header' => '',
-			'prevPageLabel' => '&lt;&lt; Следующие',
-			'nextPageLabel' => 'Предыдующие &gt;&gt;',
-			'firstPageCssClass' => 'hidden',
-			'lastPageCssClass' => 'hidden',
-			'hiddenPageCssClass' => 'disabled',
-			'htmlOptions' => array('class' => 'pagination')
-		)
-	));
-?>
-
-<script>
-	var disqus_api_key = '<?= Constants::DISQUS_API_KEY ?>';
-	var disqus_shortname = '<?= Constants::DISQUS_SHORTNAME ?>';
-</script>
-<?= CHtml::scriptFile(CHtml::asset('scripts/disqus_counters.js')) ?>
+<div class = "clearfix">
+	<?php
+		$this->widget('zii.widgets.CListView', array(
+			'id' => 'post-list',
+			'dataProvider' => $data_provider,
+			'template' => '{items} {summary} {pager}',
+			'enableHistory' => true,
+			'enableSorting' => false,
+			'itemView' => '_view',
+			'loadingCssClass' => 'wait',
+			'summaryCssClass' => 'summary pull-right',
+			'afterAjaxUpdate' => new CJavaScriptExpression(
+				'function() {'
+					. 'PostList.initialize();'
+				. '}'
+			),
+			'emptyText' => 'Нет постов.',
+			'summaryText' => 'Посты {start}-{end} из {count}.',
+			'pager' => array(
+				'header' => '',
+				'firstPageLabel' => '&lt;&lt;',
+				'prevPageLabel' => '&lt;',
+				'nextPageLabel' => '&gt;',
+				'lastPageLabel' => '&gt;&gt;',
+				'selectedPageCssClass' => 'active',
+				'hiddenPageCssClass' => 'disabled',
+				'htmlOptions' => array('class' => 'pagination')
+			),
+			'pagerCssClass' => 'page-controller'
+		));
+	?>
+</div>

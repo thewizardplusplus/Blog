@@ -13,7 +13,7 @@
 	Yii::app()->getClientScript()->registerScriptFile(CHtml::asset(
 		'scripts/styler.js'), CClientScript::POS_HEAD);
 
-	$this->pageTitle = Yii::app()->name;
+	$this->pageTitle = Yii::app()->name . ' - Вход';
 ?>
 
 <?php $form = $this->beginWidget('CActiveForm', array(

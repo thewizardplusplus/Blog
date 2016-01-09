@@ -17,7 +17,7 @@
 		);
 	}
 
-	$with_aside = $this->route == 'post/list';
+	$with_aside = ($this->route == 'post/list' or $this->route == 'post/view');
 
 	$copyright_years = Constants::COPYRIGHT_START_YEAR;
 	$current_year = date('Y');
@@ -30,18 +30,11 @@
 <html>
 	<head>
 		<meta charset = "utf-8" />
-
-		<meta name = "MobileOptimized" content = "320" />
-		<meta name = "HandheldFriendly" content = "true" />
 		<meta name = "viewport" content = "width=device-width" />
-
-		<link rel = "icon" type = "image/png" href = "<?php echo Yii::app()->
-			request->baseUrl; ?>/images/logo.png" />
-		<link rel = "shortcut icon" type = "image/vnd.microsoft.icon" href =
-			"<?php echo Yii::app()->request->baseUrl;
-			?>/images/favicon_for_ie.ico" />
-		<link rel = "apple-touch-icon" href = "<?php echo Yii::app()->request->
-			baseUrl; ?>/images/favicon_for_ios.png" />
+		<link
+			rel = "icon"
+			type = "image/png"
+			href = "<?= Yii::app()->request->baseUrl ?>/images/logo.png" />
 
 		<link rel = "stylesheet" href = "<?php echo Yii::app()->request->
 			baseUrl; ?>/bootstrap/css/bootstrap.min.css" />
@@ -153,7 +146,7 @@
 			</nav>
 		<?php } ?>
 
-		<section class = "container panel panel-default">
+		<section class = "container">
 			<?php if (Yii::app()->user->isGuest) { ?>
 				<header class = "page-header">
 					<h1>
@@ -198,10 +191,11 @@
 
 					<div class = "hidden-xs hidden-sm">
 						<script
-							src = "http://nodejs.in/octocard/bin/octocard.js"
+							src = "http://octocard.in/o.js"
 							data-name = "thewizardplusplus"
 							data-modules = "base,repos"
-							data-reposNum = "1000">
+							data-reposNum = "-1"
+							data-theme = "azzura-black">
 						</script>
 					</div>
 				</div>
@@ -210,10 +204,16 @@
 
 			<footer>
 				<hr />
-				<!-- Format of copyright symbol: http://www.copyright.ru/documents/zashita_prav_internet/copyright_in_site/ -->
-				Copyright &copy; thewizardplusplus <?php echo $copyright_years;
-					?> Все права защищены<br />
-				<?php echo Yii::powered(); ?>
+				<p class = "without-bottom-margin">
+					<?= Yii::app()->name ?>, <?= Constants::APP_VERSION ?>
+				</p>
+				<p class = "unimportant-text without-bottom-margin">
+					&copy; thewizardplusplus, <?= $copyright_years ?>
+				</p>
+				<p class = "unimportant-text">
+					Текст и изображения доступны по лицензии CC-BY, если
+					не указано иное.
+				</p>
 			</footer>
 		</section>
 	</body>

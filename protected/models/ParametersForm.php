@@ -9,6 +9,7 @@ class ParametersForm extends CFormModel {
 
 	public function __construct($scenario = '') {
 		parent::__construct($scenario);
+
 		$this->posts_on_page = Parameters::get()->posts_on_page;
 		$this->maximal_width_of_images =
 			Parameters::get()->maximal_width_of_images;
@@ -19,20 +20,23 @@ class ParametersForm extends CFormModel {
 		return array(
 			array('password', 'safe'),
 			array('password_copy', 'compare', 'compareAttribute' => 'password'),
-			array('posts_on_page', 'numerical', 'min' => Parameters::
-				MINIMUM_POSTS_ON_PAGE, 'max' => Parameters::
-				MAXIMUM_POSTS_ON_PAGE),
+			array(
+				'posts_on_page',
+				'numerical',
+				'min' => Constants::MINIMUM_POSTS_ON_PAGE,
+				'max' => Constants::MAXIMUM_POSTS_ON_PAGE
+			),
 			array(
 				'maximal_width_of_images',
 				'numerical',
-				'min' => Parameters::MINIMUM_MAXIMAL_WIDTH_OF_IMAGES,
-				'max' => Parameters::MAXIMUM_MAXIMAL_WIDTH_OF_IMAGES
+				'min' => Constants::MINIMUM_MAXIMAL_WIDTH_OF_IMAGES,
+				'max' => Constants::MAXIMUM_MAXIMAL_WIDTH_OF_IMAGES
 			),
 			array('dropbox_access_token', 'required'),
 			array(
 				'dropbox_access_token',
 				'length',
-				'max' => Parameters::DROPBOX_ACCESS_TOKEN_LENGTH_MAXIMUM,
+				'max' => Constants::DROPBOX_ACCESS_TOKEN_LENGTH_MAXIMUM,
 				'tooLong' =>
 					'{attribute} должен быть не длиннее {max} символов.'
 			)
@@ -49,20 +53,16 @@ class ParametersForm extends CFormModel {
 		);
 	}
 
-	public function getParameters() {
-		$attributes = array(
-			'posts_on_page' => $this->posts_on_page,
-			'maximal_width_of_images' => $this->maximal_width_of_images,
-			'dropbox_access_token' => $this->dropbox_access_token
-		);
-		if (!empty($this->password)) {
-			$attributes['password_hash'] = CPasswordHelper::hashPassword($this->
-				password);
-		}
-
+	public function save() {
 		$parameters = Parameters::get();
-		$parameters->attributes = $attributes;
-
-		return $parameters;
+		if (!empty($this->password)) {
+			$parameters->password_hash = CPasswordHelper::hashPassword(
+				$this->password
+			);
+		}
+		$parameters->posts_on_page = $this->posts_on_page;
+		$parameters->maximal_width_of_images = $this->maximal_width_of_images;
+		$parameters->dropbox_access_token = $this->dropbox_access_token;
+		$parameters->save();
 	}
 }

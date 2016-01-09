@@ -52,12 +52,16 @@
 		}
 	}
 	array_unshift($path_items, array(
-		'name' => 'files',
+		'name' => 'media',
 		'link' => $this->createUrl('file/list')
 	));
 ?>
 
-<div class = "panel panel-default">
+<header class = "page-header visible-xs">
+	<h4>Файлы</h4>
+</header>
+
+<div class = "with-top-margin">
 	Текущий путь:
 	<ol class = "breadcrumb">
 		<?php foreach ($path_items as $item) { ?>
@@ -222,7 +226,7 @@
 						)
 					)
 				),
-				'itemsCssClass' => 'table',
+				'itemsCssClass' => 'table table-striped',
 				'loadingCssClass' => 'wait',
 				'afterAjaxUpdate' => 'function() { FileList.initialize(); }'
 			)
