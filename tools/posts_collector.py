@@ -130,10 +130,14 @@ def save_post(path, text):
     with open(path, 'w') as post:
         post.write(text)
 
+def make_post_path(target, title):
+    filename = '{:s}.md'.format(title)
+    return os.path.join(target, filename)
+
 def save_posts(target, posts):
     create_target(target)
     for title, text in posts.iteritems():
-        path = os.path.join(target, title)
+        path = make_post_path(target, title)
         save_post(path, text)
 
 if __name__ == '__main__':
