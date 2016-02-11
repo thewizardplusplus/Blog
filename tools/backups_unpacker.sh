@@ -88,6 +88,15 @@ function ProcessOptions() {
 ################################################################################
 # Utils functions.
 ################################################################################
+function IsNeedDecode() {
+	if [[ "$NOT_DECODE" != TRUE ]]
+	then
+		echo "TRUE"
+	else
+		echo "FALSE"
+	fi
+}
+
 function FindFiles() {
 	local -r path="$1"
 	local -r extension="$2"
@@ -134,10 +143,15 @@ function ProcessDump() {
 	local -r dump_path="$1"
 	local -r script_path="$2"
 
-	echo "Copy and decode dump \"$dump_path\"..."
-
 	local -r new_dump_path=`GetDumpName "$dump_path"`
-	DecodeDump "$dump_path" "$new_dump_path" "$script_path"
+	if [[ `IsNeedDecode` == TRUE ]]
+	then
+		echo "Copy and decode dump \"$dump_path\"..."
+		DecodeDump "$dump_path" "$new_dump_path" "$script_path"
+	else
+		echo "Copy dump \"$dump_path\"..."
+		cp "$dump_path" "$new_dump_path"
+	fi
 }
 
 function ProcessDumps() {
@@ -200,8 +214,11 @@ function ProcessBackup() {
 	local -r new_dump_name=`GetDumpName "$backup_path"`
 	SaveDump "$new_dump_name" "$database_dump"
 
-	echo "Decode dump \"$new_dump_name\"..."
-	DecodeDump "$new_dump_name" "$new_dump_name" "$script_path"
+	if [[ `IsNeedDecode` == TRUE ]]
+	then
+		echo "Decode dump \"$new_dump_name\"..."
+		DecodeDump "$new_dump_name" "$new_dump_name" "$script_path"
+	fi
 }
 
 function ProcessBackups() {
