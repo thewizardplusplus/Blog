@@ -13,6 +13,8 @@ Options:
 from __future__ import print_function
 import os
 import docopt
+import xml.dom.minidom
+import sys
 
 def parse_options():
     script_name = os.path.basename(__file__)
@@ -50,7 +52,27 @@ def find_dumps(path):
 
     return all_paths
 
+def read_posts_unsafe(dump):
+    dom = xml.dom.minidom.parse(dump)
+    return dom.getElementsByTagName('post')
+
+def read_posts(dump):
+    posts = []
+    try:
+        posts = read_posts_unsafe(dump)
+    except xml.parsers.expat.ExpatError as error:
+        sys.stderr.write(
+            'Warning: the dump "{:s}" has a invalid markup ({:s}).\n'.format(
+                dump,
+                error
+            )
+        )
+
+    return posts
+
 def collect_posts_from_dump(path):
+    posts = read_posts(path)
+    print(posts)
     return {path: 'test'}
 
 def collect_posts(dumps):
