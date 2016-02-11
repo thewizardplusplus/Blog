@@ -22,7 +22,36 @@ def create_target(path):
     if not os.path.exists(path):
         os.makedirs(path)
 
+def filter_dumps(files):
+    dumps = []
+    for filename in files:
+        _, extension = os.path.splitext(filename)
+        if extension != '.xml':
+            continue
+
+        dumps.append(filename)
+
+    return dumps
+
+def make_dumps_paths(root, dumps):
+    paths = []
+    for dump in dumps:
+        path = os.path.join(root, dump)
+        paths.append(path)
+
+    return paths
+
+def find_dumps(path):
+    all_paths = []
+    for root, _, files in os.walk(path):
+        dumps = filter_dumps(files)
+        paths = make_dumps_paths(root, dumps)
+        all_paths += paths
+
+    return all_paths
+
 if __name__ == '__main__':
     options = parse_options()
     create_target(options['<target-path>'])
-    print(options)
+    dumps = find_dumps(options['<source-path>'])
+    print(dumps)
