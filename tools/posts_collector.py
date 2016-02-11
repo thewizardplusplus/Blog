@@ -14,6 +14,7 @@ from __future__ import print_function
 import os
 import docopt
 import xml.dom.minidom
+import base64
 import sys
 
 def parse_options():
@@ -73,6 +74,11 @@ def read_posts(dump):
 def get_first_subnode(node, tag):
     return node.getElementsByTagName(tag)[0]
 
+def decode_text(text):
+    data = base64.b64decode(text)
+    data = data.decode('string_escape')
+    return data.strip()
+
 def get_node_text(node):
     text = ''
     for child in node.childNodes:
@@ -80,9 +86,9 @@ def get_node_text(node):
             child.nodeType == xml.dom.Node.TEXT_NODE \
             or child.nodeType == xml.dom.Node.CDATA_SECTION_NODE \
         :
-            text += child.data
+            text += decode_text(child.data)
 
-    return text.strip()
+    return text
 
 def get_first_subnode_text(node, tag):
     return get_node_text(get_first_subnode(node, tag))
@@ -114,7 +120,7 @@ def collect_posts(dumps):
 
 def save_post(path, text):
     with open(path, 'w') as post:
-        post.write(text.encode('utf-8'))
+        post.write(text)
 
 def save_posts(target, posts):
     create_target(target)
