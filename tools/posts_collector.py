@@ -70,10 +70,39 @@ def read_posts(dump):
 
     return posts
 
-def collect_posts_from_dump(path):
-    posts = read_posts(path)
-    print(posts)
-    return {path: 'test'}
+def get_first_subnode(node, tag):
+    return node.getElementsByTagName(tag)[0]
+
+def get_node_text(node):
+    text = ''
+    for child in node.childNodes:
+        if \
+            child.nodeType == xml.dom.Node.TEXT_NODE \
+            or child.nodeType == xml.dom.Node.CDATA_SECTION_NODE \
+        :
+            text += child.data
+
+    return text
+
+def get_first_subnode_text(node, tag):
+    return get_node_text(get_first_subnode(node, tag))
+
+def transform_post(post):
+    title = get_first_subnode_text(post, 'title')
+    text = get_first_subnode_text(post, 'text')
+    return title, text
+
+def transform_posts(posts):
+    new_posts = {}
+    for post in posts:
+        title, text = transform_post(post)
+        new_posts[title] = text
+
+    return new_posts
+
+def collect_posts_from_dump(dump):
+    posts = read_posts(dump)
+    return transform_posts(posts)
 
 def collect_posts(dumps):
     all_posts = {}
