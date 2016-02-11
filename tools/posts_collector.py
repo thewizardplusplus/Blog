@@ -50,8 +50,20 @@ def find_dumps(path):
 
     return all_paths
 
+def collect_posts_from_dump(path):
+    return {path: 'test'}
+
+def collect_posts(dumps):
+    all_posts = {}
+    for dump in dumps:
+        posts = collect_posts_from_dump(dump)
+        all_posts.update(posts)
+
+    return all_posts
+
 if __name__ == '__main__':
     options = parse_options()
     create_target(options['<target-path>'])
     dumps = find_dumps(options['<source-path>'])
-    print(dumps)
+    posts = collect_posts(dumps)
+    print(posts)
