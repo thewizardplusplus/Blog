@@ -82,7 +82,7 @@ def get_node_text(node):
         :
             text += child.data
 
-    return text
+    return text.strip()
 
 def get_first_subnode_text(node, tag):
     return get_node_text(get_first_subnode(node, tag))
@@ -112,9 +112,18 @@ def collect_posts(dumps):
 
     return all_posts
 
+def save_post(path, text):
+    with open(path, 'w') as post:
+        post.write(text.encode('utf-8'))
+
+def save_posts(target, posts):
+    create_target(target)
+    for title, text in posts.iteritems():
+        path = os.path.join(target, title)
+        save_post(path, text)
+
 if __name__ == '__main__':
     options = parse_options()
-    create_target(options['<target-path>'])
     dumps = find_dumps(options['<source-path>'])
     posts = collect_posts(dumps)
-    print(posts)
+    save_posts(options['<target-path>'], posts)
