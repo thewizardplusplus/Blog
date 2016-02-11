@@ -13,6 +13,7 @@ Options:
 from __future__ import print_function
 import os
 import docopt
+import re
 import xml.dom.minidom
 import base64
 import sys
@@ -52,6 +53,13 @@ def find_dumps(path):
         all_paths += paths
 
     return all_paths
+
+def extract_timestamp(dump):
+    match = re.search(r'\d{4}(?:-\d{2}){5}', dump)
+    return match.group(0)
+
+def sort_dumps(dumps):
+    return sorted(dumps, key=extract_timestamp)
 
 def read_posts_unsafe(dump):
     dom = xml.dom.minidom.parse(dump)
@@ -131,5 +139,6 @@ def save_posts(target, posts):
 if __name__ == '__main__':
     options = parse_options()
     dumps = find_dumps(options['<source-path>'])
+    dumps = sort_dumps(dumps)
     posts = collect_posts(dumps)
     save_posts(options['<target-path>'], posts)
